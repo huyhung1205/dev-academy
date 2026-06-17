@@ -1,158 +1,72 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lesson 2 - Commit và lịch sử thay đổi | Git Fundamentals</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../../assets/css/style.css" />
-    <link rel="stylesheet" href="../../../assets/css/course.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 2 - Workflow cơ bản và xem lịch sử thay đổi | Git Fundamentals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/course.css" />
 </head>
-
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Git Fundamentals</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main class="container my-4">
-        <div class="row">
-            <aside class="col-12 col-lg-3 mb-4">
-                <div class="card lesson-sidebar">
-                    <div class="card-body">
-                        <h2 class="h5 fw-bold">Mục lục khóa học</h2>
-                        <div class="list-group list-group-flush"><a class="list-group-item list-group-item-action"
-                                href="../index.html">Tổng quan khóa học</a><a
-                                class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Git là gì và
-                                Repository</a><a class="list-group-item list-group-item-action active"
-                                href="lesson-02.html">Bài 2. Commit và lịch sử thay đổi</a><a
-                                class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Branch và
-                                làm việc song song</a><a class="list-group-item list-group-item-action"
-                                href="lesson-04.html">Bài 4. Merge và xử lý xung đột</a><a
-                                class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. GitHub và
-                                quy trình cộng tác</a></div>
-                    </div>
-                </div>
-            </aside>
-            <article class="col-12 col-lg-9">
-                <section class="lesson-hero"><span class="badge text-bg-primary mb-2">Bài 2</span>
-                    <h1 class="fw-bold">Commit và lịch sử thay đổi</h1>
-                    <p class="lead mb-0">Commit là một mốc thay đổi của dự án. Nó giúp bạn đọc lại lịch sử và tìm ra
-                        phiên bản ổn định khi cần.</p>
-                </section>
-                <section class="lesson-section">
-                    <h2>Video mô phỏng</h2>
-                    <div class="video-placeholder">
-                        <p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p>
-                    </div>
-                </section>
-                <section class="lesson-section">
-                    <h2>Tài liệu lý thuyết</h2>
-                    <p>Một commit giống như ảnh chụp của dự án tại một thời điểm. Mỗi commit nên có thông điệp rõ ràng
-                        để mô tả điều đã thay đổi.</p>
-                    <p>Quy trình thường là sửa file, kiểm tra trạng thái, thêm thay đổi vào vùng chờ, rồi tạo commit.
-                    </p>
-                    <pre><code>git status
+<header><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><div class="container"><a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="mainNavbar"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li><li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li><li class="nav-item"><a class="nav-link" href="../index.html">Git Fundamentals</a></li></ul></div></div></nav></header>
+<main class="container my-4"><div class="row"><aside class="col-12 col-lg-3 mb-4"><div class="card lesson-sidebar"><div class="card-body"><h2 class="h5 fw-bold">Mục lục khóa học</h2><div class="list-group list-group-flush"><a class="list-group-item list-group-item-action" href="../index.html">Tổng quan khóa học</a><a class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Giới thiệu Git, cài đặt và repository</a><a class="list-group-item list-group-item-action active" href="lesson-02.html">Bài 2. Workflow cơ bản và xem lịch sử thay đổi</a><a class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Branch, merge và xử lý conflict</a><a class="list-group-item list-group-item-action" href="lesson-04.html">Bài 4. GitHub cơ bản, Pull Request, .gitignore, SSH và GitHub Pages</a><a class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. Git nâng cao, open source workflow và mini project</a></div></div></div></aside><article class="col-12 col-lg-9"><section class="lesson-hero"><span class="badge text-bg-primary mb-2">Bài 2</span><h1 class="fw-bold">Workflow cơ bản và xem lịch sử thay đổi</h1><p class="lead mb-0">Bài này là trái tim của Git: bạn sẽ hiểu file đi qua các vùng làm việc nào, cách tạo commit đúng và cách đọc lại lịch sử thay đổi.</p></section><section class="lesson-section"><h2>Video mô phỏng</h2><div class="video-placeholder"><p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p></div></section><section class="lesson-section"><h2>Mục tiêu học tập</h2><ul class="mb-0"><li>Phân biệt working directory, staging area và local repository</li>
+<li>Dùng <code>git status</code>, <code>git add</code>, <code>git commit</code> đúng quy trình</li>
+<li>Đọc <code>git log</code>, <code>git diff</code> và <code>git show</code> để kiểm tra thay đổi</li></ul></section><section class="lesson-section"><h2>Tài liệu lý thuyết</h2><h3 class="h5 fw-bold mt-4">Working directory, staging area, local repository</h3><p>Working directory là nơi bạn sửa file, staging area là vùng chờ để chọn phần sẽ commit, còn local repository là nơi Git lưu snapshot sau khi commit.</p>
+<h3 class="h5 fw-bold mt-4"><code>git status</code>, <code>git add</code>, <code>git commit</code></h3><p>Workflow chuẩn là sửa file, kiểm tra trạng thái bằng <code>git status</code>, đưa thay đổi vào staging bằng <code>git add</code> rồi tạo commit bằng <code>git commit -m</code>.</p>
+<h3 class="h5 fw-bold mt-4"><code>git log</code>, <code>git diff</code>, <code>git show</code></h3><p>Dùng <code>git log</code> để đọc lịch sử, <code>git diff</code> để so sánh thay đổi và <code>git show</code> để xem chi tiết một commit cụ thể.</p>
+<h3 class="h5 fw-bold mt-4">Làm việc có kỷ luật</h3><p>Commit nhỏ, message rõ ràng và luôn kiểm tra trạng thái trước khi commit giúp lịch sử sạch, dễ đọc và dễ sửa lỗi hơn.</p>
+<h3 class="h5 fw-bold mt-4">Workflow thực tế</h3>
+<ul class="mb-0"><li>Sửa file trong working directory.</li>
+<li>Kiểm tra bằng <code>git status</code>, stage bằng <code>git add</code>, commit bằng <code>git commit</code>.</li>
+<li>Đọc lại <code>git log</code> và <code>git diff</code> để xác nhận thay đổi. </li></ul>
+<h3 class="h5 fw-bold mt-4">Lỗi thường gặp và cách khắc phục</h3>
+<ul class="mb-0"><li>Commit khi chưa kiểm tra file đã stage hay chưa.</li>
+<li>Dùng message quá chung chung như “update” hoặc “fix”.</li>
+<li>So sánh sai phạm vi khi đọc <code>git diff</code>.</li></ul></section><section class="lesson-section"><h2>Ví dụ minh họa</h2><div class="card lesson-card mb-4">
+  <div class="card-body">
+    <h3 class="h5 fw-bold mb-3">Ví dụ 1: Tạo commit đầu tiên</h3>
+    <p class="text-muted">Lưu một thay đổi nhỏ vào lịch sử Git.</p>
+    <pre><code>git status
 git add index.html
-git commit -m "Add homepage layout"</code></pre>
-                    <p class="mb-0">Thông điệp commit nên ngắn gọn, rõ ràng và đúng nội dung thay đổi.</p>
-                </section>
-                <section class="lesson-section">
-                    <h2>Ví dụ minh họa</h2>
-                    <div class="card border-0 bg-light">
-                        <div class="card-body">
-                            <p class="mb-0">Nếu bạn sửa tiêu đề trang, thêm nút bấm và chỉnh CSS, hãy tách thành các
-                                commit nhỏ để dễ xem lại sau này.</p>
-                        </div>
-                    </div>
-                </section>
-                <section class="lesson-section">
-                    <h2>Trắc nghiệm</h2>
-                    <form id="quiz-form-2" class="vstack gap-3">
-                        <div>
-                            <p class="fw-semibold mb-2">1. Commit dùng để làm gì?</p>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l2q1a"
-                                    value="a"><label class="form-check-label" for="l2q1a">Xóa toàn bộ lịch sử</label>
-                            </div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l2q1b"
-                                    value="b"><label class="form-check-label" for="l2q1b">Lưu một mốc thay đổi</label>
-                            </div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l2q1c"
-                                    value="c"><label class="form-check-label" for="l2q1c">Tạo GitHub account</label>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="fw-semibold mb-2">2. Lệnh nào thêm thay đổi vào vùng chờ?</p>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l2q2a"
-                                    value="a"><label class="form-check-label" for="l2q2a">git add</label></div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l2q2b"
-                                    value="b"><label class="form-check-label" for="l2q2b">git merge</label></div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l2q2c"
-                                    value="c"><label class="form-check-label" for="l2q2c">git branch</label></div>
-                        </div>
-                        <div>
-                            <p class="fw-semibold mb-2">3. Commit message nên như thế nào?</p>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l2q3a"
-                                    value="a"><label class="form-check-label" for="l2q3a">Mơ hồ, không cần mô tả</label>
-                            </div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l2q3b"
-                                    value="b"><label class="form-check-label" for="l2q3b">Ngắn gọn và rõ ràng</label>
-                            </div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l2q3c"
-                                    value="c"><label class="form-check-label" for="l2q3c">Chỉ viết một ký tự</label>
-                            </div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-primary"
-                                onclick="checkQuiz('quiz-form-2', 'quiz-result-2', { q1: 'b', q2: 'a', q3: 'b' })">Nộp
-                                bài</button>
-                            <div id="quiz-result-2" class="quiz-result"></div>
-                        </div>
-                    </form>
-                </section>
-                <section class="lesson-section">
-                    <h2>Câu hỏi tự luận tự ôn tập</h2>
-                    <p>1. Vì sao nên tạo commit nhỏ và có ý nghĩa?</p><textarea id="essay-2" class="form-control mb-3"
-                        rows="5" placeholder="Tự viết câu trả lời của bạn..."
-                        oninput="saveEssayDraft('essay-2', 'git-fundamentals-lesson-2')"></textarea><button
-                        type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-2')">Xem
-                        đáp án tham khảo</button>
-                    <div id="answer-2" class="suggested-answer mt-3 card">
-                        <div class="card-body">
-                            <p class="mb-0">Gợi ý: commit nhỏ giúp dễ đọc lịch sử, dễ tìm lỗi, và dễ quay lại một mốc an
-                                toàn hơn so với commit quá lớn.</p>
-                        </div>
-                    </div>
-                </section>
-                <div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap"><a
-                        class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
-                    <div class="d-flex gap-2 flex-wrap"><a class="btn btn-primary" href="lesson-01.html">Bài trước</a><a
-                            class="btn btn-primary" href="lesson-03.html">Bài tiếp theo</a></div>
-                </div>
-            </article>
-        </div>
-    </main>
-    <footer class="py-4 bg-dark text-white mt-4">
-        <div class="container text-center">
-            <p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../../assets/js/quiz.js"></script>
-    <script src="../../../assets/js/lesson.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', () => { loadEssayDraft('essay-2', 'git-fundamentals-lesson-2'); });</script>
+git commit -m &quot;Add homepage heading&quot;</code></pre>
+    <p class="fw-semibold mb-2">Output mẫu</p>
+    <pre><code>[main abc1234] Add homepage heading</code></pre>
+    <p class="fw-semibold mb-2">Giải thích lệnh</p>
+    <ul class="mb-0"><li>Mục đích: stage file đã sửa và tạo commit có ý nghĩa.</li>
+<li>Khi dùng: sau khi hoàn thành một nhóm thay đổi nhỏ.</li>
+<li>Kết quả mong đợi: Git tạo commit mới và in ra mã ngắn của commit.</li>
+<li>Lỗi thường gặp: quên add file nên commit xong không thấy thay đổi.</li></ul>
+  </div>
+</div>
+<div class="card lesson-card mb-4">
+  <div class="card-body">
+    <h3 class="h5 fw-bold mb-3">Ví dụ 2: Xem lịch sử và so sánh</h3>
+    <p class="text-muted">Kiểm tra lại thay đổi trước khi tiếp tục làm việc.</p>
+    <pre><code>git log --oneline --graph -5
+git diff
+git show a1b2c3d</code></pre>
+    <p class="fw-semibold mb-2">Output mẫu</p>
+    <pre><code>* a1b2c3d Add header</code></pre>
+    <p class="fw-semibold mb-2">Giải thích lệnh</p>
+    <ul class="mb-0"><li>Mục đích: đọc lịch sử và xem phần thay đổi chi tiết.</li>
+<li>Khi dùng: khi debug hoặc trước khi gửi code cho người khác review.</li>
+<li>Kết quả mong đợi: thấy commit, diff và nội dung thay đổi rõ ràng.</li>
+<li>Lỗi thường gặp: log quá dài nếu không dùng tuỳ chọn gọn hơn.</li></ul>
+  </div>
+</div></section><section class="lesson-section"><h2>Bài tập thực hành</h2><div class="row g-3">
+  <div class="col-12 col-lg-7"><div class="card h-100"><div class="card-body"><h3 class="h5 fw-bold">Dễ</h3><ul class="mb-0"><li>Tạo một commit nhỏ với nội dung rõ ràng.</li>
+<li>Chạy <code>git status</code> trước và sau khi dùng <code>git add</code>.</li>
+<li>Dùng <code>git log --oneline</code> để xem commit vừa tạo.</li></ul></div></div></div>
+  <div class="col-12 col-lg-5"><div class="card h-100"><div class="card-body"><h3 class="h5 fw-bold">Trung bình</h3><ul class="mb-0"><li>Tạo hai thay đổi khác nhau và commit tách biệt.</li>
+<li>Dùng <code>git diff</code> để so sánh file đang sửa với commit gần nhất.</li></ul><hr /><p class="mb-0"><strong>Khó:</strong> Thử đọc lịch sử bằng <code>git log --oneline --graph --decorate</code> và giải thích từng dòng.</p></div></div></div>
+</div></section><section class="lesson-section"><h2>Trắc nghiệm</h2><form id="quiz-form-2" class="vstack gap-3"><div><p class="fw-semibold mb-2">1. Staging area dùng để làm gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="lesson-02-q1-a" value="a"><label class="form-check-label" for="lesson-02-q1-a">Chọn thay đổi trước khi commit</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="lesson-02-q1-b" value="b"><label class="form-check-label" for="lesson-02-q1-b">Tải file từ GitHub</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="lesson-02-q1-c" value="c"><label class="form-check-label" for="lesson-02-q1-c">Xóa branch</label></div></div>
+<div><p class="fw-semibold mb-2">2. Lệnh nào thêm file vào staging?</p><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="lesson-02-q2-a" value="a"><label class="form-check-label" for="lesson-02-q2-a">git add</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="lesson-02-q2-b" value="b"><label class="form-check-label" for="lesson-02-q2-b">git show</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="lesson-02-q2-c" value="c"><label class="form-check-label" for="lesson-02-q2-c">git merge</label></div></div>
+<div><p class="fw-semibold mb-2">3. Lệnh nào tạo commit mới?</p><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="lesson-02-q3-a" value="a"><label class="form-check-label" for="lesson-02-q3-a">git commit</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="lesson-02-q3-b" value="b"><label class="form-check-label" for="lesson-02-q3-b">git clone</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="lesson-02-q3-c" value="c"><label class="form-check-label" for="lesson-02-q3-c">git remote</label></div></div>
+<div><p class="fw-semibold mb-2">4. Lệnh nào xem lịch sử commit?</p><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="lesson-02-q4-a" value="a"><label class="form-check-label" for="lesson-02-q4-a">git log</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="lesson-02-q4-b" value="b"><label class="form-check-label" for="lesson-02-q4-b">git branch</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="lesson-02-q4-c" value="c"><label class="form-check-label" for="lesson-02-q4-c">git restore</label></div></div>
+<div><p class="fw-semibold mb-2">5. Lệnh nào so sánh thay đổi?</p><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="lesson-02-q5-a" value="a"><label class="form-check-label" for="lesson-02-q5-a">git diff</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="lesson-02-q5-b" value="b"><label class="form-check-label" for="lesson-02-q5-b">git init</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="lesson-02-q5-c" value="c"><label class="form-check-label" for="lesson-02-q5-c">git push</label></div></div>
+<div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-primary" onclick="checkQuiz('quiz-form-2', 'quiz-result-2', { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'a' })">Nộp bài</button><div id="quiz-result-2" class="quiz-result"></div></div></form></section><section class="lesson-section"><h2>Câu hỏi tự luận tự ôn tập</h2><div class="card mb-4"><div class="card-body"><p class="fw-semibold mb-2">1. Hãy giải thích 3 vùng làm việc của Git bằng ví dụ thực tế.</p><textarea id="essay-2-1" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-2-1', 'lesson-02-essay-1')"></textarea><button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-2-1')">Xem đáp án tham khảo</button><div id="answer-2-1" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Working directory là nơi sửa file, staging area là nơi chọn phần sẽ commit, còn local repository là nơi lưu snapshot cuối cùng sau khi commit.</p></div></div></div></div><div class="card mb-4"><div class="card-body"><p class="fw-semibold mb-2">2. Vì sao nên commit nhỏ và có message rõ ràng?</p><textarea id="essay-2-2" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-2-2', 'lesson-02-essay-2')"></textarea><button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-2-2')">Xem đáp án tham khảo</button><div id="answer-2-2" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Commit nhỏ giúp đọc lịch sử dễ hơn, tìm lỗi nhanh hơn và giảm rủi ro khi phải quay lại một mốc cũ.</p></div></div></div></div></section><section class="lesson-section"><h2>Tóm tắt</h2><div class="card bg-light border-0"><div class="card-body"><p class="mb-0">Sau bài này, bạn cần biết cách tạo commit đúng quy trình và đọc lịch sử thay đổi để không còn xem Git như một hộp đen.</p></div></div></section><div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap"><a class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a><div class="d-flex gap-2 flex-wrap"><a class="btn btn-primary" href="../index.html">Quay lại khóa học</a><a class="btn btn-primary" href="lesson-01.html">Bài trước</a><a class="btn btn-primary" href="lesson-03.html">Bài tiếp theo</a></div></div></article></div></main>
+<footer class="py-4 bg-dark text-white mt-4"><div class="container text-center"><p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="../../../assets/js/quiz.js"></script><script src="../../../assets/js/lesson.js"></script><script>document.addEventListener('DOMContentLoaded', () => { loadEssayDraft('essay-2-1', 'lesson-02-essay-1'); loadEssayDraft('essay-2-2', 'lesson-02-essay-2');   });</script>
 </body>
-
 </html>

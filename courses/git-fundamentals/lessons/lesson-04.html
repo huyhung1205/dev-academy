@@ -1,158 +1,72 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lesson 4 - Merge và xử lý xung đột | Git Fundamentals</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../../assets/css/style.css" />
-    <link rel="stylesheet" href="../../../assets/css/course.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 4 - GitHub cơ bản, Pull Request, .gitignore, SSH và GitHub Pages | Git Fundamentals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/course.css" />
 </head>
-
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container"><a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a><button
-                    class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Git Fundamentals</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main class="container my-4">
-        <div class="row">
-            <aside class="col-12 col-lg-3 mb-4">
-                <div class="card lesson-sidebar">
-                    <div class="card-body">
-                        <h2 class="h5 fw-bold">Mục lục khóa học</h2>
-                        <div class="list-group list-group-flush"><a class="list-group-item list-group-item-action"
-                                href="../index.html">Tổng quan khóa học</a><a
-                                class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Git là gì và
-                                Repository</a><a class="list-group-item list-group-item-action"
-                                href="lesson-02.html">Bài 2. Commit và lịch sử thay đổi</a><a
-                                class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Branch và
-                                làm việc song song</a><a class="list-group-item list-group-item-action active"
-                                href="lesson-04.html">Bài 4. Merge và xử lý xung đột</a><a
-                                class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. GitHub và
-                                quy trình cộng tác</a></div>
-                    </div>
-                </div>
-            </aside>
-            <article class="col-12 col-lg-9">
-                <section class="lesson-hero"><span class="badge text-bg-primary mb-2">Bài 4</span>
-                    <h1 class="fw-bold">Merge và xử lý xung đột</h1>
-                    <p class="lead mb-0">Merge hợp nhất thay đổi từ các nhánh lại với nhau. Nếu hai nhánh sửa cùng một
-                        chỗ, Git sẽ báo xung đột để bạn xử lý thủ công.</p>
-                </section>
-                <section class="lesson-section">
-                    <h2>Video mô phỏng</h2>
-                    <div class="video-placeholder">
-                        <p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p>
-                    </div>
-                </section>
-                <section class="lesson-section">
-                    <h2>Tài liệu lý thuyết</h2>
-                    <p>Khi một tính năng hoàn tất, bạn thường hợp nhất nhánh của mình về nhánh chính bằng lệnh merge.
-                        Nếu lịch sử phù hợp, Git có thể merge tự động.</p>
-                    <pre><code>git switch main
-git merge login-page</code></pre>
-                    <p>Nếu cùng một dòng code bị sửa ở cả hai nhánh, Git sẽ chèn các dấu phân cách xung đột. Lúc đó bạn
-                        cần mở file, chọn nội dung đúng, rồi commit kết quả.</p>
-                    <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-Nội dung trên main
-=======
-Nội dung từ branch
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; login-page</code></pre>
-                </section>
-                <section class="lesson-section">
-                    <h2>Ví dụ minh họa</h2>
-                    <div class="card border-0 bg-light">
-                        <div class="card-body">
-                            <p class="mb-0">Nếu nhóm cùng sửa tiêu đề trang chủ, hãy thống nhất ai giữ phần nào trước
-                                khi merge để giảm xung đột.</p>
-                        </div>
-                    </div>
-                </section>
-                <section class="lesson-section">
-                    <h2>Trắc nghiệm</h2>
-                    <form id="quiz-form-4" class="vstack gap-3">
-                        <div>
-                            <p class="fw-semibold mb-2">1. Merge làm gì?</p>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l4q1a"
-                                    value="a"><label class="form-check-label" for="l4q1a">Hợp nhất thay đổi</label>
-                            </div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l4q1b"
-                                    value="b"><label class="form-check-label" for="l4q1b">Tạo file mới ngẫu
-                                    nhiên</label></div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l4q1c"
-                                    value="c"><label class="form-check-label" for="l4q1c">Xóa commit</label></div>
-                        </div>
-                        <div>
-                            <p class="fw-semibold mb-2">2. Xung đột thường xảy ra khi nào?</p>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l4q2a"
-                                    value="a"><label class="form-check-label" for="l4q2a">Hai nhánh sửa cùng một
-                                    chỗ</label></div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l4q2b"
-                                    value="b"><label class="form-check-label" for="l4q2b">Bạn mở máy tính</label></div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l4q2c"
-                                    value="c"><label class="form-check-label" for="l4q2c">Bạn đổi theme VS Code</label>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="fw-semibold mb-2">3. Sau khi xử lý conflict, thường cần làm gì?</p>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l4q3a"
-                                    value="a"><label class="form-check-label" for="l4q3a">Commit kết quả</label></div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l4q3b"
-                                    value="b"><label class="form-check-label" for="l4q3b">Xóa repo</label></div>
-                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l4q3c"
-                                    value="c"><label class="form-check-label" for="l4q3c">Chạy npm install</label></div>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-primary"
-                                onclick="checkQuiz('quiz-form-4', 'quiz-result-4', { q1: 'a', q2: 'a', q3: 'a' })">Nộp
-                                bài</button>
-                            <div id="quiz-result-4" class="quiz-result"></div>
-                        </div>
-                    </form>
-                </section>
-                <section class="lesson-section">
-                    <h2>Câu hỏi tự luận tự ôn tập</h2>
-                    <p>1. Bạn sẽ làm gì khi Git báo xung đột merge?</p><textarea id="essay-4" class="form-control mb-3"
-                        rows="5" placeholder="Tự viết câu trả lời của bạn..."
-                        oninput="saveEssayDraft('essay-4', 'git-fundamentals-lesson-4')"></textarea><button
-                        type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-4')">Xem
-                        đáp án tham khảo</button>
-                    <div id="answer-4" class="suggested-answer mt-3 card">
-                        <div class="card-body">
-                            <p class="mb-0">Gợi ý: mở file bị conflict, đọc phần đánh dấu của Git, chọn hoặc kết hợp nội
-                                dung đúng, kiểm tra lại, rồi commit sau khi đã giải quyết xong.</p>
-                        </div>
-                    </div>
-                </section>
-                <div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap"><a
-                        class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
-                    <div class="d-flex gap-2 flex-wrap"><a class="btn btn-primary" href="lesson-03.html">Bài trước</a><a
-                            class="btn btn-primary" href="lesson-05.html">Bài tiếp theo</a></div>
-                </div>
-            </article>
-        </div>
-    </main>
-    <footer class="py-4 bg-dark text-white mt-4">
-        <div class="container text-center">
-            <p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../../assets/js/quiz.js"></script>
-    <script src="../../../assets/js/lesson.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', () => { loadEssayDraft('essay-4', 'git-fundamentals-lesson-4'); });</script>
+<header><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><div class="container"><a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="mainNavbar"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li><li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li><li class="nav-item"><a class="nav-link" href="../index.html">Git Fundamentals</a></li></ul></div></div></nav></header>
+<main class="container my-4"><div class="row"><aside class="col-12 col-lg-3 mb-4"><div class="card lesson-sidebar"><div class="card-body"><h2 class="h5 fw-bold">Mục lục khóa học</h2><div class="list-group list-group-flush"><a class="list-group-item list-group-item-action" href="../index.html">Tổng quan khóa học</a><a class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Giới thiệu Git, cài đặt và repository</a><a class="list-group-item list-group-item-action" href="lesson-02.html">Bài 2. Workflow cơ bản và xem lịch sử thay đổi</a><a class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Branch, merge và xử lý conflict</a><a class="list-group-item list-group-item-action active" href="lesson-04.html">Bài 4. GitHub cơ bản, Pull Request, .gitignore, SSH và GitHub Pages</a><a class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. Git nâng cao, open source workflow và mini project</a></div></div></div></aside><article class="col-12 col-lg-9"><section class="lesson-hero"><span class="badge text-bg-primary mb-2">Bài 4</span><h1 class="fw-bold">GitHub cơ bản, Pull Request, .gitignore, SSH và GitHub Pages</h1><p class="lead mb-0">Bài này nối Git với môi trường làm việc thật trên GitHub: remote, push, pull, Pull Request, <code>.gitignore</code>, SSH và GitHub Pages.</p></section><section class="lesson-section"><h2>Video mô phỏng</h2><div class="video-placeholder"><p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p></div></section><section class="lesson-section"><h2>Mục tiêu học tập</h2><ul class="mb-0"><li>Kết nối local repository với remote trên GitHub</li>
+<li>Dùng Pull Request, <code>.gitignore</code>, SSH và GitHub Pages</li>
+<li>Biết quản lý file không nên commit trong dự án thật</li></ul></section><section class="lesson-section"><h2>Tài liệu lý thuyết</h2><h3 class="h5 fw-bold mt-4">Remote, push và pull</h3><p>Remote là bản sao repo ở nơi khác, thường là GitHub. <code>git push</code> đẩy commit lên remote, còn <code>git pull</code> kéo thay đổi mới về local để đồng bộ với nhóm.</p>
+<h3 class="h5 fw-bold mt-4">Pull Request và review code</h3><p>Pull Request là yêu cầu hợp nhất thay đổi từ branch này sang branch khác trên GitHub. Đây là nơi mô tả, review và thảo luận trước khi merge vào nhánh chính.</p>
+<h3 class="h5 fw-bold mt-4">.gitignore và file không nên commit</h3><p>.gitignore giúp Git bỏ qua những file tạm, file build, log hoặc dữ liệu nhạy cảm. Nếu lỡ commit nhầm, có thể dùng <code>git rm --cached</code> để ngừng theo dõi file đó.</p>
+<h3 class="h5 fw-bold mt-4">SSH Key và GitHub Pages</h3><p>SSH key giúp xác thực an toàn với GitHub mà không cần nhập mật khẩu mỗi lần. GitHub Pages thì dùng repository để triển khai website tĩnh và cập nhật bằng commit/push.</p>
+<h3 class="h5 fw-bold mt-4">Workflow thực tế</h3>
+<ul class="mb-0"><li>Thêm remote, push branch lên GitHub và mở Pull Request.</li>
+<li>Kiểm tra <code>.gitignore</code> để tránh commit file rác hoặc nhạy cảm.</li>
+<li>Thiết lập SSH nếu muốn làm việc lâu dài và bật GitHub Pages cho website tĩnh.</li></ul>
+<h3 class="h5 fw-bold mt-4">Lỗi thường gặp và cách khắc phục</h3>
+<ul class="mb-0"><li>Push nhầm branch hoặc nhầm remote URL.</li>
+<li>Commit file build hoặc file bí mật lên repo.</li>
+<li>Đặt sai đường dẫn asset khi deploy GitHub Pages.</li></ul></section><section class="lesson-section"><h2>Ví dụ minh họa</h2><div class="card lesson-card mb-4">
+  <div class="card-body">
+    <h3 class="h5 fw-bold mb-3">Ví dụ 1: Push và mở Pull Request</h3>
+    <p class="text-muted">Đưa thay đổi lên GitHub để người khác review.</p>
+    <pre><code>git remote add origin https://github.com/username/project.git
+git push -u origin feature/navbar</code></pre>
+    <p class="fw-semibold mb-2">Output mẫu</p>
+    <pre><code>branch &apos;feature/navbar&apos; set up to track &apos;origin/feature/navbar&apos;</code></pre>
+    <p class="fw-semibold mb-2">Giải thích lệnh</p>
+    <ul class="mb-0"><li>Mục đích: đẩy branch lên GitHub và chuẩn bị mở PR.</li>
+<li>Khi dùng: sau khi branch đã đủ nội dung để review.</li>
+<li>Kết quả mong đợi: branch xuất hiện trên GitHub để tạo Pull Request.</li>
+<li>Lỗi thường gặp: sai URL remote hoặc quên <code>-u</code> khiến branch không track.</li></ul>
+  </div>
+</div>
+<div class="card lesson-card mb-4">
+  <div class="card-body">
+    <h3 class="h5 fw-bold mb-3">Ví dụ 2: Bỏ qua file và deploy website</h3>
+    <p class="text-muted">Quản lý file không nên commit và đưa site tĩnh lên GitHub Pages.</p>
+    <pre><code>git rm --cached config.local.json
+git add .
+git commit -m &quot;Ignore local config&quot;
+git push</code></pre>
+    <p class="fw-semibold mb-2">Output mẫu</p>
+    <pre><code>Removed from index, file vẫn còn trên máy</code></pre>
+    <p class="fw-semibold mb-2">Giải thích lệnh</p>
+    <ul class="mb-0"><li>Mục đích: dừng theo dõi file nhạy cảm hoặc file sinh ra tự động.</li>
+<li>Khi dùng: khi phát hiện repo có file không nên commit.</li>
+<li>Kết quả mong đợi: file vẫn còn local nhưng không còn trong commit sau.</li>
+<li>Lỗi thường gặp: nhầm giữa xóa khỏi repo và xóa khỏi máy.</li></ul>
+  </div>
+</div></section><section class="lesson-section"><h2>Bài tập thực hành</h2><div class="row g-3">
+  <div class="col-12 col-lg-7"><div class="card h-100"><div class="card-body"><h3 class="h5 fw-bold">Dễ</h3><ul class="mb-0"><li>Mở repository trên GitHub và tìm nút Pull Request.</li>
+<li>Tạo một file <code>.gitignore</code> cho dự án web tĩnh.</li>
+<li>Thêm repository của bạn vào GitHub Pages và kiểm tra link công khai.</li></ul></div></div></div>
+  <div class="col-12 col-lg-5"><div class="card h-100"><div class="card-body"><h3 class="h5 fw-bold">Trung bình</h3><ul class="mb-0"><li>Giải thích vì sao <code>.gitignore</code> quan trọng trong dự án nhóm.</li>
+<li>Mô tả sự khác nhau giữa <code>git push</code> và <code>git pull</code>.</li></ul><hr /><p class="mb-0"><strong>Khó:</strong> Chuyển một repository từ HTTPS sang SSH và kiểm tra lại remote.</p></div></div></div>
+</div></section><section class="lesson-section"><h2>Trắc nghiệm</h2><form id="quiz-form-4" class="vstack gap-3"><div><p class="fw-semibold mb-2">1. Lệnh nào đẩy thay đổi lên GitHub?</p><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="lesson-04-q1-a" value="a"><label class="form-check-label" for="lesson-04-q1-a">git push</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="lesson-04-q1-b" value="b"><label class="form-check-label" for="lesson-04-q1-b">git pull</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="lesson-04-q1-c" value="c"><label class="form-check-label" for="lesson-04-q1-c">git clone</label></div></div>
+<div><p class="fw-semibold mb-2">2. Pull Request dùng để làm gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="lesson-04-q2-a" value="a"><label class="form-check-label" for="lesson-04-q2-a">Review và hợp nhất thay đổi</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="lesson-04-q2-b" value="b"><label class="form-check-label" for="lesson-04-q2-b">Xóa branch</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="lesson-04-q2-c" value="c"><label class="form-check-label" for="lesson-04-q2-c">Cài Git</label></div></div>
+<div><p class="fw-semibold mb-2">3. .gitignore có nhiệm vụ gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="lesson-04-q3-a" value="a"><label class="form-check-label" for="lesson-04-q3-a">Bỏ qua file không nên theo dõi</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="lesson-04-q3-b" value="b"><label class="form-check-label" for="lesson-04-q3-b">Tạo commit mới</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="lesson-04-q3-c" value="c"><label class="form-check-label" for="lesson-04-q3-c">Đổi tên repo</label></div></div>
+<div><p class="fw-semibold mb-2">4. SSH key giúp làm gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="lesson-04-q4-a" value="a"><label class="form-check-label" for="lesson-04-q4-a">Xác thực an toàn</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="lesson-04-q4-b" value="b"><label class="form-check-label" for="lesson-04-q4-b">Tạo branch</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="lesson-04-q4-c" value="c"><label class="form-check-label" for="lesson-04-q4-c">Xem log</label></div></div>
+<div><p class="fw-semibold mb-2">5. GitHub Pages dùng cho loại dự án nào?</p><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="lesson-04-q5-a" value="a"><label class="form-check-label" for="lesson-04-q5-a">Website tĩnh</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="lesson-04-q5-b" value="b"><label class="form-check-label" for="lesson-04-q5-b">Backend server</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="lesson-04-q5-c" value="c"><label class="form-check-label" for="lesson-04-q5-c">Database</label></div></div>
+<div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-primary" onclick="checkQuiz('quiz-form-4', 'quiz-result-4', { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'a' })">Nộp bài</button><div id="quiz-result-4" class="quiz-result"></div></div></form></section><section class="lesson-section"><h2>Câu hỏi tự luận tự ôn tập</h2><div class="card mb-4"><div class="card-body"><p class="fw-semibold mb-2">1. Hãy mô tả quy trình mở Pull Request cho một tính năng nhỏ.</p><textarea id="essay-4-1" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-4-1', 'lesson-04-essay-1')"></textarea><button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-4-1')">Xem đáp án tham khảo</button><div id="answer-4-1" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Tôi push branch lên GitHub, mở Pull Request, mô tả thay đổi, chờ review, sửa theo góp ý rồi merge khi được chấp nhận.</p></div></div></div></div><div class="card mb-4"><div class="card-body"><p class="fw-semibold mb-2">2. Vì sao SSH và <code>.gitignore</code> đều quan trọng trong dự án thật?</p><textarea id="essay-4-2" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-4-2', 'lesson-04-essay-2')"></textarea><button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-4-2')">Xem đáp án tham khảo</button><div id="answer-4-2" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">SSH giúp làm việc an toàn và tiện hơn, còn <code>.gitignore</code> giúp repo sạch, tránh file rác và hạn chế rủi ro lộ thông tin.</p></div></div></div></div></section><section class="lesson-section"><h2>Tóm tắt</h2><div class="card bg-light border-0"><div class="card-body"><p class="mb-0">Bạn đã biết cách đưa Git lên GitHub, mở PR, bỏ qua file không nên commit, dùng SSH và deploy website tĩnh bằng GitHub Pages.</p></div></div></section><div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap"><a class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a><div class="d-flex gap-2 flex-wrap"><a class="btn btn-primary" href="../index.html">Quay lại khóa học</a><a class="btn btn-primary" href="lesson-03.html">Bài trước</a><a class="btn btn-primary" href="lesson-05.html">Bài tiếp theo</a></div></div></article></div></main>
+<footer class="py-4 bg-dark text-white mt-4"><div class="container text-center"><p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="../../../assets/js/quiz.js"></script><script src="../../../assets/js/lesson.js"></script><script>document.addEventListener('DOMContentLoaded', () => { loadEssayDraft('essay-4-1', 'lesson-04-essay-1'); loadEssayDraft('essay-4-2', 'lesson-04-essay-2');   });</script>
 </body>
-
 </html>
