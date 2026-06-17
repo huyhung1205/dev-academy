@@ -585,3 +585,17 @@ Correct:
 <code>==</code>
 
 All inline programming syntax must be converted to HTML code tags.
+
+## RULE: UTF8_ENCODING_REQUIRED
+
+All files must be read and written using UTF-8 encoding.
+
+Never rewrite Vietnamese HTML files using ANSI, Latin-1, Windows-1252, or any non-UTF-8 encoding.
+
+When modifying files, preserve Vietnamese characters.
+
+Before saving, ensure the HTML file contains:
+
+<meta charset="UTF-8">
+
+Do not corrupt Vietnamese text.
