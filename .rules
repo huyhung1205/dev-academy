@@ -564,3 +564,24 @@ Always mention whether:
 - Essay section was added or updated
 - `index.html` was updated
 - `courses.html` was updated
+
+
+## RULE: MARKDOWN_BACKTICK_CONVERSION
+
+When generating HTML pages:
+
+Do NOT output Markdown backticks.
+
+Forbidden:
+
+`int`
+`for`
+`==`
+
+Correct:
+
+<code>int</code>
+<code>for</code>
+<code>==</code>
+
+All inline programming syntax must be converted to HTML code tags.
