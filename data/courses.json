@@ -1,5 +1,10 @@
 [
   {
+    "title": "Git Fundamentals",
+    "slug": "git-fundamentals",
+    "status": "published"
+  },
+  {
     "title": "Nhập môn lập trình",
     "slug": "programming-fundamentals",
     "status": "planned"

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 4 - Merge và xử lý xung đột | Git Fundamentals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../../assets/css/course.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container"><a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a><button
+                    class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Git Fundamentals</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-4">
+        <div class="row">
+            <aside class="col-12 col-lg-3 mb-4">
+                <div class="card lesson-sidebar">
+                    <div class="card-body">
+                        <h2 class="h5 fw-bold">Mục lục khóa học</h2>
+                        <div class="list-group list-group-flush"><a class="list-group-item list-group-item-action"
+                                href="../index.html">Tổng quan khóa học</a><a
+                                class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Git là gì và
+                                Repository</a><a class="list-group-item list-group-item-action"
+                                href="lesson-02.html">Bài 2. Commit và lịch sử thay đổi</a><a
+                                class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Branch và
+                                làm việc song song</a><a class="list-group-item list-group-item-action active"
+                                href="lesson-04.html">Bài 4. Merge và xử lý xung đột</a><a
+                                class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. GitHub và
+                                quy trình cộng tác</a></div>
+                    </div>
+                </div>
+            </aside>
+            <article class="col-12 col-lg-9">
+                <section class="lesson-hero"><span class="badge text-bg-primary mb-2">Bài 4</span>
+                    <h1 class="fw-bold">Merge và xử lý xung đột</h1>
+                    <p class="lead mb-0">Merge hợp nhất thay đổi từ các nhánh lại với nhau. Nếu hai nhánh sửa cùng một
+                        chỗ, Git sẽ báo xung đột để bạn xử lý thủ công.</p>
+                </section>
+                <section class="lesson-section">
+                    <h2>Video mô phỏng</h2>
+                    <div class="video-placeholder">
+                        <p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p>
+                    </div>
+                </section>
+                <section class="lesson-section">
+                    <h2>Tài liệu lý thuyết</h2>
+                    <p>Khi một tính năng hoàn tất, bạn thường hợp nhất nhánh của mình về nhánh chính bằng lệnh merge.
+                        Nếu lịch sử phù hợp, Git có thể merge tự động.</p>
+                    <pre><code>git switch main
+git merge login-page</code></pre>
+                    <p>Nếu cùng một dòng code bị sửa ở cả hai nhánh, Git sẽ chèn các dấu phân cách xung đột. Lúc đó bạn
+                        cần mở file, chọn nội dung đúng, rồi commit kết quả.</p>
+                    <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Nội dung trên main
+=======
+Nội dung từ branch
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; login-page</code></pre>
+                </section>
+                <section class="lesson-section">
+                    <h2>Ví dụ minh họa</h2>
+                    <div class="card border-0 bg-light">
+                        <div class="card-body">
+                            <p class="mb-0">Nếu nhóm cùng sửa tiêu đề trang chủ, hãy thống nhất ai giữ phần nào trước
+                                khi merge để giảm xung đột.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="lesson-section">
+                    <h2>Trắc nghiệm</h2>
+                    <form id="quiz-form-4" class="vstack gap-3">
+                        <div>
+                            <p class="fw-semibold mb-2">1. Merge làm gì?</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l4q1a"
+                                    value="a"><label class="form-check-label" for="l4q1a">Hợp nhất thay đổi</label>
+                            </div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l4q1b"
+                                    value="b"><label class="form-check-label" for="l4q1b">Tạo file mới ngẫu
+                                    nhiên</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l4q1c"
+                                    value="c"><label class="form-check-label" for="l4q1c">Xóa commit</label></div>
+                        </div>
+                        <div>
+                            <p class="fw-semibold mb-2">2. Xung đột thường xảy ra khi nào?</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l4q2a"
+                                    value="a"><label class="form-check-label" for="l4q2a">Hai nhánh sửa cùng một
+                                    chỗ</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l4q2b"
+                                    value="b"><label class="form-check-label" for="l4q2b">Bạn mở máy tính</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l4q2c"
+                                    value="c"><label class="form-check-label" for="l4q2c">Bạn đổi theme VS Code</label>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="fw-semibold mb-2">3. Sau khi xử lý conflict, thường cần làm gì?</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l4q3a"
+                                    value="a"><label class="form-check-label" for="l4q3a">Commit kết quả</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l4q3b"
+                                    value="b"><label class="form-check-label" for="l4q3b">Xóa repo</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l4q3c"
+                                    value="c"><label class="form-check-label" for="l4q3c">Chạy npm install</label></div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-primary"
+                                onclick="checkQuiz('quiz-form-4', 'quiz-result-4', { q1: 'a', q2: 'a', q3: 'a' })">Nộp
+                                bài</button>
+                            <div id="quiz-result-4" class="quiz-result"></div>
+                        </div>
+                    </form>
+                </section>
+                <section class="lesson-section">
+                    <h2>Câu hỏi tự luận tự ôn tập</h2>
+                    <p>1. Bạn sẽ làm gì khi Git báo xung đột merge?</p><textarea id="essay-4" class="form-control mb-3"
+                        rows="5" placeholder="Tự viết câu trả lời của bạn..."
+                        oninput="saveEssayDraft('essay-4', 'git-fundamentals-lesson-4')"></textarea><button
+                        type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-4')">Xem
+                        đáp án tham khảo</button>
+                    <div id="answer-4" class="suggested-answer mt-3 card">
+                        <div class="card-body">
+                            <p class="mb-0">Gợi ý: mở file bị conflict, đọc phần đánh dấu của Git, chọn hoặc kết hợp nội
+                                dung đúng, kiểm tra lại, rồi commit sau khi đã giải quyết xong.</p>
+                        </div>
+                    </div>
+                </section>
+                <div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap"><a
+                        class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
+                    <div class="d-flex gap-2 flex-wrap"><a class="btn btn-primary" href="lesson-03.html">Bài trước</a><a
+                            class="btn btn-primary" href="lesson-05.html">Bài tiếp theo</a></div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="py-4 bg-dark text-white mt-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/js/quiz.js"></script>
+    <script src="../../../assets/js/lesson.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', () => { loadEssayDraft('essay-4', 'git-fundamentals-lesson-4'); });</script>
+</body>
+
+</html>

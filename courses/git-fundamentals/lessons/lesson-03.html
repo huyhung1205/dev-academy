@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 3 - Branch và làm việc song song | Git Fundamentals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../../assets/css/course.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container"><a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a><button
+                    class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Git Fundamentals</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-4">
+        <div class="row">
+            <aside class="col-12 col-lg-3 mb-4">
+                <div class="card lesson-sidebar">
+                    <div class="card-body">
+                        <h2 class="h5 fw-bold">Mục lục khóa học</h2>
+                        <div class="list-group list-group-flush"><a class="list-group-item list-group-item-action"
+                                href="../index.html">Tổng quan khóa học</a><a
+                                class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Git là gì và
+                                Repository</a><a class="list-group-item list-group-item-action"
+                                href="lesson-02.html">Bài 2. Commit và lịch sử thay đổi</a><a
+                                class="list-group-item list-group-item-action active" href="lesson-03.html">Bài 3.
+                                Branch và làm việc song song</a><a class="list-group-item list-group-item-action"
+                                href="lesson-04.html">Bài 4. Merge và xử lý xung đột</a><a
+                                class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. GitHub và
+                                quy trình cộng tác</a></div>
+                    </div>
+                </div>
+            </aside>
+            <article class="col-12 col-lg-9">
+                <section class="lesson-hero"><span class="badge text-bg-primary mb-2">Bài 3</span>
+                    <h1 class="fw-bold">Branch và làm việc song song</h1>
+                    <p class="lead mb-0">Branch cho phép bạn thử tính năng mới hoặc sửa lỗi trong không gian riêng mà
+                        không ảnh hưởng ngay đến nhánh chính.</p>
+                </section>
+                <section class="lesson-section">
+                    <h2>Video mô phỏng</h2>
+                    <div class="video-placeholder">
+                        <p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p>
+                    </div>
+                </section>
+                <section class="lesson-section">
+                    <h2>Tài liệu lý thuyết</h2>
+                    <p>Branch là nhánh phát triển tách ra từ một mốc hiện tại. Nhờ branch, nhiều người có thể làm việc
+                        cùng lúc trên các tính năng khác nhau.</p>
+                    <pre><code>git branch login-page
+git switch login-page
+# hoặc tạo và chuyển nhánh mới
+git switch -c login-page</code></pre>
+                    <p class="mb-0">Khi làm xong, bạn có thể hợp nhất nhánh đó về main bằng merge.</p>
+                </section>
+                <section class="lesson-section">
+                    <h2>Ví dụ minh họa</h2>
+                    <div class="card border-0 bg-light">
+                        <div class="card-body">
+                            <p class="mb-0">Một nhóm có thể có nhánh cho giao diện, nhánh cho chức năng đăng nhập và
+                                nhánh sửa lỗi riêng để tránh ghi đè nhau.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="lesson-section">
+                    <h2>Trắc nghiệm</h2>
+                    <form id="quiz-form-3" class="vstack gap-3">
+                        <div>
+                            <p class="fw-semibold mb-2">1. Branch giúp ích gì?</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l3q1a"
+                                    value="a"><label class="form-check-label" for="l3q1a">Làm việc song song</label>
+                            </div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l3q1b"
+                                    value="b"><label class="form-check-label" for="l3q1b">Xóa repo</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l3q1c"
+                                    value="c"><label class="form-check-label" for="l3q1c">Cài phần mềm</label></div>
+                        </div>
+                        <div>
+                            <p class="fw-semibold mb-2">2. Lệnh nào tạo và chuyển sang nhánh mới?</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l3q2a"
+                                    value="a"><label class="form-check-label" for="l3q2a">git switch -c</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l3q2b"
+                                    value="b"><label class="form-check-label" for="l3q2b">git commit -m</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l3q2c"
+                                    value="c"><label class="form-check-label" for="l3q2c">git status</label></div>
+                        </div>
+                        <div>
+                            <p class="fw-semibold mb-2">3. Branch thường được tạo để làm gì?</p>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l3q3a"
+                                    value="a"><label class="form-check-label" for="l3q3a">Thử tính năng mới</label>
+                            </div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l3q3b"
+                                    value="b"><label class="form-check-label" for="l3q3b">Đổi tên máy tính</label></div>
+                            <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l3q3c"
+                                    value="c"><label class="form-check-label" for="l3q3c">Nén file</label></div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-primary"
+                                onclick="checkQuiz('quiz-form-3', 'quiz-result-3', { q1: 'a', q2: 'a', q3: 'a' })">Nộp
+                                bài</button>
+                            <div id="quiz-result-3" class="quiz-result"></div>
+                        </div>
+                    </form>
+                </section>
+                <section class="lesson-section">
+                    <h2>Câu hỏi tự luận tự ôn tập</h2>
+                    <p>1. Vì sao branch giúp dự án an toàn hơn khi phát triển tính năng mới?</p><textarea id="essay-3"
+                        class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..."
+                        oninput="saveEssayDraft('essay-3', 'git-fundamentals-lesson-3')"></textarea><button
+                        type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-3')">Xem
+                        đáp án tham khảo</button>
+                    <div id="answer-3" class="suggested-answer mt-3 card">
+                        <div class="card-body">
+                            <p class="mb-0">Gợi ý: branch tách thay đổi ra khỏi nhánh chính nên nếu tính năng chưa hoàn
+                                thiện thì main vẫn ổn định, dễ kiểm thử và dễ quay lại khi cần.</p>
+                        </div>
+                    </div>
+                </section>
+                <div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap"><a
+                        class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
+                    <div class="d-flex gap-2 flex-wrap"><a class="btn btn-primary" href="lesson-02.html">Bài trước</a><a
+                            class="btn btn-primary" href="lesson-04.html">Bài tiếp theo</a></div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="py-4 bg-dark text-white mt-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/js/quiz.js"></script>
+    <script src="../../../assets/js/lesson.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', () => { loadEssayDraft('essay-3', 'git-fundamentals-lesson-3'); });</script>
+</body>
+
+</html>
