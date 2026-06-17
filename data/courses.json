@@ -1,5 +1,10 @@
 [
   {
+    "title": "Nhập môn lập trình C++",
+    "slug": "cpp-fundamentals",
+    "status": "published"
+  },
+  {
     "title": "Git Fundamentals",
     "slug": "git-fundamentals",
     "status": "published"

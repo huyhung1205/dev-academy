@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 4 - Toán tử và biểu thức | C++ Fundamentals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/course.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html">Nhập môn lập trình C++</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-4">
+    <div class="row">
+      <aside class="col-12 col-lg-3 mb-4">
+        <div class="card lesson-sidebar">
+          <div class="card-body">
+            <h2 class="h5 fw-bold">Mục lục khóa học</h2>
+            <div class="list-group list-group-flush">
+              <a class="list-group-item list-group-item-action" href="../index.html">Tổng quan khóa học</a>
+              <a class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Giới thiệu lập trình và môi trường phát triển</a>
+              <a class="list-group-item list-group-item-action" href="lesson-02.html">Bài 2. Thuật toán và mô tả thuật toán</a>
+              <a class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Biến, hằng và kiểu dữ liệu</a>
+              <a class="list-group-item list-group-item-action active" href="lesson-04.html">Bài 4. Toán tử và biểu thức</a>
+              <a class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. Nhập xuất dữ liệu</a>
+              <a class="list-group-item list-group-item-action" href="lesson-06.html">Bài 6. Câu lệnh điều kiện</a>
+              <a class="list-group-item list-group-item-action" href="lesson-07.html">Bài 7. Vòng lặp</a>
+              <a class="list-group-item list-group-item-action" href="lesson-08.html">Bài 8. Hàm và cấu trúc chương trình</a>
+              <a class="list-group-item list-group-item-action" href="lesson-09.html">Bài 9. Giới thiệu về con trỏ</a>
+              <a class="list-group-item list-group-item-action" href="lesson-10.html">Bài 10. Mảng một chiều</a>
+              <a class="list-group-item list-group-item-action" href="lesson-11.html">Bài 11. Mảng nhiều chiều</a>
+              <a class="list-group-item list-group-item-action" href="lesson-12.html">Bài 12. Chuỗi ký tự</a>
+              <a class="list-group-item list-group-item-action" href="lesson-13.html">Bài 13. Kiểu dữ liệu cấu trúc (struct)</a>
+              <a class="list-group-item list-group-item-action" href="lesson-14.html">Bài 14. Đọc ghi File</a>
+              <a class="list-group-item list-group-item-action" href="lesson-15.html">Bài 15. Ôn tập tổng hợp và Mini Project</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <article class="col-12 col-lg-9">
+        <section class="lesson-hero">
+          <span class="badge text-bg-primary mb-2">Bài 4</span>
+          <h1 class="fw-bold">Toán tử và biểu thức</h1>
+          <p class="lead mb-0">Bài học này giúp bạn hiểu cách C++ tính toán, so sánh và kết hợp nhiều điều kiện để tạo ra kết quả chính xác.</p>
+        </section>
+
+        <section class="lesson-section">
+          <h2>1. Giới thiệu</h2>
+          <div class="row g-3">
+            <div class="col-12 col-md-4"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Khái niệm</h3><p class="mb-0">Toán tử là ký hiệu thực hiện phép tính, còn biểu thức là sự kết hợp của toán tử và toán hạng.</p></div></div>
+            <div class="col-12 col-md-4"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Mục tiêu</h3><p class="mb-0">Biết dùng toán tử số học, so sánh, logic và hiểu thứ tự ưu tiên khi tính toán.</p></div></div>
+            <div class="col-12 col-md-4"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Tiền đề</h3><p class="mb-0">Nên nắm biến, kiểu dữ liệu và cách nhập xuất đơn giản từ bài trước.</p></div></div>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>Video mô phỏng</h2>
+          <div class="video-placeholder"><p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p></div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>2. Tài liệu lý thuyết</h2>
+          <h3 class="h5 fw-bold">2.1 Toán tử số học</h3>
+          <p><strong>Khái niệm:</strong> Toán tử số học gồm `+`, `-`, `*`, `/`, `%`.</p>
+          <p><strong>Tại sao cần học:</strong> Đây là nền tảng để tính tổng, hiệu, tích, thương và phần dư trong hầu hết bài toán.</p>
+          <p><strong>Cách hoạt động:</strong> Compiler thực hiện phép tính theo thứ tự ưu tiên, rồi trả kết quả cho biểu thức.</p>
+          <p><strong>Lỗi thường gặp:</strong> Chia hai số nguyên nhưng mong kết quả thập phân, hoặc quên rằng `%` chỉ dùng cho số nguyên.</p>
+
+          <h3 class="h5 fw-bold">2.2 Toán tử so sánh</h3>
+          <p><strong>Khái niệm:</strong> Toán tử so sánh kiểm tra hai giá trị có bằng nhau hay không, lớn hơn hay nhỏ hơn.</p>
+          <p><strong>Tại sao cần học:</strong> Các câu lệnh điều kiện đều dựa vào kết quả đúng/sai của phép so sánh.</p>
+          <p><strong>Cú pháp:</strong> `==`, `!=`, `&gt;`, `&lt;`, `&gt;=`, `&lt;=`.</p>
+          <p><strong>Lỗi thường gặp:</strong> Nhầm `=` với `==`, dùng dấu so sánh sai thứ tự, hoặc so sánh số thực quá cứng nhắc.</p>
+
+          <h3 class="h5 fw-bold">2.3 Toán tử logic</h3>
+          <p><strong>Khái niệm:</strong> Toán tử logic kết hợp nhiều điều kiện bằng `&&`, `||`, `!`.</p>
+          <p><strong>Tại sao cần học:</strong> Thực tế một quyết định thường không chỉ dựa trên một điều kiện duy nhất.</p>
+          <p><strong>Cách hoạt động:</strong> `&&` chỉ đúng khi mọi điều kiện đúng, `||` đúng khi ít nhất một điều kiện đúng, `!` đảo giá trị logic.</p>
+          <p><strong>Lỗi thường gặp:</strong> Viết điều kiện dài nhưng không dùng ngoặc nên đọc rất khó và dễ sai.</p>
+
+          <h3 class="h5 fw-bold">2.4 Ưu tiên và ép kiểu</h3>
+          <p><strong>Khái niệm:</strong> Biểu thức có thứ tự ưu tiên, ví dụ nhân chia thường trước cộng trừ.</p>
+          <p><strong>Tại sao cần học:</strong> Nếu không hiểu thứ tự, bạn sẽ tính sai dù code không báo lỗi.</p>
+          <p><strong>Minh họa:</strong> `2 + 3 * 4` cho ra 14, không phải 20.</p>
+          <p><strong>Lỗi thường gặp:</strong> Quên dùng ngoặc khi muốn đổi thứ tự tính, hoặc quên ép kiểu khi cần số thực.</p>
+        </section>
+
+        <section class="lesson-section">
+          <h2>3. Ví dụ minh họa</h2>
+          <div class="card mb-3"><div class="card-body"><h3 class="h5 fw-bold">Ví dụ cơ bản: Tính tiền mua hàng</h3><pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Khai báo số lượng và đơn giá
+    int quantity = 3;
+    int price = 25000;
+
+    // Tính thành tiền
+    int total = quantity * price;
+
+    // In kết quả ra màn hình
+    cout &lt;&lt; "Thanh tien: " &lt;&lt; total &lt;&lt; " VND" &lt;&lt; endl;
+
+    return 0;
+}</code></pre><p class="mb-2"><strong>Chương trình làm gì:</strong> Nhân số lượng với đơn giá để tính tổng tiền.</p><p class="mb-2"><strong>Luồng thực thi:</strong> Khai báo biến, thực hiện phép nhân, gán vào `total`, in kết quả.</p><p class="mb-0"><strong>Kết quả đầu ra:</strong> `75000 VND`.</p></div></div>
+          <div class="card"><div class="card-body"><h3 class="h5 fw-bold">Ví dụ thực tế: Kiểm tra sinh viên qua môn</h3><pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Khai báo điểm chuyên cần và điểm thi
+    double attendance, exam;
+
+    // Nhập điểm
+    cout &lt;&lt; "Nhap diem chuyen can: ";
+    cin &gt;&gt; attendance;
+    cout &lt;&lt; "Nhap diem thi: ";
+    cin &gt;&gt; exam;
+
+    // Tính điểm trung bình có trọng số
+    double finalScore = attendance * 0.4 + exam * 0.6;
+
+    // Kiểm tra điều kiện qua môn
+    if (finalScore &gt;= 5.0) {
+        cout &lt;&lt; "Sinh vien qua mon." &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "Sinh vien chua qua mon." &lt;&lt; endl;
+    }
+
+    return 0;
+}</code></pre><p class="mb-2"><strong>Chương trình làm gì:</strong> Tính điểm trung bình có trọng số rồi kiểm tra qua môn.</p><p class="mb-2"><strong>Luồng thực thi:</strong> Nhập hai điểm, tính biểu thức, so sánh kết quả với ngưỡng 5.0.</p><p class="mb-0"><strong>Kết quả đầu ra:</strong> In trạng thái “qua môn” hoặc “chưa qua môn”.</p></div></div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>4. Bài tập thực hành</h2>
+          <div class="row g-3">
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài dễ 1</h3><p class="mb-0">Tính diện tích hình chữ nhật từ chiều dài và chiều rộng.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài dễ 2</h3><p class="mb-0">Kiểm tra một số có chia hết cho 2 hay không bằng toán tử `%`.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài dễ 3</h3><p class="mb-0">So sánh hai số và in ra số lớn hơn.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài trung bình 1</h3><p class="mb-0">Tính tiền điện theo công thức có chiết khấu.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài trung bình 2</h3><p class="mb-0">Viết biểu thức kiểm tra một sinh viên vừa đủ điều kiện nhận học bổng hay không.</p></div></div>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>5. Trắc nghiệm</h2>
+          <form id="quiz-form-4" class="vstack gap-3">
+            <div><p class="fw-semibold mb-2">1. Toán tử nào dùng để cộng hai giá trị?</p><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l4q1a" value="a"><label class="form-check-label" for="l4q1a">+</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l4q1b" value="b"><label class="form-check-label" for="l4q1b">=</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l4q1c" value="c"><label class="form-check-label" for="l4q1c">==</label></div></div>
+            <div><p class="fw-semibold mb-2">2. `==` dùng để làm gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l4q2a" value="a"><label class="form-check-label" for="l4q2a">So sánh bằng nhau</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l4q2b" value="b"><label class="form-check-label" for="l4q2b">Gán giá trị</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l4q2c" value="c"><label class="form-check-label" for="l4q2c">Chia lấy dư</label></div></div>
+            <div><p class="fw-semibold mb-2">3. `&&` biểu thị điều gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l4q3a" value="a"><label class="form-check-label" for="l4q3a">Và logic</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l4q3b" value="b"><label class="form-check-label" for="l4q3b">Hoặc logic</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l4q3c" value="c"><label class="form-check-label" for="l4q3c">Phủ định</label></div></div>
+            <div><p class="fw-semibold mb-2">4. Biểu thức `2 + 3 * 4` cho kết quả nào?</p><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l4q4a" value="a"><label class="form-check-label" for="l4q4a">14</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l4q4b" value="b"><label class="form-check-label" for="l4q4b">20</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l4q4c" value="c"><label class="form-check-label" for="l4q4c">24</label></div></div>
+            <div><p class="fw-semibold mb-2">5. `%` thường dùng để làm gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l4q5a" value="a"><label class="form-check-label" for="l4q5a">Lấy phần dư</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l4q5b" value="b"><label class="form-check-label" for="l4q5b">Lấy phần nguyên của số thực</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l4q5c" value="c"><label class="form-check-label" for="l4q5c">Tính căn bậc hai</label></div></div>
+            <div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-primary" onclick="checkQuiz('quiz-form-4', 'quiz-result-4', { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'a' })">Nộp bài</button><div id="quiz-result-4" class="quiz-result"></div></div>
+          </form>
+        </section>
+
+        <section class="lesson-section">
+          <h2>6. Câu hỏi tự luận tự ôn tập</h2>
+          <div class="mb-4"><p class="fw-semibold mb-2">Câu 1. Vì sao cần phân biệt `=` và `==` trong C++?</p><textarea id="essay-4-1" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-4-1', 'cpp-fundamentals-lesson-4-1')"></textarea><button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-4-1')">Xem đáp án tham khảo</button><div id="answer-4-1" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: `=` là gán giá trị cho biến, còn `==` là so sánh. Nếu dùng sai, chương trình có thể chạy sai logic dù không báo lỗi cú pháp.</p></div></div></div>
+          <div><p class="fw-semibold mb-2">Câu 2. Hãy giải thích vì sao nên dùng ngoặc trong biểu thức phức tạp.</p><textarea id="essay-4-2" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-4-2', 'cpp-fundamentals-lesson-4-2')"></textarea><button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-4-2')">Xem đáp án tham khảo</button><div id="answer-4-2" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: ngoặc giúp làm rõ thứ tự tính toán, tránh phụ thuộc quá nhiều vào mức ưu tiên mặc định và giúp người đọc hiểu ngay ý đồ của bạn.</p></div></div></div>
+        </section>
+
+        <div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap">
+          <a class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
+          <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-primary" href="lesson-03.html">Bài trước</a>
+            <a class="btn btn-primary" href="lesson-05.html">Bài tiếp theo</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="py-4 bg-dark text-white mt-4"><div class="container text-center"><p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../assets/js/quiz.js"></script>
+  <script src="../../../assets/js/lesson.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => { loadEssayDraft('essay-4-1', 'cpp-fundamentals-lesson-4-1'); loadEssayDraft('essay-4-2', 'cpp-fundamentals-lesson-4-2'); });</script>
+</body>
+</html>

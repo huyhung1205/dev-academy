@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 2 - Thuật toán và mô tả thuật toán | C++ Fundamentals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/course.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html">Nhập môn lập trình C++</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-4">
+    <div class="row">
+      <aside class="col-12 col-lg-3 mb-4">
+        <div class="card lesson-sidebar">
+          <div class="card-body">
+            <h2 class="h5 fw-bold">Mục lục khóa học</h2>
+            <div class="list-group list-group-flush">
+              <a class="list-group-item list-group-item-action" href="../index.html">Tổng quan khóa học</a>
+              <a class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Giới thiệu lập trình và môi trường phát triển</a>
+              <a class="list-group-item list-group-item-action active" href="lesson-02.html">Bài 2. Thuật toán và mô tả thuật toán</a>
+              <a class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Biến, hằng và kiểu dữ liệu</a>
+              <a class="list-group-item list-group-item-action" href="lesson-04.html">Bài 4. Toán tử và biểu thức</a>
+              <a class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. Nhập xuất dữ liệu</a>
+              <a class="list-group-item list-group-item-action" href="lesson-06.html">Bài 6. Câu lệnh điều kiện</a>
+              <a class="list-group-item list-group-item-action" href="lesson-07.html">Bài 7. Vòng lặp</a>
+              <a class="list-group-item list-group-item-action" href="lesson-08.html">Bài 8. Hàm và cấu trúc chương trình</a>
+              <a class="list-group-item list-group-item-action" href="lesson-09.html">Bài 9. Giới thiệu về con trỏ</a>
+              <a class="list-group-item list-group-item-action" href="lesson-10.html">Bài 10. Mảng một chiều</a>
+              <a class="list-group-item list-group-item-action" href="lesson-11.html">Bài 11. Mảng nhiều chiều</a>
+              <a class="list-group-item list-group-item-action" href="lesson-12.html">Bài 12. Chuỗi ký tự</a>
+              <a class="list-group-item list-group-item-action" href="lesson-13.html">Bài 13. Kiểu dữ liệu cấu trúc (struct)</a>
+              <a class="list-group-item list-group-item-action" href="lesson-14.html">Bài 14. Đọc ghi File</a>
+              <a class="list-group-item list-group-item-action" href="lesson-15.html">Bài 15. Ôn tập tổng hợp và Mini Project</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <article class="col-12 col-lg-9">
+        <section class="lesson-hero">
+          <span class="badge text-bg-primary mb-2">Bài 2</span>
+          <h1 class="fw-bold">Thuật toán và mô tả thuật toán</h1>
+          <p class="lead mb-0">
+            Bài học này giúp bạn biết cách nghĩ trước khi code: xác định đầu vào, đầu ra, các bước xử lý,
+            rồi mới chuyển logic sang C++.
+          </p>
+        </section>
+
+        <section class="lesson-section">
+          <h2>1. Giới thiệu</h2>
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Khái niệm</h3>
+                <p class="mb-0">Thuật toán là chuỗi bước rõ ràng để giải một bài toán cụ thể.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Mục tiêu bài học</h3>
+                <p class="mb-0">Biết mô tả thuật toán bằng lời, giả mã và chuyển thành chương trình C++.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Kiến thức tiền đề</h3>
+                <p class="mb-0">Cần biết in màn hình, nhập dữ liệu cơ bản và đọc hiểu các câu lệnh đơn giản.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>Video mô phỏng</h2>
+          <div class="video-placeholder">
+            <p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>2. Tài liệu lý thuyết</h2>
+          <h3 class="h5 fw-bold">2.1 Khái niệm thuật toán</h3>
+          <p><strong>Khái niệm:</strong> Thuật toán là tập hợp các bước có thứ tự để giải quyết một vấn đề.</p>
+          <p><strong>Tại sao cần học:</strong> Nếu không có thuật toán, code dễ bị viết theo cảm tính và rất khó sửa khi sai.</p>
+          <p><strong>Cách hoạt động:</strong> Bắt đầu từ dữ liệu đầu vào, xử lý từng bước, rồi tạo ra kết quả đầu ra.</p>
+          <p><strong>Lỗi thường gặp:</strong> Bỏ sót bước, viết bước mơ hồ, hoặc nhầm lẫn giữa điều kiện và kết quả.</p>
+
+          <h3 class="h5 fw-bold">2.2 Mô tả bằng lời và giả mã</h3>
+          <p><strong>Khái niệm:</strong> Giả mã là cách viết thuật toán gần giống code nhưng chưa cần đúng cú pháp C++.</p>
+          <p><strong>Tại sao cần học:</strong> Giúp bạn tập trung vào logic trước khi bị rối bởi dấu ngoặc, dấu chấm phẩy.</p>
+          <p><strong>Cú pháp minh họa:</strong></p>
+          <pre><code>Nhập a, b
+Nếu a &gt; b thì in a
+Ngược lại in b</code></pre>
+          <p><strong>Cách hoạt động:</strong> Người học đọc giả mã để hiểu thứ tự xử lý, sau đó chuyển từng bước thành lệnh `if`, `cin`, `cout`.</p>
+          <p><strong>Lỗi thường gặp:</strong> Viết giả mã quá chung chung như “xử lý dữ liệu”, không nói rõ dữ liệu nào và xử lý ra sao.</p>
+
+          <h3 class="h5 fw-bold">2.3 Lưu đồ và kiểm thử thuật toán</h3>
+          <p><strong>Khái niệm:</strong> Lưu đồ là sơ đồ khối biểu diễn luồng xử lý của thuật toán.</p>
+          <p><strong>Tại sao cần học:</strong> Lưu đồ giúp thấy rõ nhánh rẽ, vòng lặp và điểm kết thúc của bài toán.</p>
+          <p><strong>Minh họa:</strong> Hình oval cho bắt đầu/kết thúc, hình thoi cho điều kiện, hình chữ nhật cho thao tác xử lý.</p>
+          <p><strong>Cách kiểm thử:</strong> Hãy thử ít nhất 2 bộ dữ liệu: một bộ “đẹp” và một bộ “cận biên” để xem thuật toán có sai không.</p>
+          <p><strong>Lỗi thường gặp:</strong> Không kiểm thử nên tưởng thuật toán đúng, nhưng đến khi gặp dữ liệu xấu thì kết quả sai.</p>
+
+          <h3 class="h5 fw-bold">2.4 Chuyển thuật toán thành C++</h3>
+          <p><strong>Khái niệm:</strong> Chuyển thuật toán thành chương trình nghĩa là biến từng bước logic thành câu lệnh C++ cụ thể.</p>
+          <p><strong>Tại sao cần học:</strong> Đây là cầu nối giữa “nghĩ ra cách làm” và “viết được code chạy thật”.</p>
+          <p><strong>Cách làm:</strong> Xác định biến cần dùng, nhập dữ liệu, dùng điều kiện hoặc vòng lặp, rồi in kết quả.</p>
+          <p><strong>Lỗi thường gặp:</strong> Chuyển thiếu bước, hoặc dùng biến chưa được nhập giá trị.</p>
+        </section>
+
+        <section class="lesson-section">
+          <h2>3. Ví dụ minh họa</h2>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h3 class="h5 fw-bold">Ví dụ cơ bản: Tìm số lớn hơn giữa hai số</h3>
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Khai báo hai số nguyên để nhập từ bàn phím
+    int a, b;
+
+    // Nhập số thứ nhất và số thứ hai
+    cout &lt;&lt; "Nhap so a: ";
+    cin &gt;&gt; a;
+    cout &lt;&lt; "Nhap so b: ";
+    cin &gt;&gt; b;
+
+    // So sánh để tìm số lớn hơn
+    if (a &gt; b) {
+        cout &lt;&lt; "So lon hon la: " &lt;&lt; a &lt;&lt; endl;
+    } else if (b &gt; a) {
+        cout &lt;&lt; "So lon hon la: " &lt;&lt; b &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; "Hai so bang nhau." &lt;&lt; endl;
+    }
+
+    // Kết thúc chương trình
+    return 0;
+}</code></pre>
+              <p class="mb-2"><strong>Chương trình làm gì:</strong> So sánh hai số và in số lớn hơn hoặc thông báo hai số bằng nhau.</p>
+              <p class="mb-2"><strong>Luồng thực thi:</strong> Nhập `a`, nhập `b`, kiểm tra điều kiện `if`, rồi in kết quả tương ứng.</p>
+              <p class="mb-0"><strong>Kết quả đầu ra:</strong> Một thông báo cho biết số lớn hơn là số nào.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h3 class="h5 fw-bold">Ví dụ thực tế: Tính tổng 1 đến n</h3>
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Khai báo biến n và tổng
+    int n;
+    int sum = 0;
+
+    // Nhập giới hạn cần tính
+    cout &lt;&lt; "Nhap n: ";
+    cin &gt;&gt; n;
+
+    // Duyệt từ 1 đến n để cộng dồn
+    for (int i = 1; i &lt;= n; i++) {
+        sum += i;
+    }
+
+    // In kết quả cuối cùng
+    cout &lt;&lt; "Tong tu 1 den " &lt;&lt; n &lt;&lt; " la: " &lt;&lt; sum &lt;&lt; endl;
+
+    // Kết thúc chương trình
+    return 0;
+}</code></pre>
+              <p class="mb-2"><strong>Chương trình làm gì:</strong> Tính tổng các số tự nhiên từ 1 đến n.</p>
+              <p class="mb-2"><strong>Luồng thực thi:</strong> Nhập `n`, khởi tạo `sum`, lặp từ 1 đến n, cộng dồn rồi in kết quả.</p>
+              <p class="mb-0"><strong>Kết quả đầu ra:</strong> Ví dụ nhập 5 thì kết quả là 15.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>4. Bài tập thực hành</h2>
+          <div class="row g-3">
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài dễ 1</h3><p class="mb-0">Mô tả bằng lời thuật toán tìm số lớn nhất trong 3 số.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài dễ 2</h3><p class="mb-0">Viết giả mã cho bài toán tính trung bình 3 môn học.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài dễ 3</h3><p class="mb-0">Vẽ lưu đồ đơn giản cho bài toán kiểm tra chẵn lẻ.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài trung bình 1</h3><p class="mb-0">Viết chương trình C++ tìm số lớn nhất trong 3 số dựa trên thuật toán tự mô tả.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài trung bình 2</h3><p class="mb-0">Viết chương trình tính tổng từ 1 đến n và giải thích từng bước.</p></div></div>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>5. Trắc nghiệm</h2>
+          <form id="quiz-form-2" class="vstack gap-3">
+            <div>
+              <p class="fw-semibold mb-2">1. Thuật toán cần có đặc điểm nào?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l2q1a" value="a"><label class="form-check-label" for="l2q1a">Có đầu vào, đầu ra và các bước rõ ràng</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l2q1b" value="b"><label class="form-check-label" for="l2q1b">Phải luôn dùng mảng</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l2q1c" value="c"><label class="form-check-label" for="l2q1c">Không được dùng điều kiện</label></div>
+            </div>
+            <div>
+              <p class="fw-semibold mb-2">2. Giả mã là gì?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l2q2a" value="a"><label class="form-check-label" for="l2q2a">Mô tả thuật toán gần giống code</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l2q2b" value="b"><label class="form-check-label" for="l2q2b">Một kiểu dữ liệu của C++</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l2q2c" value="c"><label class="form-check-label" for="l2q2c">Một công cụ chấm điểm</label></div>
+            </div>
+            <div>
+              <p class="fw-semibold mb-2">3. Lưu đồ dùng để làm gì?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l2q3a" value="a"><label class="form-check-label" for="l2q3a">Biểu diễn luồng xử lý bằng hình</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l2q3b" value="b"><label class="form-check-label" for="l2q3b">Tăng tốc máy tính</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l2q3c" value="c"><label class="form-check-label" for="l2q3c">Lưu dữ liệu lâu dài</label></div>
+            </div>
+            <div>
+              <p class="fw-semibold mb-2">4. Bước đầu tiên khi giải bài toán bằng code là gì?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l2q4a" value="a"><label class="form-check-label" for="l2q4a">Hiểu bài toán và xác định đầu vào/đầu ra</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l2q4b" value="b"><label class="form-check-label" for="l2q4b">Viết ngay `cout`</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l2q4c" value="c"><label class="form-check-label" for="l2q4c">Xóa compiler</label></div>
+            </div>
+            <div>
+              <p class="fw-semibold mb-2">5. Vì sao nên kiểm thử thuật toán?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l2q5a" value="a"><label class="form-check-label" for="l2q5a">Để phát hiện lỗi logic sớm</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l2q5b" value="b"><label class="form-check-label" for="l2q5b">Để tăng số dòng code</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l2q5c" value="c"><label class="form-check-label" for="l2q5c">Để tránh dùng biến</label></div>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-primary" onclick="checkQuiz('quiz-form-2', 'quiz-result-2', { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'a' })">Nộp bài</button>
+              <div id="quiz-result-2" class="quiz-result"></div>
+            </div>
+          </form>
+        </section>
+
+        <section class="lesson-section">
+          <h2>6. Câu hỏi tự luận tự ôn tập</h2>
+          <div class="mb-4">
+            <p class="fw-semibold mb-2">Câu 1. Tại sao cần viết thuật toán trước khi viết code?</p>
+            <textarea id="essay-2-1" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-2-1', 'cpp-fundamentals-lesson-2-1')"></textarea>
+            <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-2-1')">Xem đáp án tham khảo</button>
+            <div id="answer-2-1" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: viết thuật toán trước giúp thấy rõ cách giải, phát hiện thiếu bước, tránh nhầm logic và giảm thời gian sửa lỗi khi chuyển sang C++.</p></div></div>
+          </div>
+          <div>
+            <p class="fw-semibold mb-2">Câu 2. Hãy mô tả bằng lời thuật toán tìm số lớn nhất trong 3 số.</p>
+            <textarea id="essay-2-2" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-2-2', 'cpp-fundamentals-lesson-2-2')"></textarea>
+            <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-2-2')">Xem đáp án tham khảo</button>
+            <div id="answer-2-2" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: nhập 3 số, giả sử số đầu là lớn nhất, lần lượt so sánh với số còn lại để cập nhật giá trị lớn nhất, cuối cùng in ra kết quả.</p></div></div>
+          </div>
+        </section>
+
+        <div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap">
+          <a class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
+          <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-primary" href="lesson-01.html">Bài trước</a>
+            <a class="btn btn-primary" href="lesson-03.html">Bài tiếp theo</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="py-4 bg-dark text-white mt-4">
+    <div class="container text-center"><p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p></div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../assets/js/quiz.js"></script>
+  <script src="../../../assets/js/lesson.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadEssayDraft('essay-2-1', 'cpp-fundamentals-lesson-2-1');
+      loadEssayDraft('essay-2-2', 'cpp-fundamentals-lesson-2-2');
+    });
+  </script>
+</body>
+</html>

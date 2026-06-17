@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 1 - Giới thiệu lập trình và môi trường phát triển | C++ Fundamentals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/course.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html">Nhập môn lập trình C++</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-4">
+    <div class="row">
+      <aside class="col-12 col-lg-3 mb-4">
+        <div class="card lesson-sidebar">
+          <div class="card-body">
+            <h2 class="h5 fw-bold">Mục lục khóa học</h2>
+            <div class="list-group list-group-flush">
+              <a class="list-group-item list-group-item-action" href="../index.html">Tổng quan khóa học</a>
+              <a class="list-group-item list-group-item-action active" href="lesson-01.html">Bài 1. Giới thiệu lập trình và môi trường phát triển</a>
+              <a class="list-group-item list-group-item-action" href="lesson-02.html">Bài 2. Thuật toán và mô tả thuật toán</a>
+              <a class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Biến, hằng và kiểu dữ liệu</a>
+              <a class="list-group-item list-group-item-action" href="lesson-04.html">Bài 4. Toán tử và biểu thức</a>
+              <a class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. Nhập xuất dữ liệu</a>
+              <a class="list-group-item list-group-item-action" href="lesson-06.html">Bài 6. Câu lệnh điều kiện</a>
+              <a class="list-group-item list-group-item-action" href="lesson-07.html">Bài 7. Vòng lặp</a>
+              <a class="list-group-item list-group-item-action" href="lesson-08.html">Bài 8. Hàm và cấu trúc chương trình</a>
+              <a class="list-group-item list-group-item-action" href="lesson-09.html">Bài 9. Giới thiệu về con trỏ</a>
+              <a class="list-group-item list-group-item-action" href="lesson-10.html">Bài 10. Mảng một chiều</a>
+              <a class="list-group-item list-group-item-action" href="lesson-11.html">Bài 11. Mảng nhiều chiều</a>
+              <a class="list-group-item list-group-item-action" href="lesson-12.html">Bài 12. Chuỗi ký tự</a>
+              <a class="list-group-item list-group-item-action" href="lesson-13.html">Bài 13. Kiểu dữ liệu cấu trúc (struct)</a>
+              <a class="list-group-item list-group-item-action" href="lesson-14.html">Bài 14. Đọc ghi File</a>
+              <a class="list-group-item list-group-item-action" href="lesson-15.html">Bài 15. Ôn tập tổng hợp và Mini Project</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <article class="col-12 col-lg-9">
+        <section class="lesson-hero">
+          <span class="badge text-bg-primary mb-2">Bài 1</span>
+          <h1 class="fw-bold">Giới thiệu lập trình và môi trường phát triển</h1>
+          <p class="lead mb-0">
+            Bài học mở đầu giúp bạn hiểu lập trình là gì, C++ được dùng ở đâu, vì sao cần compiler và IDE,
+            và cách tự chuẩn bị môi trường để viết chương trình đầu tiên.
+          </p>
+        </section>
+
+        <section class="lesson-section">
+          <h2>1. Giới thiệu</h2>
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Khái niệm</h3>
+                <p class="mb-0">Lập trình là việc viết chỉ dẫn để máy tính làm đúng các bước mà con người muốn.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Mục tiêu bài học</h3>
+                <p class="mb-0">Biết C++ là gì, hiểu compiler và IDE, chạy được chương trình đầu tiên.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Kiến thức tiền đề</h3>
+                <p class="mb-0">Chỉ cần biết mở máy tính, cài phần mềm cơ bản và sẵn sàng đọc từng bước.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>Video mô phỏng</h2>
+          <div class="video-placeholder">
+            <p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>2. Tài liệu lý thuyết</h2>
+          <h3 class="h5 fw-bold">2.1 Lập trình là gì?</h3>
+          <p>
+            <strong>Khái niệm:</strong> Lập trình là quá trình biến ý tưởng thành các câu lệnh để máy tính thực hiện.
+            Mỗi câu lệnh là một bước nhỏ, giống như hướng dẫn làm bánh hay chỉ đường đi học.
+          </p>
+          <p>
+            <strong>Tại sao cần học:</strong> Nếu không hiểu lập trình, bạn chỉ nhìn thấy code như một khối ký tự khó đọc.
+            Khi hiểu bản chất, bạn sẽ biết chương trình được tạo ra từ các bước rõ ràng, chứ không phải “viết đại rồi chạy”.
+          </p>
+          <p>
+            <strong>Cách hoạt động:</strong> Con người nghĩ ra thuật toán, viết code theo cú pháp của C++, compiler dịch code,
+            rồi hệ điều hành chạy chương trình trên máy.
+          </p>
+          <p>
+            <strong>Lỗi thường gặp:</strong> Người mới thường muốn nhảy ngay vào code mà không hiểu đề bài, dẫn đến viết sai logic.
+            Một lỗi khác là quên đọc thông báo lỗi của compiler.
+          </p>
+
+          <h3 class="h5 fw-bold">2.2 C++ và compiler</h3>
+          <p>
+            <strong>Khái niệm:</strong> C++ là ngôn ngữ lập trình mạnh, linh hoạt, phù hợp để học tư duy lập trình và cấu trúc dữ liệu.
+          </p>
+          <p>
+            <strong>Tại sao cần học:</strong> C++ giúp bạn luyện tư duy rõ ràng, quản lý dữ liệu tốt và hiểu cách máy tính xử lý chương trình ở mức thấp hơn.
+          </p>
+          <p>
+            <strong>Cú pháp cơ bản:</strong></p>
+          <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    return 0;
+}</code></pre>
+          <p>
+            <strong>Cách hoạt động:</strong> `#include` nạp thư viện, `main()` là điểm bắt đầu, `return 0;` báo chương trình kết thúc bình thường.
+          </p>
+          <p>
+            <strong>Lỗi thường gặp:</strong> Thiếu `#include &lt;iostream&gt;`, thiếu `main()`, gõ sai tên lệnh, hoặc quên dấu chấm phẩy.
+          </p>
+
+          <h3 class="h5 fw-bold">2.3 IDE, terminal và quy trình làm việc</h3>
+          <p>
+            <strong>Khái niệm:</strong> IDE là công cụ hỗ trợ viết mã, biên dịch và chạy chương trình. Terminal là nơi bạn gõ lệnh để biên dịch nếu muốn làm thủ công.
+          </p>
+          <p>
+            <strong>Mục đích sử dụng:</strong> IDE giúp người mới đỡ bối rối, còn terminal giúp bạn hiểu rõ quy trình compile - run.
+          </p>
+          <p>
+            <strong>Cách làm việc cơ bản:</strong> Viết code → lưu file `.cpp` → biên dịch → chạy thử → xem lỗi → sửa → chạy lại.
+          </p>
+          <p>
+            <strong>Minh họa:</strong> Nếu bạn viết `cout &lt;&lt; "Xin chao";`, chương trình chỉ in ra dòng chữ đó khi có `main()` và lệnh biên dịch thành công.
+          </p>
+          <p>
+            <strong>Lỗi thường gặp:</strong> Mở file nhưng chưa lưu, nhấn Run nhưng compiler báo thiếu file, hoặc chạy nhầm chương trình cũ.
+          </p>
+
+          <h3 class="h5 fw-bold">2.4 Chương trình đầu tiên và thói quen viết code</h3>
+          <p>
+            <strong>Khái niệm:</strong> Chương trình đầu tiên thường in “Hello World” để kiểm tra môi trường hoạt động.
+          </p>
+          <p>
+            <strong>Tại sao cần học:</strong> Chạy được chương trình đầu tiên giúp bạn tin rằng môi trường đã cài đúng và hiểu được luồng compile - run.
+          </p>
+          <p>
+            <strong>Thói quen tốt:</strong> Đặt tên biến dễ hiểu, thụt lề đều, viết comment ngắn gọn và đọc lỗi theo từng dòng.
+          </p>
+          <p>
+            <strong>Ví dụ lỗi:</strong> Nếu thiếu `return 0;`, nhiều compiler vẫn chạy, nhưng khi học cơ bản bạn nên luôn viết đầy đủ để tạo thói quen tốt.
+          </p>
+        </section>
+
+        <section class="lesson-section">
+          <h2>3. Ví dụ minh họa</h2>
+
+          <div class="card mb-3">
+            <div class="card-body">
+              <h3 class="h5 fw-bold">Ví dụ cơ bản: Chương trình Hello World</h3>
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // In lời chào đầu tiên để kiểm tra môi trường C++
+    cout &lt;&lt; "Hello World" &lt;&lt; endl;
+
+    // Kết thúc chương trình bình thường
+    return 0;
+}</code></pre>
+              <p class="mb-2"><strong>Chương trình làm gì:</strong> In ra màn hình dòng chữ Hello World.</p>
+              <p class="mb-2"><strong>Luồng thực thi:</strong> Compiler đọc file, tìm `main()`, thực hiện lệnh `cout`, rồi kết thúc với `return 0;`.</p>
+              <p class="mb-0"><strong>Kết quả đầu ra:</strong> Một dòng chữ <code>Hello World</code> xuất hiện trên màn hình console.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h3 class="h5 fw-bold">Ví dụ thực tế: Chào người dùng và in năm học</h3>
+              <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Khai báo tên người dùng để nhập từ bàn phím
+    string name;
+    int birthYear;
+
+    // Yêu cầu người dùng nhập tên
+    cout &lt;&lt; "Nhap ten cua ban: ";
+    getline(cin, name);
+
+    // Yêu cầu người dùng nhập năm sinh
+    cout &lt;&lt; "Nhap nam sinh: ";
+    cin &gt;&gt; birthYear;
+
+    // In lời chào cá nhân hóa
+    cout &lt;&lt; "Xin chao " &lt;&lt; name &lt;&lt; "!" &lt;&lt; endl;
+    cout &lt;&lt; "Ban dang hoc lap trinh C++ trong nam 2026." &lt;&lt; endl;
+
+    // Kết thúc chương trình
+    return 0;
+}</code></pre>
+              <p class="mb-2"><strong>Chương trình làm gì:</strong> Nhận tên người dùng rồi chào bằng tên đó.</p>
+              <p class="mb-2"><strong>Luồng thực thi:</strong> Khai báo biến, nhập tên bằng `getline`, nhập năm sinh bằng `cin`, in lời chào, kết thúc.</p>
+              <p class="mb-0"><strong>Kết quả đầu ra:</strong> Console hiển thị lời chào có tên người dùng và một câu mô tả ngắn.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>4. Bài tập thực hành</h2>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Bài dễ 1</h3>
+                <p class="mb-0">Viết chương trình in tên khoa hoặc lớp của bạn ra màn hình.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Bài dễ 2</h3>
+                <p class="mb-0">Viết chương trình in ra 3 dòng giới thiệu bản thân, mỗi thông tin trên một dòng.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Bài dễ 3</h3>
+                <p class="mb-0">Thay đổi chương trình Hello World để in thêm tên trường của bạn.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Bài trung bình 1</h3>
+                <p class="mb-0">Nhập tên và năm sinh, sau đó in ra tuổi ước tính của người dùng.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="p-3 border rounded-3 h-100">
+                <h3 class="h6 fw-bold">Bài trung bình 2</h3>
+                <p class="mb-0">Viết chương trình in một lời nhắn chào mừng có ít nhất 3 câu.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="lesson-section">
+          <h2>5. Trắc nghiệm</h2>
+          <form id="quiz-form-1" class="vstack gap-3">
+            <div>
+              <p class="fw-semibold mb-2">1. Compiler có nhiệm vụ gì?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l1q1a" value="a"><label class="form-check-label" for="l1q1a">Biên dịch mã nguồn sang chương trình chạy được</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l1q1b" value="b"><label class="form-check-label" for="l1q1b">Vẽ giao diện người dùng</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l1q1c" value="c"><label class="form-check-label" for="l1q1c">Tự sửa lỗi logic</label></div>
+            </div>
+            <div>
+              <p class="fw-semibold mb-2">2. Hàm `main()` có vai trò gì?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l1q2a" value="a"><label class="form-check-label" for="l1q2a">Là điểm bắt đầu chạy chương trình</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l1q2b" value="b"><label class="form-check-label" for="l1q2b">Là thư viện chuẩn</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l1q2c" value="c"><label class="form-check-label" for="l1q2c">Là biến toàn cục</label></div>
+            </div>
+            <div>
+              <p class="fw-semibold mb-2">3. Câu lệnh `#include &lt;iostream&gt;` dùng để làm gì?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l1q3a" value="a"><label class="form-check-label" for="l1q3a">Nạp thư viện nhập xuất chuẩn</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l1q3b" value="b"><label class="form-check-label" for="l1q3b">Khai báo hàm `main()`</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l1q3c" value="c"><label class="form-check-label" for="l1q3c">Tạo biến kiểu chuỗi</label></div>
+            </div>
+            <div>
+              <p class="fw-semibold mb-2">4. IDE là gì?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l1q4a" value="a"><label class="form-check-label" for="l1q4a">Công cụ hỗ trợ viết, biên dịch và chạy code</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l1q4b" value="b"><label class="form-check-label" for="l1q4b">Một kiểu dữ liệu của C++</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l1q4c" value="c"><label class="form-check-label" for="l1q4c">Một lỗi của compiler</label></div>
+            </div>
+            <div>
+              <p class="fw-semibold mb-2">5. Lỗi nào rất hay gặp ở người mới?</p>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l1q5a" value="a"><label class="form-check-label" for="l1q5a">Quên dấu chấm phẩy hoặc thiếu `main()`</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l1q5b" value="b"><label class="form-check-label" for="l1q5b">Dùng comment tiếng Việt</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l1q5c" value="c"><label class="form-check-label" for="l1q5c">Viết tên biến dễ hiểu</label></div>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-primary" onclick="checkQuiz('quiz-form-1', 'quiz-result-1', { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'a' })">Nộp bài</button>
+              <div id="quiz-result-1" class="quiz-result"></div>
+            </div>
+          </form>
+        </section>
+
+        <section class="lesson-section">
+          <h2>6. Câu hỏi tự luận tự ôn tập</h2>
+
+          <div class="mb-4">
+            <p class="fw-semibold mb-2">Câu 1. Vì sao sinh viên năm nhất nên học cách compiler và IDE làm việc trước khi học sâu C++?</p>
+            <textarea id="essay-1-1" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-1-1', 'cpp-fundamentals-lesson-1-1')"></textarea>
+            <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-1-1')">Xem đáp án tham khảo</button>
+            <div id="answer-1-1" class="suggested-answer mt-3 card">
+              <div class="card-body">
+                <p class="mb-0">Gợi ý: vì compiler và IDE là công cụ đầu tiên giúp bạn biến code thành chương trình chạy được. Hiểu chúng giúp bạn biết file nào cần lưu, lỗi nào do cú pháp, và cách sửa nhanh hơn thay vì đoán mò.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="fw-semibold mb-2">Câu 2. Nếu chương trình không chạy, bạn sẽ kiểm tra theo những bước nào?</p>
+            <textarea id="essay-1-2" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-1-2', 'cpp-fundamentals-lesson-1-2')"></textarea>
+            <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-1-2')">Xem đáp án tham khảo</button>
+            <div id="answer-1-2" class="suggested-answer mt-3 card">
+              <div class="card-body">
+                <p class="mb-0">Gợi ý: kiểm tra đã lưu file chưa, có `main()` chưa, có thiếu `#include` hoặc dấu `;` không, đọc thông báo lỗi của compiler, rồi chạy lại sau mỗi lần sửa một lỗi.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap">
+          <a class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
+          <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-primary disabled" aria-disabled="true">Bài trước</a>
+            <a class="btn btn-primary" href="lesson-02.html">Bài tiếp theo</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="py-4 bg-dark text-white mt-4">
+    <div class="container text-center">
+      <p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../assets/js/quiz.js"></script>
+  <script src="../../../assets/js/lesson.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadEssayDraft('essay-1-1', 'cpp-fundamentals-lesson-1-1');
+      loadEssayDraft('essay-1-2', 'cpp-fundamentals-lesson-1-2');
+    });
+  </script>
+</body>
+</html>

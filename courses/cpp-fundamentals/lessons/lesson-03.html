@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 3 - Biến, hằng và kiểu dữ liệu | C++ Fundamentals</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/course.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html">Nhập môn lập trình C++</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="container my-4">
+    <div class="row">
+      <aside class="col-12 col-lg-3 mb-4">
+        <div class="card lesson-sidebar">
+          <div class="card-body">
+            <h2 class="h5 fw-bold">Mục lục khóa học</h2>
+            <div class="list-group list-group-flush">
+              <a class="list-group-item list-group-item-action" href="../index.html">Tổng quan khóa học</a>
+              <a class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Giới thiệu lập trình và môi trường phát triển</a>
+              <a class="list-group-item list-group-item-action" href="lesson-02.html">Bài 2. Thuật toán và mô tả thuật toán</a>
+              <a class="list-group-item list-group-item-action active" href="lesson-03.html">Bài 3. Biến, hằng và kiểu dữ liệu</a>
+              <a class="list-group-item list-group-item-action" href="lesson-04.html">Bài 4. Toán tử và biểu thức</a>
+              <a class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. Nhập xuất dữ liệu</a>
+              <a class="list-group-item list-group-item-action" href="lesson-06.html">Bài 6. Câu lệnh điều kiện</a>
+              <a class="list-group-item list-group-item-action" href="lesson-07.html">Bài 7. Vòng lặp</a>
+              <a class="list-group-item list-group-item-action" href="lesson-08.html">Bài 8. Hàm và cấu trúc chương trình</a>
+              <a class="list-group-item list-group-item-action" href="lesson-09.html">Bài 9. Giới thiệu về con trỏ</a>
+              <a class="list-group-item list-group-item-action" href="lesson-10.html">Bài 10. Mảng một chiều</a>
+              <a class="list-group-item list-group-item-action" href="lesson-11.html">Bài 11. Mảng nhiều chiều</a>
+              <a class="list-group-item list-group-item-action" href="lesson-12.html">Bài 12. Chuỗi ký tự</a>
+              <a class="list-group-item list-group-item-action" href="lesson-13.html">Bài 13. Kiểu dữ liệu cấu trúc (struct)</a>
+              <a class="list-group-item list-group-item-action" href="lesson-14.html">Bài 14. Đọc ghi File</a>
+              <a class="list-group-item list-group-item-action" href="lesson-15.html">Bài 15. Ôn tập tổng hợp và Mini Project</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <article class="col-12 col-lg-9">
+        <section class="lesson-hero">
+          <span class="badge text-bg-primary mb-2">Bài 3</span>
+          <h1 class="fw-bold">Biến, hằng và kiểu dữ liệu</h1>
+          <p class="lead mb-0">Bài học này giúp bạn biết cách lưu thông tin vào biến, dùng hằng khi dữ liệu không đổi, và chọn kiểu dữ liệu phù hợp để tránh lỗi ngay từ đầu.</p>
+        </section>
+        <section class="lesson-section">
+          <h2>1. Giới thiệu</h2>
+          <div class="row g-3">
+            <div class="col-12 col-md-4"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Khái niệm</h3><p class="mb-0">Biến là vùng nhớ đặt tên; hằng là giá trị không thay đổi; kiểu dữ liệu cho biết dữ liệu đó thuộc dạng gì.</p></div></div>
+            <div class="col-12 col-md-4"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Mục tiêu bài học</h3><p class="mb-0">Khai báo đúng, gán đúng, hiểu phạm vi giá trị và chọn kiểu dữ liệu phù hợp.</p></div></div>
+            <div class="col-12 col-md-4"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Kiến thức tiền đề</h3><p class="mb-0">Biết in ra màn hình và hiểu chương trình C++ bắt đầu từ `main()`.</p></div></div>
+          </div>
+        </section>
+        <section class="lesson-section">
+          <h2>Video mô phỏng</h2><div class="video-placeholder"><p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p></div>
+        </section>
+        <section class="lesson-section">
+          <h2>2. Tài liệu lý thuyết</h2>
+          <h3 class="h5 fw-bold">2.1 Biến</h3>
+          <p><strong>Khái niệm:</strong> Biến là nơi lưu trữ một giá trị có thể thay đổi trong chương trình.</p>
+          <p><strong>Tại sao cần học:</strong> Hầu như mọi bài toán đều phải lưu dữ liệu tạm thời như tuổi, điểm, số lượng, tên.</p>
+          <p><strong>Cú pháp:</strong></p>
+          <pre><code>int age = 20;
+double score = 8.5;
+string name = "An";</code></pre>
+          <p><strong>Cách hoạt động:</strong> Khi khai báo, chương trình cấp vùng nhớ cho biến; khi gán giá trị, dữ liệu được lưu vào vùng nhớ đó.</p>
+          <p><strong>Lỗi thường gặp:</strong> Dùng biến trước khi gán giá trị, đặt tên khó hiểu, hoặc chọn kiểu dữ liệu quá nhỏ.</p>
+
+          <h3 class="h5 fw-bold">2.2 Hằng</h3>
+          <p><strong>Khái niệm:</strong> Hằng là giá trị không thay đổi trong suốt thời gian chạy chương trình.</p>
+          <p><strong>Tại sao cần học:</strong> Các giá trị như số ngày trong tuần, số pi hoặc giới hạn điểm tối đa nên để dạng hằng để tránh sửa nhầm.</p>
+          <p><strong>Cú pháp:</strong></p>
+          <pre><code>const double PI = 3.14159;
+const int MAX_STUDENT = 50;</code></pre>
+          <p><strong>Cách hoạt động:</strong> `const` nói với compiler rằng giá trị này chỉ đọc, không được gán lại.</p>
+          <p><strong>Lỗi thường gặp:</strong> Cố gắng thay đổi hằng sau khi khai báo hoặc quên dùng `const` cho giá trị cố định.</p>
+
+          <h3 class="h5 fw-bold">2.3 Kiểu dữ liệu</h3>
+          <p><strong>Khái niệm:</strong> Kiểu dữ liệu cho biết biến lưu số nguyên, số thực, ký tự hay chuỗi.</p>
+          <p><strong>Tại sao cần học:</strong> Chọn đúng kiểu giúp chương trình chính xác hơn và tiết kiệm bộ nhớ hơn.</p>
+          <p><strong>Các kiểu cơ bản:</strong> `int` cho số nguyên, `double` cho số thực, `char` cho một ký tự, `string` cho chuỗi ký tự.</p>
+          <p><strong>Lỗi thường gặp:</strong> Dùng `int` để lưu điểm 8.5 hoặc dùng `char` khi cần tên đầy đủ.</p>
+
+          <h3 class="h5 fw-bold">2.4 Phạm vi giá trị và kiểu phù hợp</h3>
+          <p><strong>Khái niệm:</strong> Mỗi kiểu dữ liệu có phạm vi và cách lưu khác nhau.</p>
+          <p><strong>Tại sao cần học:</strong> Nếu chọn sai kiểu, dữ liệu có thể bị mất phần thập phân hoặc bị tràn số.</p>
+          <p><strong>Minh họa:</strong> Tuổi nên dùng `int`, điểm trung bình nên dùng `double`, tên sinh viên nên dùng `string`.</p>
+          <p><strong>Lỗi thường gặp:</strong> Dùng kiểu không phù hợp chỉ vì “code vẫn chạy”, trong khi kết quả đã sai từ đầu.</p>
+        </section>
+        <section class="lesson-section">
+          <h2>3. Ví dụ minh họa</h2>
+          <div class="card mb-3"><div class="card-body"><h3 class="h5 fw-bold">Ví dụ cơ bản: Khai báo biến và hằng</h3><pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Khai báo biến tuổi và điểm
+    int age = 18;
+    double score = 8.75;
+
+    // Khai báo hằng số pi
+    const double PI = 3.14159;
+
+    // In ra các giá trị vừa khai báo
+    cout &lt;&lt; "Tuoi: " &lt;&lt; age &lt;&lt; endl;
+    cout &lt;&lt; "Diem: " &lt;&lt; score &lt;&lt; endl;
+    cout &lt;&lt; "PI: " &lt;&lt; PI &lt;&lt; endl;
+
+    return 0;
+}</code></pre><p class="mb-2"><strong>Chương trình làm gì:</strong> Lưu và in ra biến, hằng, số nguyên và số thực.</p><p class="mb-2"><strong>Luồng thực thi:</strong> Khai báo biến, gán giá trị, in từng giá trị theo thứ tự.</p><p class="mb-0"><strong>Kết quả đầu ra:</strong> Hiển thị tuổi, điểm và giá trị PI.</p></div></div>
+          <div class="card"><div class="card-body"><h3 class="h5 fw-bold">Ví dụ thực tế: Tính diện tích hình tròn</h3><pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Khai báo hằng số pi để dùng trong công thức
+    const double PI = 3.14159;
+
+    // Khai báo bán kính và diện tích
+    double radius, area;
+
+    // Nhập bán kính từ người dùng
+    cout &lt;&lt; "Nhap ban kinh: ";
+    cin &gt;&gt; radius;
+
+    // Tính diện tích hình tròn
+    area = PI * radius * radius;
+
+    // In kết quả
+    cout &lt;&lt; "Dien tich hinh tron la: " &lt;&lt; area &lt;&lt; endl;
+
+    return 0;
+}</code></pre><p class="mb-2"><strong>Chương trình làm gì:</strong> Nhập bán kính và tính diện tích hình tròn.</p><p class="mb-2"><strong>Luồng thực thi:</strong> Nhập `radius`, dùng hằng `PI`, tính công thức, rồi in kết quả.</p><p class="mb-0"><strong>Kết quả đầu ra:</strong> Nếu bán kính là 2 thì diện tích xấp xỉ 12.56636.</p></div></div>
+        </section>
+        <section class="lesson-section">
+          <h2>4. Bài tập thực hành</h2>
+          <div class="row g-3">
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài dễ 1</h3><p class="mb-0">Khai báo biến lưu họ tên, tuổi và quê quán.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài dễ 2</h3><p class="mb-0">Khai báo hằng số cho số ngày trong tuần và in ra màn hình.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài dễ 3</h3><p class="mb-0">Viết chương trình lưu điểm 3 môn bằng 3 biến `double`.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài trung bình 1</h3><p class="mb-0">Nhập bán kính và tính chu vi hình tròn bằng hằng `PI`.</p></div></div>
+            <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Bài trung bình 2</h3><p class="mb-0">Nhập chiều dài và chiều rộng rồi tính diện tích hình chữ nhật.</p></div></div>
+          </div>
+        </section>
+        <section class="lesson-section">
+          <h2>5. Trắc nghiệm</h2>
+          <form id="quiz-form-3" class="vstack gap-3">
+            <div><p class="fw-semibold mb-2">1. Biến dùng để làm gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l3q1a" value="a"><label class="form-check-label" for="l3q1a">Lưu giá trị có thể thay đổi</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l3q1b" value="b"><label class="form-check-label" for="l3q1b">Tạo lưu đồ</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q1" id="l3q1c" value="c"><label class="form-check-label" for="l3q1c">Biên dịch code</label></div></div>
+            <div><p class="fw-semibold mb-2">2. Từ khóa nào dùng để khai báo hằng?</p><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l3q2a" value="a"><label class="form-check-label" for="l3q2a">const</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l3q2b" value="b"><label class="form-check-label" for="l3q2b">static</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q2" id="l3q2c" value="c"><label class="form-check-label" for="l3q2c">break</label></div></div>
+            <div><p class="fw-semibold mb-2">3. Kiểu nào phù hợp cho điểm 8.5?</p><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l3q3a" value="a"><label class="form-check-label" for="l3q3a">double</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l3q3b" value="b"><label class="form-check-label" for="l3q3b">char</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q3" id="l3q3c" value="c"><label class="form-check-label" for="l3q3c">bool</label></div></div>
+            <div><p class="fw-semibold mb-2">4. Vì sao nên chọn kiểu dữ liệu đúng?</p><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l3q4a" value="a"><label class="form-check-label" for="l3q4a">Để tránh sai kết quả và tràn số</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l3q4b" value="b"><label class="form-check-label" for="l3q4b">Để code dài hơn</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q4" id="l3q4c" value="c"><label class="form-check-label" for="l3q4c">Để không cần nhập dữ liệu</label></div></div>
+            <div><p class="fw-semibold mb-2">5. `string` thường dùng để lưu gì?</p><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l3q5a" value="a"><label class="form-check-label" for="l3q5a">Tên hoặc chuỗi ký tự</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l3q5b" value="b"><label class="form-check-label" for="l3q5b">Số nguyên</label></div><div class="form-check"><input class="form-check-input" type="radio" name="q5" id="l3q5c" value="c"><label class="form-check-label" for="l3q5c">Chỉ số âm</label></div></div>
+            <div class="d-flex flex-wrap gap-2"><button type="button" class="btn btn-primary" onclick="checkQuiz('quiz-form-3', 'quiz-result-3', { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'a' })">Nộp bài</button><div id="quiz-result-3" class="quiz-result"></div></div>
+          </form>
+        </section>
+        <section class="lesson-section">
+          <h2>6. Câu hỏi tự luận tự ôn tập</h2>
+          <div class="mb-4"><p class="fw-semibold mb-2">Câu 1. Vì sao sinh viên mới học C++ cần phân biệt biến và hằng?</p><textarea id="essay-3-1" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-3-1', 'cpp-fundamentals-lesson-3-1')"></textarea><button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-3-1')">Xem đáp án tham khảo</button><div id="answer-3-1" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: biến dùng cho dữ liệu thay đổi, hằng dùng cho dữ liệu cố định. Phân biệt rõ giúp code dễ đọc, tránh sửa nhầm giá trị và làm chương trình đúng hơn.</p></div></div></div>
+          <div><p class="fw-semibold mb-2">Câu 2. Hãy nêu ví dụ thực tế cho `int`, `double` và `string`.</p><textarea id="essay-3-2" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-3-2', 'cpp-fundamentals-lesson-3-2')"></textarea><button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-3-2')">Xem đáp án tham khảo</button><div id="answer-3-2" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: `int` cho số lượng sinh viên, `double` cho điểm trung bình, `string` cho họ tên. Chọn đúng kiểu giúp dữ liệu lưu trữ và tính toán chính xác.</p></div></div></div>
+        </section>
+        <div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap"><a class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a><div class="d-flex gap-2 flex-wrap"><a class="btn btn-primary" href="lesson-02.html">Bài trước</a><a class="btn btn-primary" href="lesson-04.html">Bài tiếp theo</a></div></div>
+      </article>
+    </div>
+  </main>
+  <footer class="py-4 bg-dark text-white mt-4"><div class="container text-center"><p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../assets/js/quiz.js"></script>
+  <script src="../../../assets/js/lesson.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => { loadEssayDraft('essay-3-1', 'cpp-fundamentals-lesson-3-1'); loadEssayDraft('essay-3-2', 'cpp-fundamentals-lesson-3-2'); });</script>
+</body>
+</html>
