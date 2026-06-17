@@ -1,0 +1,22 @@
+/* Course-specific styles can be added here. */
+
+.lesson-hero {
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.lesson-section {
+  margin-bottom: 2rem;
+}
+
+.lesson-section h2 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.lesson-navigation {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}

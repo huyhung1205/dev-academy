@@ -1,0 +1,280 @@
+# .workflows
+
+## Main Workflow: Generate A New Course
+
+This is the most important workflow.
+
+When the user gives this prompt pattern:
+
+```txt
+Tạo khóa học "Course Name".
+
+Nội dung lý thuyết gồm:
+[content]
+```
+
+the AI must follow these steps.
+
+### Step 1: Read Project Instructions
+
+Read:
+
+```txt
+AGENTS.md
+CLAUDE.md
+.spec
+.rules
+.workflows
+```
+
+### Step 2: Understand The Course
+
+Analyze:
+
+- Course name
+- Provided theory content
+- Natural lesson topics
+- Target learners
+- Course difficulty
+
+### Step 3: Create Course Slug
+
+Convert course name to lowercase hyphenated English slug.
+
+Examples:
+
+```txt
+Agent Engineering -> agent-engineering
+Python Cơ Bản -> python-fundamentals
+Lập Trình Web -> web-development
+```
+
+### Step 4: Create Course Folder
+
+Create:
+
+```txt
+courses/<course-slug>/
+courses/<course-slug>/lessons/
+```
+
+### Step 5: Split Content Into Lessons
+
+Automatically split the provided theory content into logical lessons.
+
+If the user provides enough content, use that content.
+
+If the user only provides a general topic, create at least 5 beginner-friendly lessons.
+
+### Step 6: Create Course Overview Page
+
+Create:
+
+```txt
+courses/<course-slug>/index.html
+```
+
+The page must include:
+
+- Course title
+- Course description
+- Target learners
+- Learning objectives
+- Lesson list
+- Start learning button
+- Link to homepage
+- Link to courses page if available
+
+### Step 7: Create Lesson Pages
+
+Create lesson files such as:
+
+```txt
+courses/<course-slug>/lessons/lesson-01.html
+courses/<course-slug>/lessons/lesson-02.html
+courses/<course-slug>/lessons/lesson-03.html
+courses/<course-slug>/lessons/lesson-04.html
+courses/<course-slug>/lessons/lesson-05.html
+```
+
+Each lesson must include:
+
+```txt
+1. Video mô phỏng
+2. Tài liệu lý thuyết
+3. Ví dụ minh họa
+4. Trắc nghiệm bằng JavaScript
+5. Câu hỏi tự luận tự ôn tập
+6. Đáp án tham khảo
+7. Previous / Next navigation
+```
+
+### Step 8: Create Sidebar
+
+Each lesson page must include a sidebar/table of contents with links to:
+
+- Course overview
+- Lesson 1
+- Lesson 2
+- Lesson 3
+- Lesson 4
+- Lesson 5
+- More lessons if created
+
+### Step 9: Add Quiz JavaScript
+
+Each lesson must include JavaScript quiz behavior.
+
+The quiz must:
+
+- Allow choosing answers.
+- Calculate score.
+- Show score.
+- Work without backend.
+- Work on GitHub Pages.
+
+### Step 10: Add Essay Self-Study
+
+Each lesson must include:
+
+- Essay question
+- Textarea
+- Button: `Xem đáp án tham khảo`
+- Hidden suggested answer
+- JavaScript to show the suggested answer
+
+The essay is not graded.
+
+### Step 11: Update Homepage
+
+Modify:
+
+```txt
+index.html
+```
+
+Add the new course as:
+
+- Course card
+- Sidebar item
+- Menu item
+- Course list item
+
+Preferred course card:
+
+```html
+<div class="col-md-6 col-lg-4">
+  <div class="card h-100">
+    <div class="card-body">
+      <h3 class="card-title">Course Name</h3>
+      <p class="card-text">Short course description.</p>
+      <a href="courses/course-slug/index.html" class="btn btn-primary">Bắt đầu học</a>
+    </div>
+  </div>
+</div>
+```
+
+If existing homepage style is different, follow the existing style.
+
+### Step 12: Update Courses Page
+
+If this file exists:
+
+```txt
+courses.html
+```
+
+add the new course there.
+
+If it does not exist, skip this step unless needed.
+
+### Step 13: Check Responsive Layout
+
+Check that pages work on:
+
+- Mobile
+- Tablet
+- Laptop
+- Desktop
+
+Use Bootstrap grid.
+
+### Step 14: Check Links
+
+Check:
+
+- Homepage to course page
+- Course page to lessons
+- Lesson sidebar links
+- Previous/next links
+- Back to course link
+- Back to homepage link
+
+### Step 15: Final Summary
+
+After completing the task, report:
+
+```txt
+Created:
+- ...
+
+Modified:
+- ...
+
+Added:
+- Course overview
+- Lesson pages
+- Sidebar
+- Quiz JavaScript
+- Essay self-study
+- Homepage course card
+```
+
+## Workflow: Create A New Lesson In Existing Course
+
+When the user asks to add a lesson to an existing course:
+
+1. Find the course folder.
+2. Create a new lesson file.
+3. Add required lesson sections.
+4. Update course overview lesson list.
+5. Update sidebar in related lesson pages if possible.
+6. Update previous/next navigation.
+7. Test links.
+
+## Workflow: Improve Existing Course
+
+When the user asks to improve a course:
+
+1. Read the course folder.
+2. Identify current structure.
+3. Preserve existing content.
+4. Improve layout, navigation, quiz, or responsiveness.
+5. Do not delete existing lessons unless requested.
+6. Summarize changes.
+
+## Workflow: Add Course To Homepage Only
+
+When a course already exists but is missing on homepage:
+
+1. Open `index.html`.
+2. Find course section.
+3. Add course card.
+4. Link to course overview page.
+5. Keep existing style.
+6. Test the link.
+
+## Workflow: Review Before Commit
+
+Before finishing any implementation:
+
+- Check HTML structure.
+- Check relative paths.
+- Check Bootstrap layout.
+- Check mobile layout.
+- Check laptop layout.
+- Check quiz button.
+- Check essay answer button.
+- Check internal links.
+- Remove unused code.
+- Summarize changed files.

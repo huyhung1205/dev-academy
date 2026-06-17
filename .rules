@@ -1,0 +1,171 @@
+# .rules
+
+## General Project Rules
+
+- This is a static GitHub Pages project.
+- Keep everything simple.
+- Prefer HTML, CSS, JavaScript, and Bootstrap.
+- Do not introduce backend.
+- Do not add database.
+- Do not add login/register.
+- Do not add build tools.
+- Do not require npm install.
+- Do not break existing pages.
+
+## Course Creation Rules
+
+When the user asks to create a course, the AI must:
+
+1. Create course folder.
+2. Create course overview page.
+3. Split theory content into lessons.
+4. Create lesson pages.
+5. Create sidebar or table of contents.
+6. Create quiz JavaScript.
+7. Create essay self-study section.
+8. Create suggested answers.
+9. Add previous/next lesson navigation.
+10. Update `index.html` with the new course.
+11. Update `courses.html` if it exists.
+12. Ensure responsive layout.
+
+## Do Not Stop At Text
+
+When creating a course, do not only write course content in the chat.
+
+The AI must create or modify project files.
+
+## Required Lesson Sections
+
+Every lesson must include:
+
+```txt
+Video mô phỏng
+Tài liệu lý thuyết
+Ví dụ minh họa
+Trắc nghiệm
+Câu hỏi tự luận
+Đáp án tham khảo
+```
+
+## Homepage Rules
+
+When adding a course, update `index.html`.
+
+If `index.html` has a course section, add the new course there.
+
+If `index.html` does not have a course section, create a course section.
+
+The new course entry must link to:
+
+```txt
+courses/<course-slug>/index.html
+```
+
+## Navigation Rules
+
+Every course must include navigation.
+
+Course overview page:
+
+- Link to homepage
+- Link to lessons
+- Link to courses page if available
+
+Lesson page:
+
+- Link to homepage
+- Link to course overview
+- Link to all lessons in sidebar
+- Link to previous lesson
+- Link to next lesson
+
+## Responsive Rules
+
+Use Bootstrap responsive classes.
+
+Desktop/laptop:
+
+- Sidebar on the left
+- Lesson content on the right
+
+Mobile:
+
+- Sidebar above the content or collapsible
+- No horizontal scrolling
+- Buttons must be easy to tap
+
+## Content Rules
+
+- User-facing content should be Vietnamese.
+- File and folder names should be English.
+- Explain concepts clearly.
+- Use beginner-friendly examples.
+- Avoid overly long paragraphs.
+- Use lists and tables where helpful.
+
+## Quiz Rules
+
+- Use JavaScript.
+- Show score immediately.
+- Do not send data to a server.
+- Do not require account.
+- Use 3 to 5 questions per lesson when possible.
+
+## Essay Rules
+
+- Essay questions are self-study only.
+- Do not grade essays.
+- Suggested answer must be available.
+- Suggested answer should be hidden by default.
+- Learners can compare their answer manually.
+
+## File Naming Rules
+
+Use lowercase and hyphenated names.
+
+Good examples:
+
+```txt
+agent-engineering
+python-fundamentals
+data-structures
+lesson-01.html
+binary-search.html
+what-is-ai-agent.html
+```
+
+Bad examples:
+
+```txt
+Agent Engineering
+Bai 1.html
+Lesson 01.html
+finalVersion.html
+```
+
+## Path Rules
+
+Use relative paths.
+
+Do not use local absolute paths like:
+
+```txt
+C:\Users\...
+/home/user/...
+```
+
+Do not use root-relative paths like:
+
+```txt
+/assets/css/style.css
+```
+
+unless the project is specifically configured for that.
+
+## Safety Rules
+
+- Do not store API keys.
+- Do not store passwords.
+- Do not include private user data.
+- Do not use external paid services by default.

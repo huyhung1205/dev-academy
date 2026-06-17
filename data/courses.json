@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Nhập môn lập trình",
+    "slug": "programming-fundamentals",
+    "status": "planned"
+  },
+  {
+    "title": "Cấu trúc dữ liệu",
+    "slug": "data-structures",
+    "status": "planned"
+  },
+  {
+    "title": "Giải thuật",
+    "slug": "algorithms",
+    "status": "planned"
+  }
+]
