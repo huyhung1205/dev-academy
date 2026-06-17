@@ -1,220 +1,390 @@
 # .workflows
 
-## Main Workflow: Generate A New Course
+########################################################
+# MAIN WORKFLOW: GENERATE A NEW COURSE
+########################################################
 
-This is the most important workflow.
+When the user gives a prompt such as:
 
-When the user gives this prompt pattern:
+Tạo khóa học "Course Name"
 
-```txt
-Tạo khóa học "Course Name".
+or
+
+Tạo khóa học "Course Name"
 
 Nội dung lý thuyết gồm:
 [content]
-```
 
-the AI must follow these steps.
+the AI must execute the following workflow.
 
-### Step 1: Read Project Instructions
+------------------------------------------------
+
+STEP 1: READ PROJECT INSTRUCTIONS
 
 Read:
 
-```txt
-AGENTS.md
-CLAUDE.md
-.spec
-.rules
-.workflows
-```
+- AGENTS.md
+- CLAUDE.md
+- .spec
+- .rules
+- .workflows
 
-### Step 2: Understand The Course
+These files are mandatory.
 
-Analyze:
+------------------------------------------------
+
+STEP 2: ANALYZE THE COURSE
+
+Identify:
 
 - Course name
-- Provided theory content
-- Natural lesson topics
+- Course topic
 - Target learners
-- Course difficulty
+- Difficulty level
+- Required prerequisites
+- Theory content provided by the user
 
-### Step 3: Create Course Slug
+Determine:
 
-Convert course name to lowercase hyphenated English slug.
+- Number of lessons
+- Lesson ordering
+- Learning progression
+
+The lesson order must go:
+
+Easy
+→ Medium
+→ Advanced
+
+------------------------------------------------
+
+STEP 3: CREATE COURSE SLUG
+
+Convert course name into lowercase hyphenated English.
 
 Examples:
 
-```txt
-Agent Engineering -> agent-engineering
-Python Cơ Bản -> python-fundamentals
-Lập Trình Web -> web-development
-```
+Agent Engineering
+→ agent-engineering
 
-### Step 4: Create Course Folder
+Python Cơ Bản
+→ python-fundamentals
+
+Lập Trình Web
+→ web-development
+
+------------------------------------------------
+
+STEP 4: CREATE COURSE FOLDER
 
 Create:
 
-```txt
 courses/<course-slug>/
-courses/<course-slug>/lessons/
-```
-
-### Step 5: Split Content Into Lessons
-
-Automatically split the provided theory content into logical lessons.
-
-If the user provides enough content, use that content.
-
-If the user only provides a general topic, create at least 5 beginner-friendly lessons.
-
-### Step 6: Create Course Overview Page
 
 Create:
 
-```txt
-courses/<course-slug>/index.html
-```
+courses/<course-slug>/lessons/
 
-The page must include:
+------------------------------------------------
+
+STEP 5: CREATE COURSE OVERVIEW PAGE
+
+Create:
+
+courses/<course-slug>/index.html
+
+Required sections:
 
 - Course title
 - Course description
 - Target learners
 - Learning objectives
+- Prerequisites
 - Lesson list
 - Start learning button
 - Link to homepage
 - Link to courses page if available
 
-### Step 7: Create Lesson Pages
+------------------------------------------------
 
-Create lesson files such as:
+STEP 6: SPLIT THEORY INTO LESSONS
 
-```txt
+Analyze the provided theory.
+
+Create logical lesson boundaries.
+
+Do NOT blindly split by paragraph.
+
+Group related topics together.
+
+If the user only provides a course name:
+
+Create a complete beginner-friendly curriculum.
+
+Minimum:
+
+5 lessons
+
+Recommended:
+
+10+ lessons
+
+------------------------------------------------
+
+STEP 7: GENERATE LESSON PAGES
+
+Create lesson pages.
+
+Example:
+
 courses/<course-slug>/lessons/lesson-01.html
 courses/<course-slug>/lessons/lesson-02.html
 courses/<course-slug>/lessons/lesson-03.html
-courses/<course-slug>/lessons/lesson-04.html
-courses/<course-slug>/lessons/lesson-05.html
-```
 
-Each lesson must include:
+...
 
-```txt
-1. Video mô phỏng
-2. Tài liệu lý thuyết
-3. Ví dụ minh họa
-4. Trắc nghiệm bằng JavaScript
-5. Câu hỏi tự luận tự ôn tập
-6. Đáp án tham khảo
-7. Previous / Next navigation
-```
+------------------------------------------------
 
-### Step 8: Create Sidebar
+STEP 8: GENERATE LESSON CONTENT
 
-Each lesson page must include a sidebar/table of contents with links to:
+For every lesson generate:
 
-- Course overview
-- Lesson 1
-- Lesson 2
-- Lesson 3
-- Lesson 4
-- Lesson 5
-- More lessons if created
+1. Introduction
+2. Learning Objectives
+3. Theory
+4. Syntax (if applicable)
+5. How It Works
+6. Common Mistakes
+7. Example 1
+8. Example 2
+9. Practice Exercises
+10. Quiz
+11. Essay Questions
+12. Suggested Answers
+13. Summary
 
-### Step 9: Add Quiz JavaScript
+------------------------------------------------
 
-Each lesson must include JavaScript quiz behavior.
+STEP 9: THEORY GENERATION
 
-The quiz must:
+Generate detailed beginner-friendly theory.
 
-- Allow choosing answers.
-- Calculate score.
-- Show score.
-- Work without backend.
-- Work on GitHub Pages.
+Every important concept must include:
 
-### Step 10: Add Essay Self-Study
+- Definition
+- Why it is needed
+- Real-world usage
+- Syntax
+- Step-by-step explanation
+- Common mistakes
+- Summary
 
-Each lesson must include:
+Avoid:
 
-- Essay question
-- Textarea
-- Button: `Xem đáp án tham khảo`
-- Hidden suggested answer
-- JavaScript to show the suggested answer
+- Generic explanations
+- One-paragraph lessons
+- Pure bullet-point lessons
 
-The essay is not graded.
+------------------------------------------------
 
-### Step 11: Update Homepage
+STEP 10: PROGRAMMING EXAMPLES
+
+For programming courses:
+
+Generate:
+
+Example 1:
+Basic example
+
+Example 2:
+Practical example
+
+Every example must:
+
+- Compile
+- Be runnable
+- Include required libraries
+- Include main()
+- Include Vietnamese comments
+
+------------------------------------------------
+
+STEP 11: CODE EXPLANATION
+
+After every code example generate:
+
+Giải thích chương trình
+
+Including:
+
+- Purpose
+- Input
+- Output
+- Variables
+- Execution flow
+- Expected result
+
+------------------------------------------------
+
+STEP 12: PRACTICE EXERCISES
+
+Generate:
+
+Easy:
+- 3 exercises
+
+Medium:
+- 2 exercises
+
+Hard:
+- Optional
+
+Programming exercises should require coding.
+
+------------------------------------------------
+
+STEP 13: QUIZ GENERATION
+
+Generate:
+
+Minimum:
+5 questions
+
+Question types:
+
+- Concept
+- Syntax
+- Output prediction
+- Error detection
+- Practical usage
+
+Quiz must:
+
+- Run with JavaScript
+- Work without backend
+- Show score immediately
+
+------------------------------------------------
+
+STEP 14: ESSAY GENERATION
+
+Generate:
+
+Minimum:
+2 essay questions
+
+Generate:
+
+Suggested answers
+
+Do NOT auto-grade essays.
+
+------------------------------------------------
+
+STEP 15: CREATE SIDEBAR
+
+Every lesson page must contain:
+
+- Course overview link
+- Lesson links
+- Active lesson highlight if possible
+
+Desktop:
+
+Sidebar on left
+
+Mobile:
+
+Sidebar above content
+
+------------------------------------------------
+
+STEP 16: CREATE NAVIGATION
+
+Every lesson page must include:
+
+- Previous lesson
+- Next lesson
+- Back to course
+- Back to homepage
+
+------------------------------------------------
+
+STEP 17: UPDATE HOMEPAGE
 
 Modify:
 
-```txt
 index.html
-```
 
-Add the new course as:
+Add:
 
 - Course card
-- Sidebar item
-- Menu item
+or
 - Course list item
 
-Preferred course card:
+Insert between:
 
-```html
-<div class="col-md-6 col-lg-4">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">Course Name</h3>
-      <p class="card-text">Short course description.</p>
-      <a href="courses/course-slug/index.html" class="btn btn-primary">Bắt đầu học</a>
-    </div>
-  </div>
-</div>
-```
+AGENT_COURSE_CARDS_START
 
-If existing homepage style is different, follow the existing style.
+and
 
-### Step 12: Update Courses Page
+AGENT_COURSE_CARDS_END
 
-If this file exists:
+when available.
 
-```txt
+------------------------------------------------
+
+STEP 18: UPDATE COURSES PAGE
+
+If:
+
 courses.html
-```
 
-add the new course there.
+exists
 
-If it does not exist, skip this step unless needed.
+Add the course there.
 
-### Step 13: Check Responsive Layout
+Insert between:
 
-Check that pages work on:
+AGENT_COURSES_PAGE_CARDS_START
+
+and
+
+AGENT_COURSES_PAGE_CARDS_END
+
+when available.
+
+------------------------------------------------
+
+STEP 19: RESPONSIVE REVIEW
+
+Verify:
 
 - Mobile
 - Tablet
 - Laptop
 - Desktop
 
-Use Bootstrap grid.
+No horizontal scrolling.
 
-### Step 14: Check Links
+------------------------------------------------
 
-Check:
+STEP 20: LINK REVIEW
 
-- Homepage to course page
-- Course page to lessons
-- Lesson sidebar links
-- Previous/next links
-- Back to course link
-- Back to homepage link
+Verify:
 
-### Step 15: Final Summary
+- Homepage link
+- Course page link
+- Sidebar links
+- Previous link
+- Next link
 
-After completing the task, report:
+------------------------------------------------
 
-```txt
+STEP 21: FINAL REPORT
+
+Report:
+
 Created:
 - ...
 
@@ -225,56 +395,120 @@ Added:
 - Course overview
 - Lesson pages
 - Sidebar
-- Quiz JavaScript
-- Essay self-study
-- Homepage course card
-```
+- Quiz
+- Essay
+- Homepage card
 
-## Workflow: Create A New Lesson In Existing Course
+########################################################
+# WORKFLOW: IMPROVE EXISTING COURSE
+########################################################
 
-When the user asks to add a lesson to an existing course:
+When the user asks:
 
-1. Find the course folder.
-2. Create a new lesson file.
-3. Add required lesson sections.
-4. Update course overview lesson list.
-5. Update sidebar in related lesson pages if possible.
-6. Update previous/next navigation.
-7. Test links.
+- Improve course
+- Refactor course
+- Expand course
+- Make lessons more detailed
 
-## Workflow: Improve Existing Course
+Follow:
 
-When the user asks to improve a course:
+1. Read the existing course.
+2. Preserve URLs.
+3. Preserve folder structure.
+4. Preserve navigation.
+5. Preserve quizzes.
+6. Preserve essay sections.
+7. Improve theory.
+8. Improve examples.
+9. Add comments.
+10. Add exercises.
+11. Add explanations.
 
-1. Read the course folder.
-2. Identify current structure.
-3. Preserve existing content.
-4. Improve layout, navigation, quiz, or responsiveness.
-5. Do not delete existing lessons unless requested.
-6. Summarize changes.
+Do NOT reduce content quality.
 
-## Workflow: Add Course To Homepage Only
+########################################################
+# WORKFLOW: REFINE PROGRAMMING COURSE
+########################################################
 
-When a course already exists but is missing on homepage:
+When the course is a programming course:
 
-1. Open `index.html`.
-2. Find course section.
-3. Add course card.
-4. Link to course overview page.
-5. Keep existing style.
-6. Test the link.
+Examples:
 
-## Workflow: Review Before Commit
+- C++
+- Python
+- Java
+- DSA
 
-Before finishing any implementation:
+Mandatory:
 
-- Check HTML structure.
-- Check relative paths.
-- Check Bootstrap layout.
-- Check mobile layout.
-- Check laptop layout.
-- Check quiz button.
-- Check essay answer button.
-- Check internal links.
-- Remove unused code.
-- Summarize changed files.
+- Detailed theory
+- Runnable code
+- Code comments
+- Code explanations
+- Practice exercises
+
+Priority:
+
+Teaching quality
+>
+Page generation
+
+########################################################
+# WORKFLOW: REFINE GIT COURSE
+########################################################
+
+When the course is a Git course:
+
+Generate:
+
+- Commands
+- Workflows
+- Common mistakes
+- Real examples
+
+For every command explain:
+
+- What it does
+- When to use it
+- Expected result
+- Common errors
+
+Example:
+
+git status
+git add .
+git commit -m "Initial commit"
+
+must always be followed by explanation.
+
+########################################################
+# REVIEW BEFORE COMPLETION
+########################################################
+
+Before finishing:
+
+Check:
+
+✓ HTML structure
+
+✓ Relative paths
+
+✓ Sidebar
+
+✓ Navigation
+
+✓ Quiz
+
+✓ Essay
+
+✓ Responsive layout
+
+✓ Theory quality
+
+✓ Example quality
+
+✓ Code comments
+
+✓ Practice exercises
+
+A lesson that fails any item above is incomplete.

@@ -3,14 +3,15 @@
 ## General Project Rules
 
 - This is a static GitHub Pages project.
-- Keep everything simple.
+- Keep everything simple, readable, and maintainable.
 - Prefer HTML, CSS, JavaScript, and Bootstrap.
 - Do not introduce backend.
 - Do not add database.
 - Do not add login/register.
 - Do not add build tools.
-- Do not require npm install.
+- Do not require `npm install`.
 - Do not break existing pages.
+- Do not change existing URLs unless explicitly requested.
 
 ## Course Creation Rules
 
@@ -18,7 +19,7 @@ When the user asks to create a course, the AI must:
 
 1. Create course folder.
 2. Create course overview page.
-3. Split theory content into lessons.
+3. Split theory content into suitable lessons.
 4. Create lesson pages.
 5. Create sidebar or table of contents.
 6. Create quiz JavaScript.
@@ -27,11 +28,11 @@ When the user asks to create a course, the AI must:
 9. Add previous/next lesson navigation.
 10. Update `index.html` with the new course.
 11. Update `courses.html` if it exists.
-12. Ensure responsive layout.
+12. Ensure responsive layout for mobile, tablet, laptop, and desktop.
 
 ## Do Not Stop At Text
 
-When creating a course, do not only write course content in the chat.
+When creating or refactoring a course, do not only write course content in the chat.
 
 The AI must create or modify project files.
 
@@ -43,10 +44,244 @@ Every lesson must include:
 Video mô phỏng
 Tài liệu lý thuyết
 Ví dụ minh họa
+Bài tập thực hành
 Trắc nghiệm
 Câu hỏi tự luận
 Đáp án tham khảo
 ```
+
+## Educational Quality Rule
+
+A lesson is incomplete if:
+
+- Theory is too short.
+- Theory is generic.
+- Examples are missing.
+- Examples are not explained.
+- Code has no comments.
+- Common mistakes are missing.
+- Practice exercises are missing.
+
+The goal is to teach a beginner successfully, not merely create HTML pages.
+
+## Theory Must Be Detailed
+
+Reject:
+
+- Generic explanation
+- One-paragraph explanation
+- Shallow definitions
+- Content that only lists syntax without explanation
+
+Require every important concept to include:
+
+1. Definition
+2. Why it is needed
+3. When to use it
+4. Syntax
+5. How it works step by step
+6. Practical example
+7. Common mistakes
+8. Short summary
+
+## Programming Lesson Rules
+
+For programming courses, each lesson must include at least:
+
+- 2 complete runnable programs
+- 1 basic example
+- 1 practical example
+
+Each program must contain:
+
+- `#include`
+- `main()`
+- input/output if relevant
+- Vietnamese comments
+- expected output if possible
+
+Do not use isolated snippets as the only example.
+
+Bad example:
+
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+Good example:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+    // Trả về tổng của hai số nguyên
+    return a + b;
+}
+
+int main() {
+    // Khai báo hai biến số nguyên
+    int x = 5;
+    int y = 3;
+
+    // Gọi hàm add để tính tổng
+    int result = add(x, y);
+
+    // In kết quả ra màn hình
+    cout << "Tong la: " << result;
+
+    return 0;
+}
+```
+
+## Code Comment Rules
+
+All code examples must contain comments.
+
+Minimum requirement:
+
+- 1 comment per logical block
+- Comment before important operations
+- Comment for variables that may confuse beginners
+- Comment for input/output logic
+- Comment for loops, conditions, functions, pointers, arrays, structs, and files
+
+Do not generate uncommented code for beginner lessons.
+
+## Code Explanation Rules
+
+After every code example, include a section named:
+
+```txt
+Giải thích chương trình
+```
+
+This section must explain:
+
+- Program purpose
+- Input
+- Output
+- Main variables
+- Execution flow
+- Important lines of code
+- Expected result
+
+## Inline Code Formatting Rules
+
+Programming syntax must be wrapped with backticks when written in Markdown or converted into `<code>` when written in HTML.
+
+Examples:
+
+```txt
+`int`
+`float`
+`double`
+`char`
+`bool`
+`if`
+`else`
+`for`
+`while`
+`do-while`
+`break`
+`continue`
+`cin`
+`cout`
+`return`
+`struct`
+`string`
+`fstream`
+`==`
+`!=`
+`<`
+`>`
+`<=`
+`>=`
+```
+
+Never render programming keywords, operators, function names, or variable names as plain text when they are being explained.
+
+## HTML Operator Escaping Rules
+
+When generating raw HTML, escape comparison operators:
+
+```txt
+<  -> &lt;
+>  -> &gt;
+<= -> &lt;=
+>= -> &gt;=
+```
+
+Do not output raw `<` or `>` directly in HTML text content because the browser may interpret them as tags.
+
+Correct:
+
+```html
+<code>&lt;</code>
+<code>&gt;</code>
+<code>&lt;=</code>
+<code>&gt;=</code>
+```
+
+Incorrect:
+
+```html
+<code><</code>
+<code>></code>
+```
+
+## Practice Exercise Rules
+
+Every lesson must include practice exercises.
+
+Minimum:
+
+```txt
+3 easy exercises
+2 medium exercises
+```
+
+For programming lessons, exercises should be practical and code-oriented.
+
+Avoid only theoretical exercises.
+
+## Quiz Rules
+
+- Use JavaScript.
+- Show score immediately.
+- Do not send data to a server.
+- Do not require account.
+- Minimum 5 questions per lesson.
+
+Quiz questions should include:
+
+- Concept questions
+- Syntax questions
+- Output prediction questions
+- Error detection questions
+- Practical usage questions
+
+Avoid only definition-based questions.
+
+## Essay Rules
+
+- Essay questions are self-study only.
+- Do not grade essays.
+- Suggested answer must be available.
+- Suggested answer should be hidden by default.
+- Learners can compare their answer manually.
+- Minimum 2 essay questions per lesson.
+
+Essay questions should encourage:
+
+- Explanation
+- Comparison
+- Reasoning
+- Reflection on how to apply the concept
+
+Avoid yes/no questions.
 
 ## Homepage Rules
 
@@ -60,6 +295,24 @@ The new course entry must link to:
 
 ```txt
 courses/<course-slug>/index.html
+```
+
+If the homepage has agent markers, insert the course card between:
+
+```txt
+AGENT_COURSE_CARDS_START
+AGENT_COURSE_CARDS_END
+```
+
+## Courses Page Rules
+
+If `courses.html` exists, add the new course there.
+
+If the page has agent markers, insert the course card between:
+
+```txt
+AGENT_COURSES_PAGE_CARDS_START
+AGENT_COURSES_PAGE_CARDS_END
 ```
 
 ## Navigation Rules
@@ -80,9 +333,9 @@ Lesson page:
 - Link to previous lesson
 - Link to next lesson
 
-## Responsive Rules
+## Sidebar Rules
 
-Use Bootstrap responsive classes.
+Every lesson page must include a sidebar or table of contents.
 
 Desktop/laptop:
 
@@ -95,6 +348,33 @@ Mobile:
 - No horizontal scrolling
 - Buttons must be easy to tap
 
+## Responsive Rules
+
+Use Bootstrap responsive classes.
+
+Required layout pattern:
+
+```html
+<main class="container my-4">
+  <div class="row">
+    <aside class="col-12 col-lg-3 mb-4">
+      Sidebar
+    </aside>
+
+    <article class="col-12 col-lg-9">
+      Lesson content
+    </article>
+  </div>
+</main>
+```
+
+All pages must work on:
+
+- Mobile
+- Tablet
+- Laptop
+- Desktop
+
 ## Content Rules
 
 - User-facing content should be Vietnamese.
@@ -103,22 +383,67 @@ Mobile:
 - Use beginner-friendly examples.
 - Avoid overly long paragraphs.
 - Use lists and tables where helpful.
+- Use real programming examples for programming courses.
+- Do not assume learners already know programming.
 
-## Quiz Rules
+## C++ Course Rules
 
-- Use JavaScript.
-- Show score immediately.
-- Do not send data to a server.
-- Do not require account.
-- Use 3 to 5 questions per lesson when possible.
+For C++ lessons, examples must be written in standard C++.
 
-## Essay Rules
+Use:
 
-- Essay questions are self-study only.
-- Do not grade essays.
-- Suggested answer must be available.
-- Suggested answer should be hidden by default.
-- Learners can compare their answer manually.
+```cpp
+#include <iostream>
+using namespace std;
+```
+
+when appropriate for beginner lessons.
+
+For advanced lessons, include required libraries such as:
+
+```cpp
+#include <iomanip>
+#include <string>
+#include <fstream>
+```
+
+when needed.
+
+Important C++ topics such as:
+
+- functions
+- pointers
+- arrays
+- strings
+- structs
+- files
+
+must be explained in extra detail because they are foundations for Data Structures and Algorithms.
+
+## Git Course Rules
+
+For Git lessons, examples must include:
+
+- Terminal commands
+- Explanation of each command
+- Expected output when useful
+- Common mistakes
+- Real workflow
+
+Example:
+
+```bash
+git status
+git add .
+git commit -m "Initial commit"
+```
+
+After each command block, explain:
+
+- What the command does
+- When to use it
+- What result to expect
+- Common error if any
 
 ## File Naming Rules
 
@@ -163,9 +488,79 @@ Do not use root-relative paths like:
 
 unless the project is specifically configured for that.
 
+## CSS Rules
+
+Global style should be placed in:
+
+```txt
+assets/css/style.css
+```
+
+Course-specific style should be placed in:
+
+```txt
+assets/css/course.css
+```
+
+Inline CSS should be avoided unless very small.
+
+Inline code elements should be visually highlighted using CSS for `code`.
+
+## JavaScript Rules
+
+Global JavaScript should be placed in:
+
+```txt
+assets/js/main.js
+```
+
+Quiz JavaScript should be placed in:
+
+```txt
+assets/js/quiz.js
+```
+
+Lesson-specific JavaScript should be placed in:
+
+```txt
+assets/js/lesson.js
+```
+
+Avoid duplicating large JavaScript blocks across many lesson pages if reusable logic already exists.
+
 ## Safety Rules
 
 - Do not store API keys.
 - Do not store passwords.
 - Do not include private user data.
 - Do not use external paid services by default.
+- Do not track learners.
+- Do not send quiz or essay data to any server.
+
+## Final Output Rules
+
+After creating or refactoring a course, summarize:
+
+```txt
+Created:
+- ...
+
+Modified:
+- ...
+
+Improved:
+- ...
+
+Notes:
+- ...
+```
+
+Always mention whether:
+
+- Course folder was created
+- Lesson pages were created or updated
+- Sidebar was added or updated
+- Quiz was added or updated
+- Essay section was added or updated
+- `index.html` was updated
+- `courses.html` was updated

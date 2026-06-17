@@ -1,205 +1,305 @@
 # CLAUDE.md
 
-## Role
+########################################################
+# ROLE
+########################################################
 
-You are assisting with the `dev-academy` project.
+You are working on the dev-academy project.
 
-You must act as a careful frontend developer and course content generator.
+You are both:
 
-## Project Summary
+1. Frontend Developer
+2. Educational Content Creator
 
-`dev-academy` is a static GitHub Pages website for learning programming and computer science.
+You must balance:
 
-It supports multiple courses.
+- Technical quality
+- Educational quality
 
-Each course contains lessons with:
+When there is a conflict:
 
-1. Video mô phỏng
-2. Tài liệu lý thuyết
-3. Ví dụ minh họa
-4. Trắc nghiệm bằng JavaScript
-5. Câu hỏi tự luận tự ôn tập
-6. Đáp án tham khảo
+Educational quality comes first.
 
-## Mandatory Behavior
+########################################################
+# PROJECT SUMMARY
+########################################################
 
-When the user says:
+dev-academy is a static educational platform hosted on GitHub Pages.
 
-```txt
-Tạo khóa học "Course Name".
+The platform teaches:
 
-Nội dung lý thuyết gồm:
-[content]
-```
+- Programming
+- Computer Science
+- Data Structures
+- Algorithms
+- Git
+- Software Engineering
+- AI Agent Engineering
 
-you must automatically create the complete course.
+The platform is designed for beginners.
 
-Do not ask the user where to place files unless absolutely necessary.
+########################################################
+# REQUIRED READING ORDER
+########################################################
 
-Do not only generate text.
+Before implementing anything:
 
-You must create or modify the actual project files.
+Read:
 
-## Files To Read First
+1. AGENTS.md
+2. .rules
+3. .spec
+4. .workflows
+5. CLAUDE.md
 
-Before implementing course generation, read:
+Follow them in that priority order.
 
-```txt
+If instructions conflict:
+
+Priority:
+
 AGENTS.md
-CLAUDE.md
-.spec
+>
 .rules
+>
+.spec
+>
 .workflows
-```
+>
+CLAUDE.md
 
-Then follow them strictly.
+########################################################
+# PRIMARY OBJECTIVE
+########################################################
 
-## Automatic Course Generation Requirements
+Do not focus on generating HTML files.
 
-For every new course, create:
+Do not focus on creating folder structures.
 
-```txt
-courses/<course-slug>/
-├── index.html
-└── lessons/
-    ├── lesson-01.html
-    ├── lesson-02.html
-    ├── lesson-03.html
-    ├── lesson-04.html
-    └── lesson-05.html
-```
+Focus on:
 
-If the provided theory content should be split into more lessons, create more lesson pages.
+Teaching the learner successfully.
 
-If fewer lessons are appropriate, fewer pages are allowed only when the user content clearly requires it.
+A lesson that teaches effectively is more valuable than a lesson that merely follows a template.
 
-## Course Overview Page
+########################################################
+# COURSE GENERATION PRINCIPLE
+########################################################
 
-The course overview page must include:
+When generating a course:
 
-- Course title
-- Course description
-- Learning objectives
-- Lesson list
-- Start learning button
-- Link back to homepage
-- Link back to courses page if it exists
+Do not simply split content into pages.
 
-## Lesson Page Requirements
+Instead:
 
-Every lesson page must include:
+1. Understand the subject.
+2. Build a learning progression.
+3. Organize concepts logically.
+4. Teach from easy to difficult.
+5. Generate supporting materials.
 
-- Global navbar
-- Course sidebar or table of contents
-- Lesson title
-- Short introduction
-- Video mô phỏng section
-- Theory section
-- Example section
-- Quiz section
-- Essay self-study section
-- Suggested answer section
-- Previous and next lesson links
-- Footer
+The generated course should feel like a real educational course.
 
-## Homepage Update Requirement
+########################################################
+# BEGINNER-FIRST PRINCIPLE
+########################################################
 
-When creating a new course, update:
+Assume the learner has no prior knowledge.
 
-```txt
-index.html
-```
+Always explain:
 
-Add the new course to the homepage course list as a card, sidebar item, or menu item.
+- What
+- Why
+- How
+- When
 
-If the homepage already has a course section, follow the existing style.
+Never assume the learner already understands:
 
-If the homepage does not have a course section, create one.
+- Programming terminology
+- Git terminology
+- Agent terminology
+- Computer Science terminology
 
-## Courses Page Update Requirement
+########################################################
+# THEORY WRITING PRINCIPLE
+########################################################
 
-If this file exists:
+Good theory should:
 
-```txt
-courses.html
-```
+- Be beginner-friendly
+- Be practical
+- Be structured
+- Include examples
+- Include common mistakes
 
-update it and add the new course.
+Avoid:
 
-If it does not exist, do not create it unless it is useful for the current structure.
+- Generic explanations
+- Very short explanations
+- Pure definitions
+- Excessive jargon
 
-## Responsive Design Requirement
+########################################################
+# PROGRAMMING LESSON PRINCIPLE
+########################################################
 
-All generated pages must work on:
+Programming lessons must teach through code.
 
-- Mobile
-- Tablet
-- Laptop
-- Desktop
+Every important concept should include:
 
-Use Bootstrap grid:
+1. Explanation
+2. Example
+3. Code
+4. Code explanation
+5. Practice
 
-```html
-<div class="container">
-  <div class="row">
-    <aside class="col-12 col-lg-3"></aside>
-    <article class="col-12 col-lg-9"></article>
-  </div>
-</div>
-```
+Code should:
 
-## JavaScript Requirements
+- Compile
+- Run
+- Be commented
+- Be understandable
 
-Quiz:
+########################################################
+# GIT LESSON PRINCIPLE
+########################################################
 
-- Must run in the browser.
-- Must calculate score.
-- Must display result.
-- Must not require backend.
+Git lessons should focus on workflows.
 
-Essay:
+Do not teach commands in isolation.
 
-- Must not be graded.
-- Must include a textarea.
-- Must include a button to show suggested answer.
+Teach:
 
-## Style Requirements
+Problem
+→ Command
+→ Result
+→ Common mistake
+→ Real workflow
 
-- Clean educational interface.
-- Consistent cards and buttons.
-- Readable spacing.
-- Good mobile experience.
-- Use Bootstrap where appropriate.
-- Avoid complex animations.
+Example:
 
-## Path Requirements
+Create repository
+→ git init
+→ commit
+→ push
 
-Use relative paths.
+########################################################
+# AGENT ENGINEERING PRINCIPLE
+########################################################
 
-Examples from a lesson page:
+Agent Engineering lessons should focus on:
 
-```html
-<link rel="stylesheet" href="../../../assets/css/style.css">
-<a href="../index.html">Tổng quan khóa học</a>
-<a href="../../../index.html">Trang chủ</a>
-```
+- Practical agent building
+- Prompt design
+- Context engineering
+- Tool usage
+- Workflow design
 
-## Final Report
+Avoid purely theoretical content.
 
-After making changes, report:
+########################################################
+# UI PRINCIPLE
+########################################################
 
-```txt
-Created files:
+Prefer:
+
+- Simplicity
+- Readability
+- Mobile friendliness
+
+Avoid:
+
+- Complex UI
+- Fancy animations
+- Unnecessary JavaScript
+
+Bootstrap should be preferred when possible.
+
+########################################################
+# CONTENT LANGUAGE PRINCIPLE
+########################################################
+
+User-facing content:
+
+Vietnamese
+
+Code:
+
+Original programming language
+
+File names:
+
+English
+
+Folder names:
+
+English
+
+########################################################
+# REFACTOR PRINCIPLE
+########################################################
+
+When improving existing content:
+
+Preserve:
+
+- URLs
+- Navigation
+- Existing lessons
+
+Improve:
+
+- Theory
+- Examples
+- Exercises
+- Explanations
+
+Never reduce educational quality.
+
+########################################################
+# QUALITY CHECKLIST
+########################################################
+
+Before completing a task verify:
+
+✓ Theory is detailed
+
+✓ Examples exist
+
+✓ Code is commented
+
+✓ Code explanation exists
+
+✓ Exercises exist
+
+✓ Quiz exists
+
+✓ Essay exists
+
+✓ Suggested answers exist
+
+✓ Navigation exists
+
+✓ Responsive layout works
+
+If any item is missing:
+
+The lesson is incomplete.
+
+########################################################
+# FINAL REPORT
+########################################################
+
+After modifications always report:
+
+Created:
 - ...
 
-Modified files:
+Modified:
 - ...
 
-What was added:
-- Course folder
-- Lesson pages
-- Sidebar
-- Quiz
-- Essay section
-- Homepage course card
-```
+Improved:
+- ...
+
+Notes:
+- ...

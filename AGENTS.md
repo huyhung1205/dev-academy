@@ -1,20 +1,40 @@
 # AGENTS.md
 
-## Project Name
+########################################################
+# PROJECT INFORMATION
+########################################################
+
+Project Name:
 
 dev-academy
 
-## Project Type
+Project Type:
 
 Static educational website hosted on GitHub Pages.
 
-## Main Goal
+Main Goal:
 
-`dev-academy` is a learning platform for programming, computer science, software engineering, and AI Agent Engineering.
+Build a high-quality learning platform for:
 
-The website must be simple, expandable, responsive, and easy to maintain.
+- Programming
+- Computer Science
+- Data Structures
+- Algorithms
+- Software Engineering
+- Git
+- AI Agent Engineering
 
-## Tech Stack
+The primary goal is:
+
+Teaching quality first.
+
+HTML generation is secondary.
+
+A course is successful only when a beginner can learn the topic successfully.
+
+########################################################
+# TECHNOLOGY STACK
+########################################################
 
 Use only:
 
@@ -23,260 +43,429 @@ Use only:
 - JavaScript
 - Bootstrap
 - GitHub Pages
-- LocalStorage if needed
+- LocalStorage (optional)
 
 Do not use:
 
 - Backend server
 - Database
+- Authentication
 - React
 - Vue
 - Angular
-- Node.js build system
-- Supabase
 - Firebase
-- Login/register
-- AI auto-grading
+- Supabase
+- Node.js build tools
 - Online compiler
+- AI grading
 
-unless the user explicitly requests it.
+unless explicitly requested.
 
-## Most Important Automation Rule
+########################################################
+# CORE AGENT BEHAVIOR
+########################################################
 
-When the user gives a prompt like:
+Whenever a user asks:
 
-```txt
-Tạo khóa học "Course Name".
+"Tạo khóa học"
 
-Nội dung lý thuyết gồm:
-[content]
-```
+or
 
-the AI must automatically:
+"Refactor khóa học"
 
-1. Read and follow:
-   - `AGENTS.md`
-   - `CLAUDE.md`
-   - `.spec`
-   - `.rules`
-   - `.workflows`
+or
 
-2. Create a new course folder:
+"Mở rộng khóa học"
 
-```txt
-courses/<course-slug>/
-```
+the AI must first read:
 
-3. Create a course overview page:
+- AGENTS.md
+- CLAUDE.md
+- .spec
+- .rules
+- .workflows
 
-```txt
-courses/<course-slug>/index.html
-```
+These files are mandatory.
 
-4. Automatically split the provided theory content into suitable lessons.
+########################################################
+# EDUCATION FIRST RULE
+########################################################
 
-5. Create lesson pages:
+The objective is NOT:
 
-```txt
-courses/<course-slug>/lessons/lesson-01.html
-courses/<course-slug>/lessons/lesson-02.html
-courses/<course-slug>/lessons/lesson-03.html
-courses/<course-slug>/lessons/lesson-04.html
-courses/<course-slug>/lessons/lesson-05.html
-```
+- Creating HTML files
+- Creating folders
+- Creating pages
 
-If the content naturally needs more or fewer lessons, adjust the number of lessons.
+The objective IS:
 
-If the user only provides a course name and no lesson count, create at least 5 lessons.
+Teaching learners effectively.
 
-6. Each lesson page must include:
-   - Video mô phỏng
-   - Tài liệu lý thuyết
-   - Ví dụ minh họa
-   - Trắc nghiệm bằng JavaScript
-   - Câu hỏi tự luận tự ôn tập
-   - Đáp án tham khảo
+When there is a conflict between:
 
-7. Create sidebar or table of contents for the course.
+- Better content
+and
+- Faster page generation
 
-8. Add previous/next navigation between lessons.
+always choose better content.
 
-9. Update the main website homepage:
+########################################################
+# COURSE GENERATION RULE
+########################################################
 
-```txt
-index.html
-```
+When generating a course:
 
-The homepage must include a new course card/sidebar/menu item for the generated course.
+The AI must:
 
-10. Update the courses list page if it exists:
+1. Create course structure
+2. Create lesson structure
+3. Generate educational content
+4. Generate examples
+5. Generate exercises
+6. Generate quizzes
+7. Generate essay questions
+8. Generate suggested answers
+9. Update navigation
+10. Update homepage
 
-```txt
-courses.html
-```
+Never stop after generating folder structures.
 
-11. Ensure all pages are responsive for:
-   - Mobile
-   - Tablet
-   - Laptop
-   - Desktop
+########################################################
+# BEGINNER-FIRST RULE
+########################################################
 
-12. Use relative paths so everything works on GitHub Pages.
+Assume the learner knows nothing.
 
-13. Summarize all created and modified files.
+Every lesson must be understandable by:
 
-## Default Course Folder Structure
+- First-year university students
+- Self-taught beginners
+- Learners with no prior experience
 
-```txt
-courses/<course-slug>/
-├── index.html
-└── lessons/
-    ├── lesson-01.html
-    ├── lesson-02.html
-    ├── lesson-03.html
-    ├── lesson-04.html
-    └── lesson-05.html
-```
+Never assume background knowledge.
 
-## Default Lesson Structure
+Always explain:
 
-Every lesson must follow this order:
+- What
+- Why
+- How
+- When
 
-```txt
-1. Lesson title
-2. Short introduction
-3. Video mô phỏng
-4. Tài liệu lý thuyết
-5. Ví dụ minh họa
-6. Trắc nghiệm
-7. Câu hỏi tự luận tự ôn tập
-8. Đáp án tham khảo
-9. Previous / Next lesson navigation
-```
+########################################################
+# THEORY QUALITY RULE
+########################################################
 
-## Layout Rules
+Every important concept must contain:
 
-Every lesson page should use this layout:
+1. Definition
+2. Why it exists
+3. Why it is important
+4. Real-world usage
+5. Syntax (if applicable)
+6. How it works
+7. Common mistakes
+8. Summary
 
-```html
-<header>
-  Global navbar
-</header>
+Avoid:
 
-<main class="container my-4">
-  <div class="row">
-    <aside class="col-12 col-lg-3 mb-4">
-      Course sidebar / table of contents
-    </aside>
-
-    <article class="col-12 col-lg-9">
-      Lesson content
-    </article>
-  </div>
-</main>
-
-<footer>
-  Footer
-</footer>
-```
-
-## Course Sidebar Rules
-
-The sidebar must include:
-
-- Course overview link
-- All lesson links
-- Active lesson highlight if possible
-
-On laptop and desktop:
-
-- Sidebar appears on the left.
-
-On mobile:
-
-- Sidebar appears above the lesson content or collapses.
-
-## Homepage Update Rule
-
-When creating a new course, always update `index.html`.
-
-The homepage should include a course card like:
-
-```html
-<div class="col-md-6 col-lg-4">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">Course Name</h3>
-      <p class="card-text">Short course description.</p>
-      <a href="courses/course-slug/index.html" class="btn btn-primary">Bắt đầu học</a>
-    </div>
-  </div>
-</div>
-```
-
-If the homepage already has a different course card style, follow the existing style.
-
-## Quiz Rules
-
-- Quiz must be implemented using JavaScript.
-- Do not use backend.
-- Do not require login.
-- Show score immediately after submit.
-- Highlight correct and wrong answers if possible.
-- A lesson should normally include 3 to 5 multiple-choice questions.
-
-## Essay Rules
-
-- Essay questions are self-study only.
-- Do not automatically grade essay answers.
-- Provide suggested answers.
-- The learner may compare their own answer with the suggested answer.
-- Optional draft saving can use LocalStorage.
-
-## Content Language Rules
-
-- Use Vietnamese for user-facing course content.
-- Use English for file names and folder names.
-- Use clear and beginner-friendly explanations.
-- Use examples whenever possible.
-
-## File Naming Rules
-
-Use lowercase and hyphenated names.
-
-Good:
-
-```txt
-agent-engineering
-programming-fundamentals
-data-structures
-binary-search.html
-what-is-ai-agent.html
-```
+- Generic explanations
+- One-paragraph lessons
+- Syntax-only explanations
 
 Bad:
 
-```txt
-Agent Engineering
-Bai 1.html
-Lesson01Final.html
-```
+Variable stores data.
 
-## Final Response Rule
+Good:
 
-After completing any course generation, the AI must summarize:
+Explain:
 
-```txt
+- memory
+- storage
+- naming
+- usage
+- examples
+
+########################################################
+# PROGRAMMING COURSE RULE
+########################################################
+
+For programming courses:
+
+Examples:
+
+- C++
+- Python
+- Java
+- Data Structures
+- Algorithms
+
+Every lesson must contain:
+
+Example 1:
+Basic example
+
+Example 2:
+Practical example
+
+Every example must:
+
+- Compile
+- Be runnable
+- Include required libraries
+- Include main()
+- Include Vietnamese comments
+
+########################################################
+# CODE COMMENT RULE
+########################################################
+
+Code examples must teach.
+
+Every logical block must contain comments.
+
+Example:
+
+// Khai báo biến lưu tuổi
+int age = 20;
+
+// Hiển thị tuổi ra màn hình
+cout << age;
+
+Never generate unexplained code.
+
+########################################################
+# CODE EXPLANATION RULE
+########################################################
+
+After every code example create:
+
+Giải thích chương trình
+
+Explain:
+
+- Purpose
+- Input
+- Output
+- Variables
+- Flow
+- Expected result
+
+Do not stop at code.
+
+########################################################
+# PRACTICE RULE
+########################################################
+
+Every lesson must contain:
+
+Easy:
+- 3 exercises
+
+Medium:
+- 2 exercises
+
+Hard:
+- Optional
+
+Programming exercises should require coding.
+
+########################################################
+# QUIZ RULE
+########################################################
+
+Every lesson must contain:
+
+Minimum:
+5 questions
+
+Question types:
+
+- Concept
+- Syntax
+- Output prediction
+- Error detection
+- Practical usage
+
+########################################################
+# ESSAY RULE
+########################################################
+
+Every lesson must contain:
+
+Minimum:
+2 essay questions
+
+Generate:
+
+- Suggested answers
+
+Do not grade essays.
+
+########################################################
+# GIT COURSE RULE
+########################################################
+
+Git lessons must include:
+
+- Commands
+- Explanation
+- Expected output
+- Common mistakes
+- Real workflows
+
+Example:
+
+git status
+
+Explain:
+
+- What it does
+- When to use it
+- Expected result
+- Common errors
+
+Git courses must teach real development workflows.
+
+########################################################
+# AGENT ENGINEERING COURSE RULE
+########################################################
+
+Agent Engineering courses must include:
+
+- Prompt Engineering
+- Context Engineering
+- AGENTS.md
+- CLAUDE.md
+- Rules
+- Specs
+- Workflows
+- Tool Calling
+- MCP
+- Multi-Agent Systems
+
+Use practical examples whenever possible.
+
+########################################################
+# HOMEPAGE UPDATE RULE
+########################################################
+
+When creating a course:
+
+Update:
+
+index.html
+
+If available:
+
+courses.html
+
+Insert course cards between:
+
+AGENT_COURSE_CARDS_START
+AGENT_COURSE_CARDS_END
+
+when those markers exist.
+
+########################################################
+# SIDEBAR RULE
+########################################################
+
+Every lesson page must contain:
+
+- Course overview
+- Lesson list
+- Active lesson indication if possible
+
+Desktop:
+
+Sidebar on left
+
+Mobile:
+
+Sidebar on top or collapsible
+
+########################################################
+# RESPONSIVE RULE
+########################################################
+
+All pages must work on:
+
+- Mobile
+- Tablet
+- Laptop
+- Desktop
+
+Avoid:
+
+- Horizontal scrolling
+- Tiny buttons
+- Overflowing code blocks
+
+########################################################
+# REFACTOR COURSE RULE
+########################################################
+
+When improving an existing course:
+
+Preserve:
+
+- URLs
+- Folder structure
+- Navigation
+- Existing quizzes
+- Existing essay sections
+
+Improve:
+
+- Theory
+- Examples
+- Exercises
+- Comments
+- Explanations
+
+Never reduce quality.
+
+########################################################
+# QUALITY ACCEPTANCE RULE
+########################################################
+
+A lesson is incomplete if:
+
+✗ Theory is shallow
+
+✗ Examples are missing
+
+✗ Examples lack comments
+
+✗ Code explanations are missing
+
+✗ Exercises are missing
+
+✗ Quiz is missing
+
+✗ Essay questions are missing
+
+✗ Suggested answers are missing
+
+✗ Navigation is missing
+
+Only lessons that satisfy all requirements are considered complete.
+
+########################################################
+# FINAL REPORT RULE
+########################################################
+
+After every task report:
+
 Created:
-- file 1
-- file 2
+- ...
 
 Modified:
-- index.html
-- courses.html
+- ...
+
+Improved:
+- ...
 
 Notes:
-- Course added to homepage
-- Sidebar created
-- Quiz JavaScript included
-```
+- ...

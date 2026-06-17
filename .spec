@@ -41,18 +41,6 @@ Avoid:
 
 unless explicitly requested.
 
-## Initial Courses
-
-The project may include these initial courses:
-
-```txt
-courses/
-├── programming-fundamentals/
-├── data-structures/
-├── algorithms/
-└── agent-engineering/
-```
-
 ## Standard Course Requirements
 
 Every course must include:
@@ -66,7 +54,6 @@ Every course must include:
 
 ## Standard Course Folder Structure
 
-```txt
 courses/<course-slug>/
 ├── index.html
 └── lessons/
@@ -75,13 +62,11 @@ courses/<course-slug>/
     ├── lesson-03.html
     ├── lesson-04.html
     └── lesson-05.html
-```
 
 ## Course Overview Page Specification
 
 Each course overview page must include:
 
-```txt
 1. Course title
 2. Course description
 3. Target learners
@@ -90,108 +75,338 @@ Each course overview page must include:
 6. Start learning button
 7. Back to homepage link
 8. Back to courses page link if available
-```
 
 ## Lesson Page Specification
 
-Each lesson page must include:
+Each lesson page must contain:
 
-```txt
-1. Global navbar
-2. Course sidebar / table of contents
-3. Lesson title
-4. Short introduction
-5. Video mô phỏng
-6. Tài liệu lý thuyết
-7. Ví dụ minh họa
-8. Trắc nghiệm bằng JavaScript
-9. Câu hỏi tự luận tự ôn tập
-10. Đáp án tham khảo
-11. Previous / Next lesson navigation
-12. Footer
-```
+1. Introduction
+2. Learning Objectives
+3. Video Section
+4. Theory Section
+5. Syntax Section (if applicable)
+6. How It Works
+7. Common Mistakes
+8. Example 1
+9. Example 2
+10. Practice Exercises
+11. Quiz
+12. Essay Questions
+13. Suggested Answers
+14. Summary
+15. Previous / Next Navigation
+16. Footer
 
-## Video Section Specification
+------------------------------------------------
 
-The video section must:
+## THEORY SPECIFICATION
 
-- Appear near the beginning of the lesson.
-- Support embedded YouTube videos.
-- Use a placeholder if no video is provided.
+Theory quality is the highest priority.
 
-Placeholder text:
+Theory must be written for absolute beginners.
 
-```txt
-Video mô phỏng sẽ được cập nhật sau.
-```
+The AI must assume the learner has never studied the topic before.
 
-## Theory Section Specification
+Every important concept must contain:
 
-The theory section must:
+1. Definition
+2. Why it is needed
+3. Real-world usage
+4. Syntax (if applicable)
+5. Step-by-step explanation
+6. Visual explanation if useful
+7. Common mistakes
+8. Summary
 
-- Be written in Vietnamese.
-- Be beginner-friendly.
-- Use headings and short paragraphs.
-- Include examples when possible.
-- Include code blocks when relevant.
+Theory must NOT be:
 
-## Quiz Specification
+- Generic
+- Too short
+- Only bullet points
+- Only syntax descriptions
 
-Each lesson should include 3 to 5 multiple-choice questions.
+Bad:
+
+Variable is used to store data.
+
+Good:
+
+Explain:
+
+- what a variable is
+- why memory is needed
+- how variables are stored
+- how variables are used
+- practical examples
+
+Minimum recommended length:
+
+500+ words per lesson
+
+Complex topics may require:
+
+1000+ words
+
+Examples:
+
+- Pointers
+- Arrays
+- Strings
+- Structs
+- Files
+- Trees
+- Graphs
+- Algorithms
+
+------------------------------------------------
+
+## PROGRAMMING EXAMPLE SPECIFICATION
+
+Every programming lesson must contain:
+
+Minimum:
+
+- 2 complete runnable programs
+
+Example 1:
+
+- Basic example
+
+Example 2:
+
+- Practical example
+
+Every example must include:
+
+- Complete code
+- Required libraries
+- main()
+- Input/output when applicable
+- Vietnamese comments
+
+Forbidden:
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+unless accompanied by a complete runnable program.
+
+------------------------------------------------
+
+## CODE COMMENT SPECIFICATION
+
+Every code example must contain comments.
+
+Minimum:
+
+- 1 comment per logical block
+
+Example:
+
+// Khai báo biến lưu tuổi
+int age = 20;
+
+// Hiển thị tuổi ra màn hình
+cout << age;
+
+The learner must be able to understand the code without reading external material.
+
+------------------------------------------------
+
+## CODE EXPLANATION SPECIFICATION
+
+After every code example create a section:
+
+Giải thích chương trình
+
+Must explain:
+
+1. Program purpose
+2. Input
+3. Output
+4. Variables
+5. Execution flow
+6. Important lines
+7. Expected result
+
+Do not stop at showing code.
+
+------------------------------------------------
+
+## PRACTICE EXERCISE SPECIFICATION
+
+Every lesson must include:
+
+Easy:
+
+- 3 exercises
+
+Medium:
+
+- 2 exercises
+
+Hard:
+
+- Optional
+
+Programming exercises should require writing code.
+
+Avoid exercises that only ask for definitions.
+
+------------------------------------------------
+
+## QUIZ SPECIFICATION
+
+Every lesson must include:
+
+Minimum:
+
+5 questions
+
+Question types should include:
+
+- Concept
+- Syntax
+- Output prediction
+- Error detection
+- Practical usage
+
+Avoid generating only definition questions.
 
 Quiz must:
 
+- Run in browser
 - Use JavaScript
-- Run in the browser
 - Show score immediately
-- Not require backend
-- Not require login
+- Work without backend
 
-## Essay Self-Study Specification
+------------------------------------------------
 
-Each lesson should include 1 to 3 essay/self-study questions.
+## ESSAY SPECIFICATION
 
-Essay section must:
+Every lesson must include:
 
-- Provide a textarea
-- Provide a suggested answer
-- Hide suggested answer by default
-- Show suggested answer when the learner clicks a button
-- Not calculate score
-- Not auto-grade
+Minimum:
 
-## Homepage Integration Specification
+2 essay questions
 
-When a new course is created, the AI must update:
+Essay questions should encourage:
 
-```txt
+- Explanation
+- Comparison
+- Reasoning
+- Reflection
+
+Avoid yes/no questions.
+
+Good:
+
+Compare pass-by-value and pass-by-reference.
+
+Bad:
+
+Is pass-by-reference useful?
+
+------------------------------------------------
+
+## VIDEO SPECIFICATION
+
+Video section must appear near the beginning of the lesson.
+
+If no video is provided:
+
+Display:
+
+Video mô phỏng sẽ được cập nhật sau.
+
+Support:
+
+- YouTube embed
+- Local video
+
+------------------------------------------------
+
+## PROGRAMMING COURSE SPECIFICATION
+
+For programming courses:
+
+Examples must be practical.
+
+Theory must explain:
+
+- What
+- Why
+- How
+- When
+
+Important topics must be explained in extra detail:
+
+- Functions
+- Pointers
+- Arrays
+- Strings
+- Structs
+- Files
+- Recursion
+- Data Structures
+- Algorithms
+
+These topics are foundations for later courses.
+
+------------------------------------------------
+
+## GIT COURSE SPECIFICATION
+
+Every Git lesson must contain:
+
+- Commands
+- Explanations
+- Expected output
+- Common mistakes
+- Real workflows
+
+Example:
+
+git status
+git add .
+git commit -m "Initial commit"
+
+After each command block explain:
+
+- What it does
+- When to use it
+- Expected result
+- Common errors
+
+------------------------------------------------
+
+## HOMEPAGE INTEGRATION SPECIFICATION
+
+When a new course is created:
+
+The AI must update:
+
 index.html
-```
 
-The homepage must display the new course as one of:
+The homepage must display the new course as:
 
 - Course card
 - Sidebar item
 - Menu item
 - Course list item
 
-Preferred format:
+Preferred card:
 
-```html
-<div class="col-md-6 col-lg-4">
-  <div class="card h-100">
-    <div class="card-body">
-      <h3 class="card-title">Course Name</h3>
-      <p class="card-text">Short course description.</p>
-      <a href="courses/course-slug/index.html" class="btn btn-primary">Bắt đầu học</a>
-    </div>
-  </div>
-</div>
-```
+- Course title
+- Short description
+- Start button
+- Link to course overview page
 
-If the existing homepage already has a different design, follow the existing design.
+------------------------------------------------
 
-## Responsive Specification
+## RESPONSIVE SPECIFICATION
 
 The layout must work on:
 
@@ -200,28 +415,53 @@ The layout must work on:
 - Laptop
 - Desktop
 
-Use this general pattern for lesson pages:
+Recommended lesson layout:
 
-```html
-<main class="container my-4">
-  <div class="row">
-    <aside class="col-12 col-lg-3 mb-4">
-      Sidebar
-    </aside>
+Sidebar:
+- Left on desktop
+- Top on mobile
 
-    <article class="col-12 col-lg-9">
-      Lesson content
-    </article>
-  </div>
-</main>
-```
+Content:
+- Main lesson area
 
-## Out of Scope
+Avoid horizontal scrolling.
 
-Do not implement these unless the user explicitly requests them:
+------------------------------------------------
 
-- User account
-- Login/register
+## QUALITY ACCEPTANCE CRITERIA
+
+A lesson is considered complete only if:
+
+✓ Theory is detailed
+
+✓ Beginner-friendly explanation exists
+
+✓ Minimum 2 runnable examples exist
+
+✓ Code comments exist
+
+✓ Code explanation exists
+
+✓ Practice exercises exist
+
+✓ Quiz exists
+
+✓ Essay questions exist
+
+✓ Suggested answers exist
+
+✓ Navigation exists
+
+A lesson failing any of the above requirements is incomplete.
+
+------------------------------------------------
+
+## Out Of Scope
+
+Do not implement unless explicitly requested:
+
+- User accounts
+- Login/Register
 - Database
 - Backend server
 - Online judge
@@ -229,4 +469,4 @@ Do not implement these unless the user explicitly requests them:
 - AI essay grading
 - Payment
 - Admin dashboard
-- Complex frontend framework
+- Complex frontend frameworks
