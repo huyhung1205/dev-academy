@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 7 - Set và Map | Dev Academy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/course.css" />
+</head>
+<body>
+<header><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><div class="container"><a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="mainNavbar"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li><li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li><li class="nav-item"><a class="nav-link" href="../index.html">Cấu trúc dữ liệu và Giải thuật C++</a></li></ul></div></div></nav></header>
+<main class="container my-4"><div class="row">
+<aside class="col-12 col-lg-3 mb-4">
+<div class="card lesson-sidebar"><div class="card-body">
+<h2 class="h5 fw-bold">Mục lục khóa học</h2>
+<div class="list-group list-group-flush">
+<a class="list-group-item list-group-item-action" href="../index.html">Tổng quan khóa học</a>
+<a class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Tổng quan DSA và độ phức tạp thuật toán</a>
+<a class="list-group-item list-group-item-action" href="lesson-02.html">Bài 2. Các hệ đếm phổ biến và hàm</a>
+<a class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Đệ quy</a>
+<a class="list-group-item list-group-item-action" href="lesson-04.html">Bài 4. Vector và mảng một chiều</a>
+<a class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. Mảng hai chiều, prefix sum và mảng hiệu</a>
+<a class="list-group-item list-group-item-action" href="lesson-06.html">Bài 6. String</a>
+<a class="list-group-item list-group-item-action active" href="lesson-07.html">Bài 7. Set và Map</a>
+<a class="list-group-item list-group-item-action" href="lesson-08.html">Bài 8. Stack, queue và priority_queue</a>
+<a class="list-group-item list-group-item-action" href="lesson-09.html">Bài 9. Sắp xếp và tìm kiếm</a>
+<a class="list-group-item list-group-item-action" href="lesson-10.html">Bài 10. Thuật toán sinh</a>
+<a class="list-group-item list-group-item-action" href="lesson-11.html">Bài 11. Cây nhị phân và BST</a>
+<a class="list-group-item list-group-item-action" href="lesson-12.html">Bài 12. Khái niệm và biểu diễn đồ thị</a>
+<a class="list-group-item list-group-item-action" href="lesson-13.html">Bài 13. DFS, BFS và ứng dụng</a>
+<a class="list-group-item list-group-item-action" href="lesson-14.html">Bài 14. Topo, SCC và Tarjan cơ bản</a>
+<a class="list-group-item list-group-item-action" href="lesson-15.html">Bài 15. DSU, Kruskal và Prim</a>
+<a class="list-group-item list-group-item-action" href="lesson-16.html">Bài 16. Đường đi ngắn nhất và mini project</a>
+</div></div></div>
+</aside>
+<article class="col-12 col-lg-9">
+<section class="lesson-hero"><span class="badge text-bg-primary mb-2">Bài 7</span><h1 class="fw-bold">Set và Map</h1><p class="lead mb-0">Bài này ghép hai container rất mạnh của STL: set để loại trùng và map để lưu cặp key-value, đếm tần suất và gom nhóm dữ liệu.</p></section>
+<section class="lesson-section"><h2>Mục tiêu bài học</h2><ul><li>Set, multiset, unordered_set.</li><li>Map, multimap, unordered_map.</li><li>insert, find, count, erase, begin, rbegin.</li><li>Khi nào cần thứ tự và khi nào cần hash.</li></ul></section>
+
+<section class="lesson-section">
+  <h2>Video mô phỏng</h2>
+  <div class="video-placeholder"><p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p></div>
+</section>
+
+
+<section class="lesson-section">
+  <h2>1. Tài liệu lý thuyết</h2>
+  <div class="alert alert-primary">
+    <strong>Nội dung chính từ PDF:</strong>
+    <ul class="mb-0 mt-2">
+      <li>Set, multiset, unordered_set.</li><li>Map, multimap, unordered_map.</li><li>insert, find, count, erase, begin, rbegin.</li><li>Khi nào cần thứ tự và khi nào cần hash.</li>
+    </ul>
+  </div>
+  <p>Bài này ghép hai container rất mạnh của STL: set để loại trùng và map để lưu cặp key-value, đếm tần suất và gom nhóm dữ liệu.</p>
+  <p>Trong bài này, điều quan trọng nhất là không chỉ nhớ định nghĩa mà còn phải biết bài toán nào nên dùng kỹ thuật nào, vì sao nó chạy nhanh hơn và khi nào không nên áp dụng. Khi đọc PDF gốc, hãy để ý các ví dụ và công thức vì chúng thường là điểm quyết định để làm bài tập.</p>
+  <p>Ở level của sinh viên năm nhất và người tự học, mục tiêu là hiểu thật rõ dữ liệu đang được lưu như thế nào, thao tác nào là O(1), thao tác nào là O(log n) hoặc O(n), rồi dùng kiến thức đó để chọn lời giải hợp lý hơn. Đây là tinh thần xuyên suốt toàn bộ khóa học.</p>
+</section>
+
+<section class="lesson-section"><h2>Ví dụ minh họa</h2>
+<div class="card mb-3">
+  <div class="card-body">
+    <h3 class="h5 fw-bold">Ví dụ 1: Set loại trùng</h3>
+    <pre><code>#include &lt;iostream&gt;
+#include &lt;set&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    set&lt;int&gt; se;
+    for (int i = 0; i &lt; n; i++) {
+        int x;
+        cin &gt;&gt; x;
+        se.insert(x);
+    }
+    for (int x : se) cout &lt;&lt; x &lt;&lt; ' ';
+    cout &lt;&lt; endl;
+    return 0;
+}</code></pre>
+    <h4 class="h6 fw-bold">Giải thích chương trình</h4>
+    <ul>
+      <li><strong>Chương trình làm gì:</strong> Loại bỏ phần tử trùng và sắp xếp tăng dần.</li>
+      <li><strong>Input:</strong> Nhập n và n số.</li>
+      <li><strong>Output:</strong> In các giá trị duy nhất.</li>
+      <li><strong>Biến chính:</strong> Biến: se, x.</li>
+      <li><strong>Luồng chạy:</strong> Chèn từng số vào set.</li>
+      <li><strong>Độ phức tạp / kết quả kỳ vọng:</strong> O(n log n).</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h3 class="h5 fw-bold">Ví dụ 2: Map đếm tần suất</h3>
+    <pre><code>#include &lt;iostream&gt;
+#include &lt;map&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    map&lt;int, int&gt; mp;
+    for (int i = 0; i &lt; n; i++) {
+        int x;
+        cin &gt;&gt; x;
+        mp[x]++;
+    }
+    for (auto it : mp) cout &lt;&lt; it.first &lt;&lt; ' ' &lt;&lt; it.second &lt;&lt; '\n';
+    return 0;
+}</code></pre>
+    <h4 class="h6 fw-bold">Giải thích chương trình</h4>
+    <ul>
+      <li><strong>Chương trình làm gì:</strong> Đếm tần suất bằng map.</li>
+      <li><strong>Input:</strong> Nhập n và dãy số.</li>
+      <li><strong>Output:</strong> In cặp giá trị - tần suất.</li>
+      <li><strong>Biến chính:</strong> Biến: mp, x.</li>
+      <li><strong>Luồng chạy:</strong> Mỗi số tăng mp[x].</li>
+      <li><strong>Độ phức tạp / kết quả kỳ vọng:</strong> O(n log n).</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<section class="lesson-section">
+  <h2>Bài tập thực hành</h2>
+  <div class="row g-3">
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Dễ 1</h3><p class="mb-0">Viết chương trình nhỏ áp dụng set và map với input đơn giản.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Dễ 2</h3><p class="mb-0">Thêm comment tiếng Việt cho từng khối logic trong chương trình.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Dễ 3</h3><p class="mb-0">Thử đổi input biên để xem chương trình còn đúng không.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Trung bình 1</h3><p class="mb-0">Kết hợp set và map với một cấu trúc dữ liệu đã học để giải bài toán nhỏ.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Trung bình 2</h3><p class="mb-0">Tự thiết kế test case và phân tích độ phức tạp của lời giải.</p></div></div>
+  </div>
+</section>
+
+
+<section class="lesson-section">
+  <h2>Trắc nghiệm JavaScript</h2>
+  <form id="quiz-form-7" class="vstack gap-3">
+    <div><p class="fw-semibold mb-2">1. Mục tiêu chính của set và map là gì?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q71a" value="a"><label class="form-check-label" for="q71a">Giúp giải quyết loại trùng, đếm tần suất, ánh xạ khóa-giá trị</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q71b" value="b"><label class="form-check-label" for="q71b">Chỉ để trang trí code</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q71c" value="c"><label class="form-check-label" for="q71c">Thay thế mọi cú pháp C++</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">2. Khi nào nên nghĩ đến set và map?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q72a" value="a"><label class="form-check-label" for="q72a">Khi bài toán có tính lặp lại, tra cứu hoặc tối ưu rõ ràng</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q72b" value="b"><label class="form-check-label" for="q72b">Chỉ khi không có input</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q72c" value="c"><label class="form-check-label" for="q72c">Chỉ khi cần giao diện đồ họa</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">3. Điều nào đúng với code ví dụ?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q73a" value="a"><label class="form-check-label" for="q73a">Code có <code>main()</code> và comment tiếng Việt</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q73b" value="b"><label class="form-check-label" for="q73b">Code không cần thư viện</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q73c" value="c"><label class="form-check-label" for="q73c">Code luôn chỉ cần một dòng</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">4. Lỗi nào hay gặp nhất?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q74a" value="a"><label class="form-check-label" for="q74a">Sai điều kiện biên hoặc chọn sai cấu trúc dữ liệu</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q74b" value="b"><label class="form-check-label" for="q74b">Viết comment tiếng Việt</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q74c" value="c"><label class="form-check-label" for="q74c">Dùng <code>cout</code> để in kết quả</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">5. Ứng dụng nào phù hợp nhất?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q75a" value="a"><label class="form-check-label" for="q75a">loại trùng, đếm tần suất, ánh xạ khóa-giá trị</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q75b" value="b"><label class="form-check-label" for="q75b">Vẽ logo trang web</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q75c" value="c"><label class="form-check-label" for="q75c">Tạo tài khoản đăng nhập</label></div>
+    </div>
+    <div class="d-flex flex-wrap gap-2">
+      <button type="button" class="btn btn-primary" onclick="checkQuiz('quiz-form-7', 'quiz-result-7', { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'a' })">Nộp bài</button>
+      <div id="quiz-result-7" class="quiz-result"></div>
+    </div>
+  </form>
+</section>
+
+
+<section class="lesson-section">
+  <h2>Câu hỏi tự luận tự ôn tập</h2>
+  <div class="mb-4">
+    <p class="fw-semibold mb-2">Câu 1. Vì sao bài 7 quan trọng trong khóa học?</p>
+    <textarea id="essay-7-1" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-7-1', 'dsa-lesson-7-1')"></textarea>
+    <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-7-1')">Xem đáp án tham khảo</button>
+    <div id="answer-7-1" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: bài học này là nền để hiểu các chủ đề nâng cao hơn, vì nó cho bạn cách nhìn đúng về dữ liệu, độ phức tạp và kỹ thuật giải bài.</p></div></div>
+  </div>
+  <div>
+    <p class="fw-semibold mb-2">Câu 2. Khi nào bạn sẽ chọn set và map trong một bài toán thực tế?</p>
+    <textarea id="essay-7-2" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-7-2', 'dsa-lesson-7-2')"></textarea>
+    <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-7-2')">Xem đáp án tham khảo</button>
+    <div id="answer-7-2" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: hãy mô tả input, output, ràng buộc, rồi so sánh với đặc tính của set và map. Nếu nó giúp chương trình rõ ràng hơn, nhanh hơn hoặc tiết kiệm bộ nhớ hơn thì đó là lựa chọn hợp lý.</p></div></div>
+  </div>
+</section>
+
+
+<section class="lesson-section">
+  <h2>Tóm tắt bài học</h2>
+  <ul>
+    <li>Set, multiset, unordered_set.</li>
+    <li>Map, multimap, unordered_map.</li>
+    <li>insert, find, count, erase, begin, rbegin.</li>
+  </ul>
+</section>
+
+
+<div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap">
+  <a class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
+  <div class="d-flex gap-2 flex-wrap">
+    <a class="btn btn-primary" href="lesson-06.html">Bài trước</a>
+    <a class="btn btn-primary" href="lesson-08.html">Bài tiếp theo</a>
+  </div>
+</div>
+
+</article></div></main>
+<footer class="py-4 bg-dark text-white mt-4"><div class="container text-center"><p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../../assets/js/quiz.js"></script>
+<script src="../../../assets/js/lesson.js"></script>
+<script>document.addEventListener("DOMContentLoaded", () => { loadEssayDraft("essay-7-1", "dsa-lesson-7-1"); loadEssayDraft("essay-7-2", "dsa-lesson-7-2"); });</script>
+</body></html>

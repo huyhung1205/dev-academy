@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 5 - Mảng hai chiều, prefix sum và mảng hiệu | Dev Academy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/course.css" />
+</head>
+<body>
+<header><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><div class="container"><a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="mainNavbar"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li><li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li><li class="nav-item"><a class="nav-link" href="../index.html">Cấu trúc dữ liệu và Giải thuật C++</a></li></ul></div></div></nav></header>
+<main class="container my-4"><div class="row">
+<aside class="col-12 col-lg-3 mb-4">
+<div class="card lesson-sidebar"><div class="card-body">
+<h2 class="h5 fw-bold">Mục lục khóa học</h2>
+<div class="list-group list-group-flush">
+<a class="list-group-item list-group-item-action" href="../index.html">Tổng quan khóa học</a>
+<a class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Tổng quan DSA và độ phức tạp thuật toán</a>
+<a class="list-group-item list-group-item-action" href="lesson-02.html">Bài 2. Các hệ đếm phổ biến và hàm</a>
+<a class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Đệ quy</a>
+<a class="list-group-item list-group-item-action" href="lesson-04.html">Bài 4. Vector và mảng một chiều</a>
+<a class="list-group-item list-group-item-action active" href="lesson-05.html">Bài 5. Mảng hai chiều, prefix sum và mảng hiệu</a>
+<a class="list-group-item list-group-item-action" href="lesson-06.html">Bài 6. String</a>
+<a class="list-group-item list-group-item-action" href="lesson-07.html">Bài 7. Set và Map</a>
+<a class="list-group-item list-group-item-action" href="lesson-08.html">Bài 8. Stack, queue và priority_queue</a>
+<a class="list-group-item list-group-item-action" href="lesson-09.html">Bài 9. Sắp xếp và tìm kiếm</a>
+<a class="list-group-item list-group-item-action" href="lesson-10.html">Bài 10. Thuật toán sinh</a>
+<a class="list-group-item list-group-item-action" href="lesson-11.html">Bài 11. Cây nhị phân và BST</a>
+<a class="list-group-item list-group-item-action" href="lesson-12.html">Bài 12. Khái niệm và biểu diễn đồ thị</a>
+<a class="list-group-item list-group-item-action" href="lesson-13.html">Bài 13. DFS, BFS và ứng dụng</a>
+<a class="list-group-item list-group-item-action" href="lesson-14.html">Bài 14. Topo, SCC và Tarjan cơ bản</a>
+<a class="list-group-item list-group-item-action" href="lesson-15.html">Bài 15. DSU, Kruskal và Prim</a>
+<a class="list-group-item list-group-item-action" href="lesson-16.html">Bài 16. Đường đi ngắn nhất và mini project</a>
+</div></div></div>
+</aside>
+<article class="col-12 col-lg-9">
+<section class="lesson-hero"><span class="badge text-bg-primary mb-2">Bài 5</span><h1 class="fw-bold">Mảng hai chiều, prefix sum và mảng hiệu</h1><p class="lead mb-0">Bài này mở rộng tư duy từ mảng 1D sang ma trận, rồi dùng prefix sum và mảng hiệu để tối ưu truy vấn và cập nhật đoạn.</p></section>
+<section class="lesson-section"><h2>Mục tiêu bài học</h2><ul><li>Mảng hai chiều, hàng và cột.</li><li>Prefix sum 1D và 2D.</li><li>Mảng hiệu cho cập nhật đoạn.</li><li>Tối ưu truy vấn nhiều lần.</li></ul></section>
+
+<section class="lesson-section">
+  <h2>Video mô phỏng</h2>
+  <div class="video-placeholder"><p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p></div>
+</section>
+
+
+<section class="lesson-section">
+  <h2>1. Tài liệu lý thuyết</h2>
+  <div class="alert alert-primary">
+    <strong>Nội dung chính từ PDF:</strong>
+    <ul class="mb-0 mt-2">
+      <li>Mảng hai chiều, hàng và cột.</li><li>Prefix sum 1D và 2D.</li><li>Mảng hiệu cho cập nhật đoạn.</li><li>Tối ưu truy vấn nhiều lần.</li>
+    </ul>
+  </div>
+  <p>Bài này mở rộng tư duy từ mảng 1D sang ma trận, rồi dùng prefix sum và mảng hiệu để tối ưu truy vấn và cập nhật đoạn.</p>
+  <p>Trong bài này, điều quan trọng nhất là không chỉ nhớ định nghĩa mà còn phải biết bài toán nào nên dùng kỹ thuật nào, vì sao nó chạy nhanh hơn và khi nào không nên áp dụng. Khi đọc PDF gốc, hãy để ý các ví dụ và công thức vì chúng thường là điểm quyết định để làm bài tập.</p>
+  <p>Ở level của sinh viên năm nhất và người tự học, mục tiêu là hiểu thật rõ dữ liệu đang được lưu như thế nào, thao tác nào là O(1), thao tác nào là O(log n) hoặc O(n), rồi dùng kiến thức đó để chọn lời giải hợp lý hơn. Đây là tinh thần xuyên suốt toàn bộ khóa học.</p>
+</section>
+
+<section class="lesson-section"><h2>Ví dụ minh họa</h2>
+<div class="card mb-3">
+  <div class="card-body">
+    <h3 class="h5 fw-bold">Ví dụ 1: Nhập và in ma trận</h3>
+    <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+    int a[100][100];
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; m; j++) cin &gt;&gt; a[i][j];
+    }
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; m; j++) cout &lt;&lt; a[i][j] &lt;&lt; ' ';
+        cout &lt;&lt; endl;
+    }
+    return 0;
+}</code></pre>
+    <h4 class="h6 fw-bold">Giải thích chương trình</h4>
+    <ul>
+      <li><strong>Chương trình làm gì:</strong> Nhập và in lại ma trận 2 chiều.</li>
+      <li><strong>Input:</strong> Nhập n, m và ma trận.</li>
+      <li><strong>Output:</strong> In ma trận.</li>
+      <li><strong>Biến chính:</strong> Biến: a, i, j.</li>
+      <li><strong>Luồng chạy:</strong> Hai vòng lặp lồng nhau.</li>
+      <li><strong>Độ phức tạp / kết quả kỳ vọng:</strong> O(nm).</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h3 class="h5 fw-bold">Ví dụ 2: Prefix sum và mảng hiệu</h3>
+    <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int n, q;
+    cin &gt;&gt; n &gt;&gt; q;
+    long long pre[1005] = {}, diff[1005] = {};
+    for (int i = 1; i &lt;= n; i++) {
+        long long x;
+        cin &gt;&gt; x;
+        pre[i] = pre[i - 1] + x;
+    }
+    while (q--) {
+        int l, r, val;
+        cin &gt;&gt; l &gt;&gt; r &gt;&gt; val;
+        diff[l] += val;
+        diff[r + 1] -= val;
+        cout &lt;&lt; pre[r] - pre[l - 1] &lt;&lt; endl;
+    }
+    return 0;
+}</code></pre>
+    <h4 class="h6 fw-bold">Giải thích chương trình</h4>
+    <ul>
+      <li><strong>Chương trình làm gì:</strong> Minh họa tổng đoạn và cập nhật đoạn.</li>
+      <li><strong>Input:</strong> Nhập n, q và các truy vấn.</li>
+      <li><strong>Output:</strong> In tổng đoạn rồi cập nhật đoạn.</li>
+      <li><strong>Biến chính:</strong> Biến: pre, diff, l, r, val.</li>
+      <li><strong>Luồng chạy:</strong> Prefix trả lời tổng, diff xử lý cập nhật.</li>
+      <li><strong>Độ phức tạp / kết quả kỳ vọng:</strong> O(n + q).</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<section class="lesson-section">
+  <h2>Bài tập thực hành</h2>
+  <div class="row g-3">
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Dễ 1</h3><p class="mb-0">Viết chương trình nhỏ áp dụng mảng hai chiều và prefix với input đơn giản.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Dễ 2</h3><p class="mb-0">Thêm comment tiếng Việt cho từng khối logic trong chương trình.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Dễ 3</h3><p class="mb-0">Thử đổi input biên để xem chương trình còn đúng không.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Trung bình 1</h3><p class="mb-0">Kết hợp mảng hai chiều và prefix với một cấu trúc dữ liệu đã học để giải bài toán nhỏ.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Trung bình 2</h3><p class="mb-0">Tự thiết kế test case và phân tích độ phức tạp của lời giải.</p></div></div>
+  </div>
+</section>
+
+
+<section class="lesson-section">
+  <h2>Trắc nghiệm JavaScript</h2>
+  <form id="quiz-form-5" class="vstack gap-3">
+    <div><p class="fw-semibold mb-2">1. Mục tiêu chính của mảng hai chiều và prefix là gì?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q51a" value="a"><label class="form-check-label" for="q51a">Giúp giải quyết ma trận, tổng đoạn, cập nhật đoạn, tối ưu nhiều truy vấn</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q51b" value="b"><label class="form-check-label" for="q51b">Chỉ để trang trí code</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q51c" value="c"><label class="form-check-label" for="q51c">Thay thế mọi cú pháp C++</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">2. Khi nào nên nghĩ đến mảng hai chiều và prefix?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q52a" value="a"><label class="form-check-label" for="q52a">Khi bài toán có tính lặp lại, tra cứu hoặc tối ưu rõ ràng</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q52b" value="b"><label class="form-check-label" for="q52b">Chỉ khi không có input</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q52c" value="c"><label class="form-check-label" for="q52c">Chỉ khi cần giao diện đồ họa</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">3. Điều nào đúng với code ví dụ?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q53a" value="a"><label class="form-check-label" for="q53a">Code có <code>main()</code> và comment tiếng Việt</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q53b" value="b"><label class="form-check-label" for="q53b">Code không cần thư viện</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q53c" value="c"><label class="form-check-label" for="q53c">Code luôn chỉ cần một dòng</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">4. Lỗi nào hay gặp nhất?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q54a" value="a"><label class="form-check-label" for="q54a">Sai điều kiện biên hoặc chọn sai cấu trúc dữ liệu</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q54b" value="b"><label class="form-check-label" for="q54b">Viết comment tiếng Việt</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q54c" value="c"><label class="form-check-label" for="q54c">Dùng <code>cout</code> để in kết quả</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">5. Ứng dụng nào phù hợp nhất?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q55a" value="a"><label class="form-check-label" for="q55a">ma trận, tổng đoạn, cập nhật đoạn, tối ưu nhiều truy vấn</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q55b" value="b"><label class="form-check-label" for="q55b">Vẽ logo trang web</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q55c" value="c"><label class="form-check-label" for="q55c">Tạo tài khoản đăng nhập</label></div>
+    </div>
+    <div class="d-flex flex-wrap gap-2">
+      <button type="button" class="btn btn-primary" onclick="checkQuiz('quiz-form-5', 'quiz-result-5', { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'a' })">Nộp bài</button>
+      <div id="quiz-result-5" class="quiz-result"></div>
+    </div>
+  </form>
+</section>
+
+
+<section class="lesson-section">
+  <h2>Câu hỏi tự luận tự ôn tập</h2>
+  <div class="mb-4">
+    <p class="fw-semibold mb-2">Câu 1. Vì sao bài 5 quan trọng trong khóa học?</p>
+    <textarea id="essay-5-1" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-5-1', 'dsa-lesson-5-1')"></textarea>
+    <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-5-1')">Xem đáp án tham khảo</button>
+    <div id="answer-5-1" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: bài học này là nền để hiểu các chủ đề nâng cao hơn, vì nó cho bạn cách nhìn đúng về dữ liệu, độ phức tạp và kỹ thuật giải bài.</p></div></div>
+  </div>
+  <div>
+    <p class="fw-semibold mb-2">Câu 2. Khi nào bạn sẽ chọn mảng hai chiều và prefix trong một bài toán thực tế?</p>
+    <textarea id="essay-5-2" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-5-2', 'dsa-lesson-5-2')"></textarea>
+    <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-5-2')">Xem đáp án tham khảo</button>
+    <div id="answer-5-2" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: hãy mô tả input, output, ràng buộc, rồi so sánh với đặc tính của mảng hai chiều và prefix. Nếu nó giúp chương trình rõ ràng hơn, nhanh hơn hoặc tiết kiệm bộ nhớ hơn thì đó là lựa chọn hợp lý.</p></div></div>
+  </div>
+</section>
+
+
+<section class="lesson-section">
+  <h2>Tóm tắt bài học</h2>
+  <ul>
+    <li>Mảng hai chiều, hàng và cột.</li>
+    <li>Prefix sum 1D và 2D.</li>
+    <li>Mảng hiệu cho cập nhật đoạn.</li>
+  </ul>
+</section>
+
+
+<div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap">
+  <a class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
+  <div class="d-flex gap-2 flex-wrap">
+    <a class="btn btn-primary" href="lesson-04.html">Bài trước</a>
+    <a class="btn btn-primary" href="lesson-06.html">Bài tiếp theo</a>
+  </div>
+</div>
+
+</article></div></main>
+<footer class="py-4 bg-dark text-white mt-4"><div class="container text-center"><p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../../assets/js/quiz.js"></script>
+<script src="../../../assets/js/lesson.js"></script>
+<script>document.addEventListener("DOMContentLoaded", () => { loadEssayDraft("essay-5-1", "dsa-lesson-5-1"); loadEssayDraft("essay-5-2", "dsa-lesson-5-2"); });</script>
+</body></html>

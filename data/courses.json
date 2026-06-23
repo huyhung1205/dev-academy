@@ -8,5 +8,10 @@
     "title": "Git Fundamentals",
     "slug": "git-fundamentals",
     "status": "published"
+  },
+  {
+    "title": "Cấu trúc dữ liệu và Giải thuật C++",
+    "slug": "data-structures-and-algorithms",
+    "status": "published"
   }
 ]

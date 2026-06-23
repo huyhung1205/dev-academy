@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài 4 - Vector và mảng một chiều | Dev Academy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../../assets/css/course.css" />
+</head>
+<body>
+<header><nav class="navbar navbar-expand-lg navbar-dark bg-dark"><div class="container"><a class="navbar-brand fw-bold" href="../../../index.html">Dev Academy</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="mainNavbar"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../../../index.html">Trang chủ</a></li><li class="nav-item"><a class="nav-link" href="../../../courses.html">Khóa học</a></li><li class="nav-item"><a class="nav-link" href="../index.html">Cấu trúc dữ liệu và Giải thuật C++</a></li></ul></div></div></nav></header>
+<main class="container my-4"><div class="row">
+<aside class="col-12 col-lg-3 mb-4">
+<div class="card lesson-sidebar"><div class="card-body">
+<h2 class="h5 fw-bold">Mục lục khóa học</h2>
+<div class="list-group list-group-flush">
+<a class="list-group-item list-group-item-action" href="../index.html">Tổng quan khóa học</a>
+<a class="list-group-item list-group-item-action" href="lesson-01.html">Bài 1. Tổng quan DSA và độ phức tạp thuật toán</a>
+<a class="list-group-item list-group-item-action" href="lesson-02.html">Bài 2. Các hệ đếm phổ biến và hàm</a>
+<a class="list-group-item list-group-item-action" href="lesson-03.html">Bài 3. Đệ quy</a>
+<a class="list-group-item list-group-item-action active" href="lesson-04.html">Bài 4. Vector và mảng một chiều</a>
+<a class="list-group-item list-group-item-action" href="lesson-05.html">Bài 5. Mảng hai chiều, prefix sum và mảng hiệu</a>
+<a class="list-group-item list-group-item-action" href="lesson-06.html">Bài 6. String</a>
+<a class="list-group-item list-group-item-action" href="lesson-07.html">Bài 7. Set và Map</a>
+<a class="list-group-item list-group-item-action" href="lesson-08.html">Bài 8. Stack, queue và priority_queue</a>
+<a class="list-group-item list-group-item-action" href="lesson-09.html">Bài 9. Sắp xếp và tìm kiếm</a>
+<a class="list-group-item list-group-item-action" href="lesson-10.html">Bài 10. Thuật toán sinh</a>
+<a class="list-group-item list-group-item-action" href="lesson-11.html">Bài 11. Cây nhị phân và BST</a>
+<a class="list-group-item list-group-item-action" href="lesson-12.html">Bài 12. Khái niệm và biểu diễn đồ thị</a>
+<a class="list-group-item list-group-item-action" href="lesson-13.html">Bài 13. DFS, BFS và ứng dụng</a>
+<a class="list-group-item list-group-item-action" href="lesson-14.html">Bài 14. Topo, SCC và Tarjan cơ bản</a>
+<a class="list-group-item list-group-item-action" href="lesson-15.html">Bài 15. DSU, Kruskal và Prim</a>
+<a class="list-group-item list-group-item-action" href="lesson-16.html">Bài 16. Đường đi ngắn nhất và mini project</a>
+</div></div></div>
+</aside>
+<article class="col-12 col-lg-9">
+<section class="lesson-hero"><span class="badge text-bg-primary mb-2">Bài 4</span><h1 class="fw-bold">Vector và mảng một chiều</h1><p class="lead mb-0">Bài này đi từ mảng một chiều đến vector để bạn thấy cách lưu danh sách số liệu, duyệt, tìm max/min và đếm tần suất.</p></section>
+<section class="lesson-section"><h2>Mục tiêu bài học</h2><ul><li>Vector là mảng động của STL.</li><li>Mảng một chiều lưu liên tiếp trong bộ nhớ.</li><li>Chỉ số bắt đầu từ 0 và không có kiểm tra biên tự động.</li><li>Bài toán max/min, tổng, đếm xuất hiện.</li></ul></section>
+
+<section class="lesson-section">
+  <h2>Video mô phỏng</h2>
+  <div class="video-placeholder"><p class="mb-0">Video mô phỏng sẽ được cập nhật sau.</p></div>
+</section>
+
+
+<section class="lesson-section">
+  <h2>1. Tài liệu lý thuyết</h2>
+  <div class="alert alert-primary">
+    <strong>Nội dung chính từ PDF:</strong>
+    <ul class="mb-0 mt-2">
+      <li>Vector là mảng động của STL.</li><li>Mảng một chiều lưu liên tiếp trong bộ nhớ.</li><li>Chỉ số bắt đầu từ 0 và không có kiểm tra biên tự động.</li><li>Bài toán max/min, tổng, đếm xuất hiện.</li>
+    </ul>
+  </div>
+  <p>Bài này đi từ mảng một chiều đến vector để bạn thấy cách lưu danh sách số liệu, duyệt, tìm max/min và đếm tần suất.</p>
+  <p>Trong bài này, điều quan trọng nhất là không chỉ nhớ định nghĩa mà còn phải biết bài toán nào nên dùng kỹ thuật nào, vì sao nó chạy nhanh hơn và khi nào không nên áp dụng. Khi đọc PDF gốc, hãy để ý các ví dụ và công thức vì chúng thường là điểm quyết định để làm bài tập.</p>
+  <p>Ở level của sinh viên năm nhất và người tự học, mục tiêu là hiểu thật rõ dữ liệu đang được lưu như thế nào, thao tác nào là O(1), thao tác nào là O(log n) hoặc O(n), rồi dùng kiến thức đó để chọn lời giải hợp lý hơn. Đây là tinh thần xuyên suốt toàn bộ khóa học.</p>
+</section>
+
+<section class="lesson-section"><h2>Ví dụ minh họa</h2>
+<div class="card mb-3">
+  <div class="card-body">
+    <h3 class="h5 fw-bold">Ví dụ 1: Vector và thống kê điểm</h3>
+    <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    vector&lt;int&gt; a(n);
+    for (int i = 0; i &lt; n; i++) cin &gt;&gt; a[i];
+    int mx = a[0], mn = a[0];
+    long long sum = 0;
+    for (int x : a) {
+        sum += x;
+        if (x &gt; mx) mx = x;
+        if (x &lt; mn) mn = x;
+    }
+    cout &lt;&lt; mx &lt;&lt; '\n' &lt;&lt; mn &lt;&lt; '\n' &lt;&lt; sum &lt;&lt; endl;
+    return 0;
+}</code></pre>
+    <h4 class="h6 fw-bold">Giải thích chương trình</h4>
+    <ul>
+      <li><strong>Chương trình làm gì:</strong> Dùng vector để lưu danh sách điểm và thống kê nhanh.</li>
+      <li><strong>Input:</strong> Nhập n và n điểm.</li>
+      <li><strong>Output:</strong> In max, min, tổng.</li>
+      <li><strong>Biến chính:</strong> Biến: a, mx, mn, sum.</li>
+      <li><strong>Luồng chạy:</strong> Duyệt một lượt qua vector.</li>
+      <li><strong>Độ phức tạp / kết quả kỳ vọng:</strong> O(n).</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h3 class="h5 fw-bold">Ví dụ 2: Mảng một chiều và đếm số lần xuất hiện</h3>
+    <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int n, x;
+    cin &gt;&gt; n &gt;&gt; x;
+    int a[1000];
+    for (int i = 0; i &lt; n; i++) cin &gt;&gt; a[i];
+    int cnt = 0;
+    for (int i = 0; i &lt; n; i++) if (a[i] == x) cnt++;
+    cout &lt;&lt; cnt &lt;&lt; endl;
+    return 0;
+}</code></pre>
+    <h4 class="h6 fw-bold">Giải thích chương trình</h4>
+    <ul>
+      <li><strong>Chương trình làm gì:</strong> Đếm số lần xuất hiện của x trong mảng.</li>
+      <li><strong>Input:</strong> Nhập n, x và dãy số.</li>
+      <li><strong>Output:</strong> In số lần xuất hiện của x.</li>
+      <li><strong>Biến chính:</strong> Biến: a, x, cnt.</li>
+      <li><strong>Luồng chạy:</strong> Duyệt toàn bộ mảng.</li>
+      <li><strong>Độ phức tạp / kết quả kỳ vọng:</strong> O(n).</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<section class="lesson-section">
+  <h2>Bài tập thực hành</h2>
+  <div class="row g-3">
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Dễ 1</h3><p class="mb-0">Viết chương trình nhỏ áp dụng vector và mảng với input đơn giản.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Dễ 2</h3><p class="mb-0">Thêm comment tiếng Việt cho từng khối logic trong chương trình.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Dễ 3</h3><p class="mb-0">Thử đổi input biên để xem chương trình còn đúng không.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Trung bình 1</h3><p class="mb-0">Kết hợp vector và mảng với một cấu trúc dữ liệu đã học để giải bài toán nhỏ.</p></div></div>
+    <div class="col-12 col-md-6"><div class="p-3 border rounded-3 h-100"><h3 class="h6 fw-bold">Trung bình 2</h3><p class="mb-0">Tự thiết kế test case và phân tích độ phức tạp của lời giải.</p></div></div>
+  </div>
+</section>
+
+
+<section class="lesson-section">
+  <h2>Trắc nghiệm JavaScript</h2>
+  <form id="quiz-form-4" class="vstack gap-3">
+    <div><p class="fw-semibold mb-2">1. Mục tiêu chính của vector và mảng là gì?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q41a" value="a"><label class="form-check-label" for="q41a">Giúp giải quyết lưu danh sách số liệu, duyệt phần tử, thống kê cơ bản</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q41b" value="b"><label class="form-check-label" for="q41b">Chỉ để trang trí code</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q41c" value="c"><label class="form-check-label" for="q41c">Thay thế mọi cú pháp C++</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">2. Khi nào nên nghĩ đến vector và mảng?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q42a" value="a"><label class="form-check-label" for="q42a">Khi bài toán có tính lặp lại, tra cứu hoặc tối ưu rõ ràng</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q42b" value="b"><label class="form-check-label" for="q42b">Chỉ khi không có input</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q42c" value="c"><label class="form-check-label" for="q42c">Chỉ khi cần giao diện đồ họa</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">3. Điều nào đúng với code ví dụ?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q43a" value="a"><label class="form-check-label" for="q43a">Code có <code>main()</code> và comment tiếng Việt</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q43b" value="b"><label class="form-check-label" for="q43b">Code không cần thư viện</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q43c" value="c"><label class="form-check-label" for="q43c">Code luôn chỉ cần một dòng</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">4. Lỗi nào hay gặp nhất?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q44a" value="a"><label class="form-check-label" for="q44a">Sai điều kiện biên hoặc chọn sai cấu trúc dữ liệu</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q44b" value="b"><label class="form-check-label" for="q44b">Viết comment tiếng Việt</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q44c" value="c"><label class="form-check-label" for="q44c">Dùng <code>cout</code> để in kết quả</label></div>
+    </div>
+    <div><p class="fw-semibold mb-2">5. Ứng dụng nào phù hợp nhất?</p>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q45a" value="a"><label class="form-check-label" for="q45a">lưu danh sách số liệu, duyệt phần tử, thống kê cơ bản</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q45b" value="b"><label class="form-check-label" for="q45b">Vẽ logo trang web</label></div>
+      <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q45c" value="c"><label class="form-check-label" for="q45c">Tạo tài khoản đăng nhập</label></div>
+    </div>
+    <div class="d-flex flex-wrap gap-2">
+      <button type="button" class="btn btn-primary" onclick="checkQuiz('quiz-form-4', 'quiz-result-4', { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'a' })">Nộp bài</button>
+      <div id="quiz-result-4" class="quiz-result"></div>
+    </div>
+  </form>
+</section>
+
+
+<section class="lesson-section">
+  <h2>Câu hỏi tự luận tự ôn tập</h2>
+  <div class="mb-4">
+    <p class="fw-semibold mb-2">Câu 1. Vì sao bài 4 quan trọng trong khóa học?</p>
+    <textarea id="essay-4-1" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-4-1', 'dsa-lesson-4-1')"></textarea>
+    <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-4-1')">Xem đáp án tham khảo</button>
+    <div id="answer-4-1" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: bài học này là nền để hiểu các chủ đề nâng cao hơn, vì nó cho bạn cách nhìn đúng về dữ liệu, độ phức tạp và kỹ thuật giải bài.</p></div></div>
+  </div>
+  <div>
+    <p class="fw-semibold mb-2">Câu 2. Khi nào bạn sẽ chọn vector và mảng trong một bài toán thực tế?</p>
+    <textarea id="essay-4-2" class="form-control mb-3" rows="5" placeholder="Tự viết câu trả lời của bạn..." oninput="saveEssayDraft('essay-4-2', 'dsa-lesson-4-2')"></textarea>
+    <button type="button" class="btn btn-outline-primary" onclick="toggleSuggestedAnswer('answer-4-2')">Xem đáp án tham khảo</button>
+    <div id="answer-4-2" class="suggested-answer mt-3 card"><div class="card-body"><p class="mb-0">Gợi ý: hãy mô tả input, output, ràng buộc, rồi so sánh với đặc tính của vector và mảng. Nếu nó giúp chương trình rõ ràng hơn, nhanh hơn hoặc tiết kiệm bộ nhớ hơn thì đó là lựa chọn hợp lý.</p></div></div>
+  </div>
+</section>
+
+
+<section class="lesson-section">
+  <h2>Tóm tắt bài học</h2>
+  <ul>
+    <li>Vector là mảng động của STL.</li>
+    <li>Mảng một chiều lưu liên tiếp trong bộ nhớ.</li>
+    <li>Chỉ số bắt đầu từ 0 và không có kiểm tra biên tự động.</li>
+  </ul>
+</section>
+
+
+<div class="lesson-navigation d-flex justify-content-between gap-2 flex-wrap">
+  <a class="btn btn-outline-secondary" href="../index.html">Tổng quan khóa học</a>
+  <div class="d-flex gap-2 flex-wrap">
+    <a class="btn btn-primary" href="lesson-03.html">Bài trước</a>
+    <a class="btn btn-primary" href="lesson-05.html">Bài tiếp theo</a>
+  </div>
+</div>
+
+</article></div></main>
+<footer class="py-4 bg-dark text-white mt-4"><div class="container text-center"><p class="mb-0">© 2026 Dev Academy. Built with GitHub Pages.</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../../assets/js/quiz.js"></script>
+<script src="../../../assets/js/lesson.js"></script>
+<script>document.addEventListener("DOMContentLoaded", () => { loadEssayDraft("essay-4-1", "dsa-lesson-4-1"); loadEssayDraft("essay-4-2", "dsa-lesson-4-2"); });</script>
+</body></html>
