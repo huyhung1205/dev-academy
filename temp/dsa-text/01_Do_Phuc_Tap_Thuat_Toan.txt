@@ -1,0 +1,245 @@
+28TECH
+Become A Better Developer
+ĐỘ PHỨC TẠP
+CỦA THUẬT TOÁN
+(TIME COMPLEXITY)
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Đánh giá một thuật toán
+Độ phức tạp về thời gian (time complexity) và
+độ phức tạp về không gian (space complexity)
+là 2 yếu tố để quyết định một thuật toán có
+thích hợp để giải quyết một bài toán nào đó
+hay không.
+Trong đó độ phức tạp về thời gian được quan
+tâm nhiều hơn khi các bạn tham gia vào các
+contest về lập trình.
+Độ phức tạp thời gian là thời gian mà thuật
+toán của bạn cần để thực thi, nó là một hàm
+của input, tức là dựa vào đầu vào ta sẽ tính
+toán số lượng thao tác mà thuật toán cần thực
+thi từ đó tính ra được thời gian thực thi của
+thuật toán.
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Trên các trang chấm bài online
+Giới hạn thời gian của Giới hạn thời gian của Thông thường 1s các bạn
+bài toán là 1 - 2s đối với: một bài toán là 4s đối với: có thể thực hiện được từ
+108 - 5.108 phép toán.
+C/C++
+Java Python
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+1. TÍNH TOÁN ĐỘ PHỨC TẠP
+Become A Better Developer
+VÀ KÍ HIỆU BIG O
+BIG O NOTION
+Tính toán số lượng Thông qua kí hiệu của
+phép toán được thực Big O ta có thể mô tả
+hiện trong mỗi lần độ phức tạp của thuật
+Kí hiệu Big O mô tả Độ phức tạp của thuật
+thuật toán được khởi toán là O(f(n))
+trường hợp tệ nhất của toán càng nhỏ thì thuật
+chạy dựa trên input
+thuật toán thông qua một toán chạy càng nhanh
+đầu vào của bài toán.
+hàm của input đầu vào n.
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+1. TÍNH TOÁN ĐỘ PHỨC TẠP
+Become A Better Developer
+VÀ KÍ HIỆU BIG O
+Ví dụ mô tả độ phức tạp của thuật toán là O(f(n)):
+O(n), O(1), O(log(n)), O(nlog(n)), O(n2), O(n!)…
+Trong trường hợp hàm f(n) có chứa hằng số và
+các bậc khác nhau của n thì ta chọn bậc cao
+nhất để đại diện cho hàm f(n)
+O(n2 +2n +3) được thay bằng O(n2)
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+2. MỘT SỐ VÍ DỤ
+Become A Better Developer
+Độ phức tạp của các phép toán và nhập xuất:
+Code sau có độ phức tạp là O(1)
+#include <bits/stdc++.h>
+using namespace std
+int main(){
+int a = 100;
+int b = 200;
+int c = 300;
+int tong = a + b + c;
+}
+Chú ý : Các phép toán như +, -, *, /, % hay
+các phép gán, so sánh và nhập xuất như cin,
+cout đều được coi là O(1)
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+2. MỘT SỐ VÍ DỤ
+Become A Better Developer
+Độ phức tạp của vòng lặp chính là số lượng của lặp của vòng
+lặp nhân với độ phức tạp của code bên trong vòng lặp.
+Các code sau đều có độ phức tạp là O(n)
+#include <bits/stdc++.h> #include <bits/stdc++.h>
+using namespace std; using namespace std;
+int main(){ int main(){
+int n = 1000; int n = 1000;
+for(int i = 1; i <= n; i++){ int i = 1;
+//O(1) code while(i <= n){
+} //O(1) code
+} }
+}
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+2. MỘT SỐ VÍ DỤ
+Become A Better Developer
+Các code sau đều có độ phức tạp là O(n)
+#include <bits/stdc++.h> #include <bits/stdc++.h>
+using namespace std; using namespace std;
+int main(){ int main(){
+int n; cin >> n; int n; cin >> n;
+for(int i = 1; i <= 3 * n + 28; i++){ for(int i = 1; i <= n + 2804; i++){
+//O(1) code //O(1) code
+} }
+} }
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+2. MỘT SỐ VÍ DỤ
+Become A Better Developer
+Code sau có độ phức tạp là O(nlogn)
+#include <bits/stdc++.h>
+using namespace std;
+int nt(int n){
+for(int i = 2; i <= sqrt(n); i++){
+if (n % i == 0) return 0;
+}
+return n > 1;
+}
+int main(){
+int n; cin >> n;
+for(int i = 1; i <= n; i++){
+//Code này O(log(n))
+if (nt(i)) {
+cout << i << ' ';
+}
+}
+}
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+2. MỘT SỐ VÍ DỤ
+Become A Better Developer
+Độ phức tạp của vòng lặp lồng nhau:
+Trong trường hợp thuật toán của bạn có nhiều khối thực thi thì độ phức tạp của
+thuật toán sẽ được xét bằng với độ phức tạp của khối có độ phức tạp lớn nhất
+Code sau có độ phức tạp là O(n2) Code sau có độ phức tạp là O(n3)
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+using namespace std;
+using namespace std;
+int main(){
+int main(){
+int n, m, k;
+int n, m;
+cin >> n >> m >> k;
+cin >> n >> m; for(int i = 0; i < n; i++){
+for(int i = 0; i < n; i++){ for(int j = 0; j < m; j++){
+for(int j = 0; j < m; j++){ for(int l = 0; l < k; l++){
+//O(1) code
+//O(1) code
+}
+}
+}
+}
+}
+}
+}
+Chú ý: Càng sử dụng nhiều vòng lặp lồng nhau thì thuật toán sẽ càng lớn và thời gian chạy càng lâu.
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+2. MỘT SỐ VÍ DỤ
+Become A Better Developer
+Độ phức tạp khi chương trình chưa nhiều khối lệnh thực thi:
+Trong trường hợp thuật toán của bạn có nhiều khối thực thi thì độ phức tạp của
+thuật toán sẽ được xét bằng với độ phức tạp của khối có độ phức tạp lớn nhất
+Code sau có độ phức tạp là O(n2)
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int n, m; cin >> n >> m;
+//O(n2)
+for(int i = 0; i < n; i++){
+for(int j = 0; j < m; j++){
+//O(1) code
+}
+}
+//O(n)
+for(int i = 0; i < n + 2804; i++){
+//O(1) code
+}
+}
+11
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+3. MỘT VÀI ĐỘ PHỨC TẠP
+Become A Better Developer
+THƯỜNG GẶP
+Thao tác, thuật toán Độ phức tạp
+Sử dụng công thức toán học để tìm ra ngay lời giải O(1)
+Tìm kiếm nhị phân O(log(n))
+Các thao tác của set, map, hàng đợi ưu tiên O(log(n))
+Kiểm tra số nguyên tố, phân tích thừa số nguyên tố O(sqrt(n))
+Đọc n số từ input O(n)
+Duyệt qua mảng O(n)
+Hàm sort trong thư viện O(nlog(n))
+Sàng số nguyên tố O(nlog(log(n)))
+k
+Duyệt các tập con cỡ k của tập có n phần tử O(n )
+n
+Duyệt mọi tập con O(2 )
+Duyệt mọi hoán vị O(n!)
+12
+Protect pdf from copying with Online-PDF-No-Copy.com 28tech.com.vn

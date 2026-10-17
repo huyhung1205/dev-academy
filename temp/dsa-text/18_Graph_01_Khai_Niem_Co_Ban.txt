@@ -1,0 +1,169 @@
+28TECH
+Become A Better Developer
+KHÁI NIỆM CƠ BẢN
+VỀ LÍ THUYẾT ĐỒ THỊ
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Đơn đồ thị vô hướng:
+Đơn đồ thị vô hướng G = <V, E>, gồm V là tập các đỉnh, E là tập các cặp
+không có thứ tự gồm hai phần tử khác nhau của V gọi là các cạnh.
+Đơn đồ thị vô hướng gồm 7 đỉnh và 8 cạnh
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Đa đồ thị vô hướng:
+Đa đồ thị vô hướng G = <V, E>, gồm V là tập các đỉnh, E là họ các cặp không
+có thứ tự gồm hai phần tử khác nhau của V gọi là các cạnh. Hai cạnh e1, e2
+được gọi là cạnh bội nếu chúng cùng tương ứng với 1 cặp đỉnh.
+Đa đồ thị vô hướng gồm 8 đỉnh
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+3. Giả đồ thị vô hướng:
+Giả đồ thị vô hướng G = <V, E>, gồm V là tập các đỉnh, E là họ các cặp
+không có thứ tự gồm hai phần tử không nhất thiết phải khác nhau của V gọi
+là các cạnh. Cạnh e = (u,u) được gọi là khuyên.
+Giả đồ thị vô hướng gồm 8 đỉnh
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+4. Đơn đồ thị có hướng:
+Đơn đồ thị có hướng G = <V, E>, gồm V là tập các đỉnh, E là tập các cặp có
+thứ tự gồm hai phần tử của V gọi là các cung.
+Đơn đồ thị có hướng
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. Đa đồ thị có hướng:
+Đa đồ thị có hướng G = <V, E>, gồm V là tập các đỉnh, E là họ các cặp có
+thứ tự gồm hai phần tử của V gọi là các cung. Hai cung e1, e2 tương ứng
+với cùng một cặp đỉnh được gọi là cung lặp
+Đa đồ thị có hướng
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+6. Đỉnh kề, cạnh liên thuộc:
+Đỉnh kề: Hai đỉnh u, v được gọi là hai đỉnh kề nếu tồn tại cạnh e = (u, v) là
+cạnh của đồ thị. Ví dụ AB = (A, B), AF = (A, F).
+Cạnh liên thuộc: Nếu cạnh e = (u, v) là cạnh của đồ thị thì cạnh e được gọi
+là cạnh liên thuộc với 2 đỉnh u, v. Ví dụ AF là cạnh liên thuộc với 2 đỉnh A, F.
+Đỉnh kề, cạnh liên thuộc
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+7. Bậc của đỉnh trên đồ thị vô hướng:
+Bậc của đỉnh: Bậc của đỉnh u trên đồ thị vô hướng là số cạnh liên thuộc với
+đỉnh u, kí hiệu deg(u). Đỉnh có bậc 0 được gọi là đỉnh cô lập (Đỉnh I). Đỉnh
+có bậc 1 được gọi là đỉnh treo (Đỉnh H, G).
+Định lí: Đồ thị G = (V, E) là đồ thị vô hướng có m cạnh, khi đó tổng bậc của
+các đỉnh trên đồ thị bằng 2 lần số cạnh.
+Bậc của đỉnh trên đồ thị vô hướng
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+8. Bán bậc của đỉnh trên đồ thị có hướng:
+Bán bậc ra của đỉnh u trên đồ thị có hướng là số cung của đồ thị đi ra khỏi
+đỉnh u, kí hiệu là deg+(u). Bán bậc vào của đỉnh u là số cung của đồ thị đi
+vào đỉnh u, kí hiệu deg-(u).
+Định lí: Trên đồ thị có hướng, tổng bán bậc ra bằng tổng bán bậc vào của
+các đỉnh và bằng số lượng cạnh (3 + 3 + 0 + 3 + 1 + 0 + 0 + 0) = (0 + 1 + 1 +
+1 + 1 + 3 + 2 + 1) = 10 cạnh.
+Bán bậc của đỉnh trên đồ thị có hướng
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+9. Đường đi:
+Đường đi: Dãy các đỉnh (hoặc dãy các cạnh) trong đó 2 đỉnh liên tiếp có
+cạnh nối. Độ dài đường đi là số cạnh trên đường đi.
+Đường đi đơn: Các đỉnh trên đường đi là phân biệt. (A, B, C, D) là một đường
+đi đơn, (A , B, C, A, D) là đường đi nhưng không đơn.
+Đường đi, đường đi đơn
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+10. Chu trình:
+Chu trình: Là đường đi gồm các cạnh phân biệt có đỉnh đầu trùng với đỉnh
+cuối. Ví dụ (A, B, C, E, D, A) là một chu trình.
+Chu trình đơn: Ngoại trừ đỉnh đầu với đỉnh cuối trùng nhau, không còn hai
+đỉnh nào giống nhau. Ví dụ (A, D, F, A). (D, A, B, C, A, F, D) là một chu trình
+nhưng không là đơn.
+Chu trình, chu trình đơn
+11
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+11. Liên thông:
+Đồ thị vô hướng được gọi là liên thông nếu luôn tìm được đường đi giữa hai
+đỉnh bất kì của đồ thị.
+Đồ thị vô hướng liên thông
+12
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+12. Thành phần liên thông:
+Trong trường hợp đồ thị vô hướng không liên thông, nó phân rã thành các
+thành phần liên thông (TPLT). Như vậy đồ thị vô hướng liên thông nếu nó
+có số TPLT là 1. Ví dụ đồ thị dưới đây có 3 TPLT, chú ý 1 đỉnh cô lập cũng
+được coi là 1 TPLT.
+Thành phần liên thông
+13
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+13. Liên thông mạnh, liên thông yếu:
+Liên thông mạnh: Đồ thị có hướng gọi là liên thông mạnh, nếu giữa 2 đỉnh
+bất kì u, v luôn có đường đi từ u đến v. Hình G1.
+Liên thông yếu: Đồ thị có hướng gọi là liên thông yếu, nếu đồ thị vô hướng
+tương ứng của nó liên thông. Hình G2.
+14
+soprotection.com 28tech.com.vn

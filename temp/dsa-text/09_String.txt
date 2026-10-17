@@ -1,0 +1,670 @@
+28TECH
+Become A Better Developer
+XÂU KÍ TỰ
+(STRING)
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Khái quát về string:
+String là lớp để xử lý xâu kí tự trong ngôn ngữ
+lập trình C++. Các bạn có thể nghĩ String như
+một mảng kí tự nhưng có thể mở rộng, thu hẹp
+và hỗ trợ rất nhiều hàm xử lý xâu thông dụng.
+Cú pháp khai báo:
+string name_string;
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Nhập xuất string:
+Nhập string không có dấu cách:
+#include <bits/stdc++.h>
+using namespace std;
+Khi nhập xuất string bạn cần chú ý: int main(){
+string s, t;
+Nếu xâu kí tự bạn nhập không có
+cin >> s >> t; // nhập s, t từ bàn phím
+dấu cách thì bạn có thể sử dụng cin
+cout << t << ' ' << s << endl;
+để nhập, trường hợp có dấu cách }
+thì bạn cần dùng hàm getline.
+INPUT OUTPUT
+28tech dev dev 28tech
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Nhập xuất string:
+Nhập string có dấu cách:
+#include <bits/stdc++.h>
+using namespace std;
+Trong trường hợp xâu bạn nhập có int main(){
+string s;
+dấu cách, nếu sử dụng cin, bạn chỉ
+getline(cin, s);
+nhập được từ đầu tiên của xâu đó,
+cout << s << endl;
+vì bản chất của cin là nó sẽ dừng }
+nhập khi gặp khoảng trắng.
+INPUT OUTPUT
+28tech dev 28tech dev
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Nhập xuất string:
+Tình huống xảy ra trôi lệnh:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+Khi dùng getline, bản chất cách hoạt int x; cin >> x; // cin sẽ để lại enter
+//trong bộ đệm bàn phím
+động của getline sẽ dừng nhập tới khi
+string s;
+gặp dấu xuống dòng, vì thế hãy đảm bảo
+getline(cin, s); // getline đọc phải
+trước khi nhập getline, trong bộ nhớ đệm
+//phím enter và kết thúc việc nhập
+bàn phím không còn thừa dấu enter do
+cout << s << endl;
+cin để lại từ câu lệnh nhập trước. }
+INPUT OUTPUT
+28
+Tech
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Nhập xuất string:
+Xử lí tình huống bị trôi lệnh:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int x; cin >> x; // cin sẽ để lại enter
+trong bộ đệm bàn phím
+Cách xử lý: Hãy nhớ rằng không phải cứ
+string s;
+trước getline là bạn cần xóa bộ đệm, bao
+cin.ignore(1); // Xóa 1 kí tự khỏi bộ đệm
+giờ trước getline mà có câu lệnh cin thì bàn phím chính là phím enter của cin để lại
+mới cần phải xóa bộ đệm. Các bạn xóa getline(cin, s); // getline đọc phải phím
+enter và kết thúc việc nhập
+đi phím enter trong bộ đệm bằng câu
+cout << s << endl;
+lệnh cin.ignore(1)
+}
+INPUT OUTPUT
+28
+Tech dev
+Tech dev
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Các hàm xử lý thông dụng:
+Ví dụ:
+#include <bits/stdc++.h>
+using namespace std;
+Hàm size và length: Cả 2 hàm này int main(){
+đều dùng để xác định chiều dài xâu, string s = "28tech C++ Python";
+cout << s.size() << endl;
+hay nói cách khác là số những kí tự
+cout << s.length() << endl;
+xuất hiện trong xâu.
+}
+OUTPUT
+17
+17
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Các hàm xử lý thông dụng:
+Ví dụ:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+string s = "28tech-C-Python";
+Duyệt xâu: Bạn có thể dùng cout để
+for(int i = 0; i < s.size(); i++){
+in ra toàn bộ kí tự trong xâu hoặc sử
+cout << s[i] << ' ';
+dụng chỉ số tương tự như mảng để }
+cout << endl;
+truy cập vào từng kí tự xuất hiện
+//for each
+trong xâu.
+for(char x : s){
+cout << x << ' ';
+}
+OUTPUT
+}
+2 8 t e c h - C - P y t h o n
+2 8 t e c h - C - P y t h o n
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Các hàm xử lý thông dụng:
+Ví dụ:
+#include <bits/stdc++.h>
+using namespace std;
+Hàm push_back và pop_back: Tương tự int main(){
+string s = "28tech";
+như vector thì string cũng hỗ trợ thêm 1
+s.push_back('@'); // s.push_back("@")
+phần tử vào cuối hay xóa 1 phần tử ở
+//hoặc s.push_back("@123") là sai
+cuối xâu. Ở đây các phần tử của string
+cout << s << endl;
+chính là kiểu char vì thế các bạn chỉ có s.pop_back();
+thể push_back từng kí tự một. cout << s << endl;
+}
+OUTPUT
+28tech@
+28tech
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Các hàm xử lý thông dụng:
+Ví dụ:
+#include <bits/stdc++.h>
+using namespace std;
+Hàm insert: Bạn có thể chèn 1 xâu kí
+int main(){
+tự vào vị trí bất kì trong xâu ban đầu.
+string s = "28tech";
+Bạn chỉ cần cung cấp chỉ số cần s.insert(2, "@@@@"); // chèn xâu vào
+//chỉ số 2
+chèn và xâu cần chèn cho hàm này.
+cout << s << endl;
+}
+OUTPUT
+28@@@@tech
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Các hàm xử lý thông dụng:
+Ví dụ:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+Hàm erase: Bạn có thể chỉ rõ chỉ số string s = "28@@@tech";
+s.erase(2, 3); //Xóa 3 kí tự từ chỉ số 2
+bắt đầu xóa kí tự và số lượng kí tự
+cout << s << endl;
+muốn xóa.
+string t = "28@@@tech";
+t.erase(2); //Xóa mọi kí tự từ chỉ số 2
+cout << t << endl;
+}
+OUTPUT
+28tech
+28
+11
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Các hàm xử lý thông dụng:
+Ví dụ:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+string s = "28tech tech";
+Hàm find: Giả sử bạn cần kiểm tra sự tồn
+string t = "tech";
+tại của xâu con t trong xâu s. Hàm find
+if(s.find(t) != string::npos){
+trả về chỉ số đầu tiên của xâu t trong xâu
+cout << "FOUND\n";
+s nếu s có chứa t, ngược lại hàm này trả
+}
+về giá trị string::npos. else{
+cout << "NOT FOUND\n";
+}
+OUTPUT
+}
+FOUND
+12
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+3. So sánh và cộng xâu:
+String đã được nạp chồng các toán tử so sánh, vì thế các bạn có thể so
+sánh 2 xâu theo thứ tự từ điển với các toán tử so sánh, ngoài ra các bạn
+còn có thể sử dụng toán tử + để nối 2 xâu.
+So sánh hai xâu: Nối hai xâu:
+#include <bits/stdc++.h> #include <bits/stdc++.h>
+using namespace std; using namespace std;
+int main(){ int main(){
+string s = "28tech"; string s = "28tech";
+OUTPUT
+string t = "28tech"; string t = "dev";
+OUTPUT
+cout << (s == t) << endl; string st = s + " " + t;
+1
+cout << (s < t) << endl; string ts = t + " " + s;
+28tech dev
+0
+cout << (s <= t) << endl; cout << st << endl;
+dev 28tech
+cout << (s != t) << endl; 1 cout << ts << endl;
+} 0 }
+13
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+4. Nhắc lại các hàm kiểm tra kí tự:
+Ở bài if else các bạn đã học cách tự viết các câu lệnh if để kiểm tra loại kí
+tự, bây giờ các bạn có thể sử dụng các hàm có sẵn trong thư viện <ctype.h>.
+Hàm Chức năng
+isdigit(char c) Kiểm tra chữ số
+islower(char c) Kiểm tra chữ in thường
+isupper(char c) Kiểm tra in hoa
+isalpha(char c) Kiểm tra chữ cái
+int tolower(char c) Chuyển thành chữ in thường
+int toupper(char c) Chuyển thành chữ in hoa
+14
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+4. Nhắc lại các hàm kiểm tra kí tự:
+Hàm chuyển xâu thành in thường:
+#include <bits/stdc++.h>
+using namespace std;
+void inthuong(string &s){
+for(int i = 0; i < s.size(); i++){
+s[i] = tolower(s[i]);
+}
+}
+int main(){
+string s = "abcd XYZ 123@";
+inthuong(s);
+cout << s << endl; OUTPUT
+}
+abcd xyz 123@
+15
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+4. Nhắc lại các hàm kiểm tra kí tự:
+Hàm chuyển xâu thành in hoa:
+#include <bits/stdc++.h>
+using namespace std;
+void inhoa(string &s){
+for(int i = 0; i < s.size(); i++){
+s[i] = toupper(s[i]);
+}
+}
+int main(){
+string s = "abcd XYZ 123@";
+inhoa(s);
+cout << s << endl; OUTPUT
+}
+ABCD XYZ 123@
+16
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+4. Nhắc lại các hàm kiểm tra kí tự:
+Phân loại kí tự:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+string s = "abcd XYZ 123@";
+int alpha = 0, digit = 0, special = 0;
+OUTPUT
+for(char x : s){
+Chu cai: 7
+if(isdigit(x)) ++digit;
+Chu so: 3
+else if(isalpha(x)) ++alpha;
+Ki tu dac biet: 3
+else special++;
+}
+cout <<"Chu cai: " << alpha << endl;
+cout <<"Chu so: " << digit << endl;
+cout << "Ki tu dac biet: " << special << endl;
+}
+17
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. Chuyển xâu thành số và ngược lại:
+Để chuyển xâu gồm các chữ số thành số, ta dùng hàm stoi để chuyển một
+xâu thành số int và hàm stoll để chuyển một xâu thành số long long.
+Chuyển xâu thành số:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+string s = "123422";
+int n = stoi(s);
+cout << n << endl;
+string t = "0001111129293293";
+long long m = stoll(t);
+OUTPUT
+cout << m << endl;
+} 123422
+1111129293293
+18
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. Chuyển xâu thành số và ngược lại:
+Để chuyển một số thành xâu ta dùng hàm to_string (C++11 trở lên).
+Chuyển số thành xâu:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int a = 12345;
+string s = to_string(a);
+cout << s << endl;
+s += "678";
+OUTPUT
+cout << s << endl;
+} 12345
+12345678
+19
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+6. Bài toán số lớn:
+Khi gặp bài toán mà số lượng chữ số của số đầu bài cho lên tới hàng nghìn
+chữ số thì các bạn không thể dùng int hay long long để lưu. Trong trường
+hợp này các bạn lưu như một xâu kí tự.
+Tính tổng chữ số của một số có nhiều chữ số:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+string s = "17823717237128231723712378123123782371273123";
+int sum = 0;
+for(char x : s){
+sum += x - '0'; OUTPUT
+}
+163
+cout << sum << endl;
+}
+20
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+7. Các bài toán liên quan tới tần suất xuất hiện của kí tự trong xâu:
+Để đếm tần suất xuất hiện của các kí tự xuất hiện trong xâu các bạn có
+thể sử dụng map hoặc mảng để đếm, vì các kí tự thường gặp đều có mã
+ASCII từ 0 tới 255 nên sử dụng mảng đếm có 256 phần tử là có thể đếm
+được kí tự xuất hiện.
+Các bạn sử dụng 2 cách trên để đếm tần xuất và in ra theo thứ tự xuất
+hiện trong xâu, mỗi kí tự xuất hiện 1 lần.
+21
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+7. Các bài toán liên quan tới tần suất xuất hiện của kí tự trong xâu:
+Cách 1: Sử dụng mảng đếm
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+OUTPUT
+string s = "abcdabcdzzzza";
+a 3
+int cnt[256] = {0};
+for(char x : s){ b 2
+cnt[x]++; c 2
+} d 2
+for(int i = 0; i < 256; i++){
+z 4
+if(cnt[i]){
+cout << (char)i << ' ' << cnt[i] << endl;
+}
+}
+}
+22
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+7. Các bài toán liên quan tới tần suất xuất hiện của kí tự trong xâu:
+Cách 2: Sử dụng map
+#include <bits/stdc++.h>
+using namespace std; OUTPUT
+a 3
+int main(){
+b 2
+string s = "abcdabcdzzzza";
+c 2
+map<char, int> mp;
+d 2
+for(char x : s)
+mp[x]++; z 4
+for(auto it : mp){
+cout << it.first << ' ' << it.second << endl;
+}
+}
+23
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+8. String với mảng, vector, set, map:
+Sắp xếp các tử trong mảng hoặc vector theo
+thứ tự từ điển tăng dần, giảm dần
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+string a[] = {"28tech", "dev", "dsa", "c++", "python"};
+sort(a, a + 5);
+for(string x : a){
+cout << x << ' ';
+}
+cout << endl;
+vector<string> v = {"28tech", "dev", "dsa", "c++", "python"};
+sort(begin(v), end(v), greater<string>());
+for(string x : v){
+OUTPUT
+cout << x << ' ';
+}
+28tech c++ dev dsa python
+}
+python dsa dev c++ 28tech
+24
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+8. String với mảng, vector, set, map:
+Lọc ra số lượng từ khác nhau trong mảng
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+string a[] = {"28tech", "dev", "dsa", "c++", "python",
+"c++", "dev", "Python"};
+set<string> se;
+for(string x : a){
+se.insert(x);
+}
+cout << se.size() << endl;
+for(string x : se){
+cout << x << ' '; OUTPUT
+}
+6
+}
+28tech Python c++ dev dsa python
+25
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+8. String với mảng, vector, set, map:
+Đếm số lần xuất hiện các từ trong mảng
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+OUTPUT
+string a[] = {"28tech", "dev", "dsa", "c++", "python",
+"c++", "dev", "Python"}; 28tech 1
+map<string, int> mp;
+Python 1
+for(string x : a){
+c++ 2
+mp[x]++;
+dev 2
+}
+dsa 1
+for(auto it : mp){
+python 1
+cout << it.first << ' ' << it.second << endl;
+}
+}
+Qua các ví dụ trên, bạn hoàn toàn có thể khai báo mảng và vector string
+để có thể sort, cũng như đưa string vào set map…
+26
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+9. Stringstream
+Tách các từ bằng stringstream theo dấu cách
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+OUTPUT
+string s = “28tech C++ program Java”;
+stringstream ss(s); 28tech
+string word;
+C++
+while(ss >> word){
+program
+cout << word << endl;
+Java
+}
+}
+Stringstream có thể tách các từ, giữa các từ có thể có nhiều dấu cách
+27
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+9. Stringstream
+Tách các từ bằng stringstream theo kí tự
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+OUTPUT
+string s = “28tech-C++-program-Java”;
+stringstream ss(s); 28tech
+string word;
+C++
+while(getline(ss, word, ‘-’){
+program
+cout << word << endl;
+Java
+}
+}
+Stringstream có thể tách các từ, giữa các từ có thể có nhiều dấu cách
+28
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+9. Stringstream
+Tách các số từ xâu
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+OUTPUT
+string s = “abc123zzz28tech9992ac”;
+for(char &x : s){
+123
+if(!isdigit(x)) x = ‘ ‘;
+28
+}
+9992
+stringstream ss(s);
+string word;
+while(ss >> word){
+cout << word << endl;
+}
+}
+Nếu đề bài yêu cầu tách theo dấu !, ?, dấu cách thì làm thế nào?
+29
+soprotection.com 28tech.com.vn

@@ -1,0 +1,164 @@
+28TECH
+Become A Better Developer
+BIỂU DIỄN
+ĐỒ THỊ
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Ma trận kề:
+Với đồ thị vô hướng ma trận kề của đồ thị
+có n đỉnh là ma trận vuông cỡ n x n có các
+phần tử là 0 hoặc 1. A = {aij, aij = 1 nếu cạnh
+(i, j) là một cạnh của đồ thị, aij = 0 nếu cạnh
+(i, j) không là một cạnh của đồ thị}.
+Tính chất
+• Là ma trận đối xứng, tổng các phần tử
+trên ma trận bằng 2 lần số cạnh, tổng các
+phần tử trên hàng hoặc cột thứ u là bậc
+của đỉnh u.
+Ma trận kề của đồ thị vô hướng
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Ma trận kề:
+Với đồ thị có hướng ma trận kề của đồ thị
+có n đỉnh là ma trận vuông cỡ n x n có các
+phần tử là 0 hoặc 1. A = {aij, aij = 1 nếu cạnh
+(i, j) là một cạnh của đồ thị, aij = 0 nếu cạnh
+(i, j) không là một cạnh của đồ thị}.
+Tính chất
+• Có thể không đối xứng
+• Tổng các phần tử của ma trận bằng số cạnh
+• Tổng các phần tử trên hàng thứ u là bán bậc
+ra của đỉnh u
+• Tổng các phần tử trên cột thứ u là bán bậc
+vào của đỉnh u
+Ma trận kề của đồ thị có hướng
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Ma trận trọng số:
+Mỗi cạnh của đồ thị được gán một trọng số, giả sử mỗi cạnh e = (u, v) có
+trọng số là c(u, v). Ma trận trọng số c = c[i, j], trong đó c[i, j] = c(i, j) nếu (i, j)
+là một cạnh của đồ thị, c[i, j] = 0 (hoặc vô cùng, âm vô cùng tùy thuộc vào
+bài toán) nếu (i, j) không là một cạnh của đồ thị.
+Ma trận trọng số của đồ thị có hướng
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Ma trận kề (adjacency matrix):
+Ưu điểm: Đơn giản, dễ cài đặt, dễ dàng kiểm tra 2 đỉnh có kề nhau hay không
+trong O(1) bằng cách kiểm tra giá trị của A[i, j].
+Nhược điểm: Tốn bộ nhớ nên không thể biểu diễn được đồ thị với số đỉnh lớn
+Ma trận kề của đồ thị có hướng
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Danh sách cạnh:
+Danh sách cạnh: Thường được biểu diễn khi
+đồ thị thưa (số lượng cạnh <= 6 lần số đỉnh).
+Đối với đồ thị vô hướng, nếu tồn tại cạnh giữa
+2 đỉnh u, v. Chỉ cần liệt kê cạnh (u, v) không
+cần liệt kê cạnh (v, u), thường chọn u < v.
+Thường liệt kê các cạnh theo thứ tự tăng dần
+đỉnh đầu của các cạnh.
+Đối với đồ thị có hướng, mỗi cạnh là bộ có
+tính đến thứ tự của các đỉnh.
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Danh sách cạnh:
+Trong trường hợp đồ thị có trọng số, mỗi cạnh sẽ có
+thêm trọng số đi kèm đỉnh đầu và đỉnh cuối. Trong
+trường hợp danh sách cạnh không có trọng số có
+thể dùng pair<int, int> để biểu diễn thông tin một
+cạnh, với cạnh có trọng số có thể dùng tuple hoặc
+định nghĩa 1 struct lưu thông tin cạnh như sau:
+struct edge{
+int dau, cuoi, w;
+};
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Danh sách cạnh:
+Trong trường hợp đồ thị có hướng, chú ý tới hướng của cạnh. Với đồ thị có
+hướng có trọng số ta làm tương tự như với đồ thị vô hướng có trọng số.
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Danh sách cạnh:
+Ưu điểm: Tiết kiệm được bộ nhớ nếu đồ thị thưa, thuận lợi cho các bài toán
+chỉ liên quan tới cạnh của đồ thị
+Nhược điểm: Khi cần duyệt các đỉnh kề với đỉnh nào đó, bắt buộc phải duyệt
+tất cả các cạnh dẫn tới chi phi tính toán lớn.
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Danh sách kề (Adjacency list):
+Đối với mỗi đỉnh u của đồ thị, ta lưu trữ danh sách các đỉnh kề với đỉnh u.
+Trong C++ để lưu trữ danh sách kề của 1 đỉnh, ta dùng 1 vector. Khi đó để
+lưu trữ toàn bộ danh sách kề của các đỉnh ta dùng một mảng các vector.
+Ví dụ vector<int> adj[1001]; Hoặc ví dụ dùng một vector các vector:
+vector<vector<int,>> adj;
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Danh sách kề (Adjacency list):
+Đối với mỗi đỉnh u của đồ thị, ta lưu trữ danh sách các đỉnh kề với đỉnh u.
+Trong C++ để lưu trữ danh sách kề của 1 đỉnh, ta dùng 1 vector. Khi đó để
+lưu trữ toàn bộ danh sách kề của các đỉnh ta dùng một mảng các vector.
+Ví dụ vector<int> adj[1001]; Hoặc ví dụ dùng một vector các vector:
+vector<vector<int,>> adj;
+11
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Danh sách kề (Adjacency list):
+Ưu điểm: Dễ dàng duyệt các đỉnh kề của một đỉnh; Dễ dàng duyệt các cạnh
+của đồ thị trong mỗi danh sách kề; Tối ưu về phương pháp biểu diễn.
+Nhược điểm: Khó khăn với người có kỹ năng lập trình yếu.
+12
+inprotected.com 28tech.com.vn

@@ -1,0 +1,348 @@
+28TECH
+Become A Better Developer
+VECTOR CLASS
+#include <vector>
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1 Khai báo vector
+NỘI DUNG 2
+Vector Iterator
+3
+Truy cập phần tử trong vector
+4
+Duyệt vector
+5
+Các hàm phổ biến trong vector
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+KHÁI QUÁT VỀ VECTOR CLASS
+Vector được coi như mảng động có thể tự động thay đổi
+kích thước khi thêm hay xóa phần tử khỏi vector.
+Lưu trữ được đa dạng các kiểu dữ liệu: int, string, pair, class,
+struct, vector, set,…
+Các phần tử trong vector được lưu trữ trong các ô nhớ liên tiếp
+và truy cập được thông qua chỉ số.
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+KHÁI QUÁT VỀ VECTOR CLASS
+VECTOR
+Không phù hợp khi bài toán
+Phù hợp để thay thế mảng,
+yêu cầu nhiều thác tác tìm
+dễ dàng thêm phần tử vào
+kiếm hay xóa phần tử được
+vector.
+thực hiện nhiều lần.
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. KHAI BÁO VECTOR
+Syntax:
+vector <data_type> vector_name;
+Khai báo vector rỗng: vector <int> v;
+Khai báo vector với các phần tử cho trước:
+vector <int> v = { 1, 2, 3, 4, 5 };
+Khai báo vector với n phần tử: vector <int> v (n);
+Khai báo vector với n phần tử có cùng giá trị val: vector <int> v (n, val);
+Khai báo vector từ mảng a[ ] có n phần tử, hoặc từ một vector a khác:
+vector <int> v (a, a + n);
+vector <int> v (a.begin(), a.end());
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. VECTOR ITERATOR
+Iterator được coi như là một con trỏ thông minh, các bạn có thể hiểu đơn
+giản iterator là một con trỏ trỏ tới phần tử trong vector, tức là thông qua
+iterator bạn có thể truy cập, thay đổi phần tử mà nó đang quản lý.
+begin()
+Iterator đến phần tử đầu tiên
+end()
+Iterator đến phần tử sau phần tử cuối
+rbegin()
+Iterator đến phần tử cuối trong vector
+rend()
+Iterator đến phần tử trước phần tử đầu tiên
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. VECTOR ITERATOR
+vector <int> v = { 1, 2, 3, 4, 5 };
+begin() end()
+1 2 3 4 5
+rend()
+rbegin()
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. VECTOR ITERATOR
+ Để truy cập vào phần tử mà iterator đang #include <bits/stdc++.h> VÍ DỤ:
+using namespace std;
+quản lý các bạn phải dùng toán tử giải
+using ll = long long;
+tham chiếu : *
+int main(){
+vector<int> a = {1, 2, 3, 4, 5, 6, 7, 8};
+ Các bạn có thể cộng trừ iterator, hoặc sử
+vector<int>::iterator it1 = a.begin();
+cout << *it1 << endl; // 1
+dụng toán tử ++ và -- với iterator, đối với
+vector thì việc khai báo iterator tương đối vector<int>::iterator it2 = a.end();
+cout << *it2 << endl; // ?????
+dài nên các bạn có thể dùng auto cho tiện.
+vector<int>::iterator it3 = a.end();
+ Nếu muốn truy cập đến iterator trỏ vào --it3; // dịch iterator này sang trái 1 phần tử
+cout << *it3 << endl; // 8
+phần tử có chỉ số x trong mảng ta có thể
+cout << *(it1 + 4) << endl; // 5
+sử dụng iterator : begin() + x
+}
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+3. TRUY CẬP PHẦN TỬ TRONG VECTOR
+Truy cập thông qua chỉ số tương tự như mảng 1 chiều
+vector <int> a = {1, 2, 3, 4};
+cout << a[2]; // 3
+front ( ) Trả về phần tử đầu tiên trong vector
+vector <int> a = {1, 2, 3, 4};
+cout << a.front(); // 1
+back ( ) Trả về phần tử cuối cùng trong vector
+vector <int> a = {1, 2, 3, 4};
+cout << a.back(); // 4
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+4. DUYỆT VECTOR
+vector <int> v = { 1, 2, 3, 4, 5 };
+Duyệt thông qua chỉ số: Duyệt bằng for each:
+for(int i = 0; i < a.size(); ++i){ for(int x : a){
+cout << a[i] << ' '; cout << x << ' ';
+} }
+Duyệt bằng Iterator:
+for(vector<int>::iterator it = a.begin(); it != a.end(); ++it){
+cout << *it << ' ';
+} Hoặc thay vector<int>::iterator bằng auto
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. CÁC HÀM PHỔ BIẾN TRONG VECTOR
+1. Hàm push_back
+#include <bits/stdc++.h>
+using namespace std;
+• Chức năng: Thêm 1 phần tử vào cuối
+vector, vector sẽ tự động mở rộng kích
+int main(){
+thước.
+vector <int> v;
+• Hàm emplace_back cũng có chức năng v.push_back(1); // 1
+v.push_back(5); // 1 5
+tương tự như hàm push_back.
+v.push_back(3); // 1 5 3
+v.push_back(2); // 1 5 3 2
+v.push_back(4); // 1 5 3 2 4
+for(int i = 0; i < v.size(); i++){
+cout << v[i] << ' ';
+}
+} OUTPUT: 1 5 3 2 4
+11
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. CÁC HÀM PHỔ BIẾN TRONG VECTOR
+2. Hàm size, clear, empty
+#include <bits/stdc++.h>
+using namespace std;
+• Hàm size: Trả về số lượng phần tử
+trong vector int main(){
+vector<int> v;
+• Hàm clear: Xóa toàn bộ các phần tử
+for(int i = 1; i <= 5; i++){
+trong vector
+v.push_back(i);
+}
+• Hàm empty: Trả về true nếu vector
+cout << v.size() << endl;
+rỗng, ngược lại trả về false
+v.clear(); // xoa toan bo
+if(v.empty()) cout << "EMPTY\n";
+else cout << "NOT EMPTY\n";
+}
+OUTPUT: 5
+NOT EMPTY
+12
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. CÁC HÀM PHỔ BIẾN TRONG VECTOR
+#include <bits/stdc++.h>
+3. Hàm insert
+using namespace std;
+• Chức năng: Thêm 1 phần tử vào vị trí
+int main(){
+bất kì trong vector thông qua iterator.
+vector<int> v;
+for(int i = 1; i <= 5; i++){
+• Cú pháp: insert(Vị trí iterator, val)
+v.push_back(i);
+}
+for(int i = 0; i < v.size(); i++){
+cout << v[i] << ' ';
+}
+v.insert(v.begin() + 2, 100); // thêm
+// 100 vào chỉ số 2
+for(int x : v){ OUTPUT:
+cout << x << ' ';
+1 2 3 4 5
+}
+1 2 100 3 4 5
+}
+13
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. CÁC HÀM PHỔ BIẾN TRONG VECTOR
+4. Hàm erase #include <bits/stdc++.h>
+using namespace std;
+• Chức năng: Xóa 1 phần tử trong
+int main(){
+vector thông qua iterator.
+vector<int> v;
+for(int i = 1; i <= 5; i++){
+• Cú pháp: erase (Vị trí iterator)
+v.push_back(i);
+}
+for(int i = 0; i < v.size(); i++){
+cout << v[i] << ' ';
+}
+v.erase(v.begin() + 2); // xóa phần
+// tử ở chỉ số 2
+OUTPUT:
+for(int x : v){
+cout << x << ' '; 1 2 3 4 5
+}
+1 2 4 5
+}
+14
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. CÁC HÀM PHỔ BIẾN TRONG VECTOR
+5. Hàm pop_back #include <bits/stdc++.h>
+using namespace std;
+• Chức năng: Xóa phần tử cuối cùng
+int main(){
+trong vector
+vector<int> v;
+for(int i = 1; i <= 5; i++){
+v.push_back(i);
+}
+for(int i = 0; i < v.size(); i++){
+cout << v[i] << ' ';
+}
+v.pop_back();
+for(int x : v){
+OUTPUT:
+cout << x << ' ';
+} 1 2 3 4 5
+}
+1 2 3 4
+15
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. CÁC HÀM PHỔ BIẾN TRONG VECTOR
+6. Hàm assign
+#include <bits/stdc++.h>
+• Chức năng: Gán các phần tử trong using namespace std;
+vector với cùng một giá trị
+int main(){
+• Cú pháp: assign (số phần tử, val)
+vector<int> v;
+v.assign(5, 100);
+for(int x : v) cout << x << ' ';
+}
+OUTPUT:
+100 100 100 100 100
+16
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. CÁC HÀM PHỔ BIẾN TRONG VECTOR
+7. Hàm resize
+#include <bits/stdc++.h>
+• Chức năng: Thay đổi kích thước của using namespace std;
+vector
+int main(){
+• Cú pháp: resize(n)
+vector<int> v(5, 28);
+for(int x : v) cout << x << ' ';
+cout << endl;
+v.resize(3);
+for(int x : v) cout << x << ' ';
+}
+OUTPUT:
+28 28 28 28 28
+28 28 28
+17
+Protect pdf from copying with Online-PDF-No-Copy.com 28tech.com.vn

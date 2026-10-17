@@ -1,0 +1,330 @@
+28TECH
+Become A Better Developer
+HÀM
+(FUNCTION)
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+KHÁI QUÁT VỀ HÀM
+Become A Better Developer
+Phần lớn các chương trình máy tính được
+xây dựng để giải quyết các bài toán lớn
+trong thực tế.
+Cách tốt nhất để xây dựng và bảo trì một
+chương trình đó là xây dựng nó từ những
+thành phần nhỏ được xây dựng đơn lẻ.
+Chức năng Hàm (Function) được sử dụng để
+chia nhỏ chương trình thành các thủ tục nhỏ
+giải quyết từng chức năng nhỏ
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+KHÁI QUÁT VỀ HÀM
+Lợi ích của việc chia
+chương trình thành các
+hàm nhỏ
+Có khả năng tái sử dụng
+Code trở nên
+lại code
+mạch lạc, dễ đọc
+Dễ bảo trì khi cần thay đổi
+Dễ debug khi gặp lỗi
+một chức năng nhỏ
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+CÚ PHÁP (SYNTAX)
+returntype functionName ( parameter1, parameter2,...){
+//Function body
+}
+TRONG ĐÓ:
+returntype: Kiểu trả về của hàm (int, double, bool, void,...)
+functionName: Tên hàm
+parameter: Tham số của hàm
+function body: Các câu lệnh bên trong của hàm
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer VÍ DỤ
+Hàm này không có
+Kiểu trả về void, tức hàm
+tham số
+xinchao: tên hàm
+này không trả về giá trị nào
+void xinchao (){
+cout << “Hello 28tech!”;
+}
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+GỌI HÀM (FUNCTION CALL)
+Become A Better Developer
+#include <iostream>
+using namespace std;
+void xinchao(){
+cout << “Hello 28tech !”;
+Function
+}
+call
+int main(){
+cout << “Truoc khi goi ham” << endl;
+xinchao(); // Function call
+cout << “Sau khi goi ham” << endl;
+}
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+KHAI BÁO NGUYÊN MẪU HÀM
+Become A Better Developer
+(FUNCTION PROTOTYPE)
+Các bạn có thể khai báo nguyên
+//Function prototype
+mẫu hàm ở đầu chương trình để
+int max_val(int, int);
+làm cho chương trình rõ ràng hơn
+//Function declaration
+cũng như thông báo những hàm.
+int max_val(int a, int b){
+if (a > b)
+return a;
+else
+return b;
+}
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+THAM SỐ VÀ GIÁ TRỊ TRẢ VỀ
+(PARAMETER AND RETURN TYPE)
+Tham số Hàm Giá trị trả về
+Tham số là những giá trị được truyền cho hàm khi hàm được gọi.
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer VÍ DỤ
+Giải thích cách hoạt động:
+Khi bạn
+void printNumber(int a){
+gọi hàm printNumber(n) thì n được
+cout << a << endl;
+gọi là đối số hay tham số thực sự, còn
+}
+a trong hàm là tham số hình thức. Giá
+int main(){
+trị của n sẽ được gán cho a, vì thế a
+int n = 10;
+cũng sẽ có giá trị là 10, và khi câu lệnh
+printNumber(n);
+bên trong hàm printNumber thực hiện
+}
+màn hình sẽ hiển thị giá trị 10.
+OUTPUT: 10
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer VÍ DỤ
+//Hàm nhận vào 3 số và trả về tổng
+của 3 số
+int tong(int a, int b, int c){
+return a + b + c;
+}
+int main(){
+int x = 100, y = 200, z = 300;
+cout << tong(x, y, z) << endl;
+tong(x, y, z);
+}
+OUTPUT: ???
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+TRUYỀN THAM CHIẾU
+Become A Better Developer
+VÀ TRUYỀN THAM TRỊ
+VÍ DỤ 1: Truyền tham trị VÍ DỤ 2: Truyền tham chiếu
+void add(int a){ void add(int &a){
+a += 100; a += 100;
+} }
+int main(){ int main(){
+int n = 10; int n = 10;
+add(n); add(n);
+cout << n << endl; //10 cout << n << endl; //110
+} }
+11
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+TRUYỀN THAM CHIẾU
+Become A Better Developer
+VÀ TRUYỀN THAM TRỊ
+VÍ DỤ 1: Truyền tham trị
+Khi bạn xây dựng hàm với cách void add(int a){
+truyền tham trị (pass by value) a += 100;
+thì giá trị của tham số thực sự
+}
+(n) được gán cho tham số hình
+int main(){
+thức (a), và những thay đổi bên
+int n = 10;
+trong hàm đối với tham số hình
+add(n);
+thức a sẽ không ảnh hưởng tới
+cout << n << endl; //10
+tham số thực sự.
+}
+12
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+TRUYỀN THAM CHIẾU
+Become A Better Developer
+VÀ TRUYỀN THAM TRỊ
+VÍ DỤ 2: Truyền tham chiếu
+Ngược lại nếu bạn truyền tham chiếu
+void add(int &a){
+(pass by reference) thì những gì bạn
+a += 100;
+thay đổi trong tham số hình thức sẽ
+}
+làm tham số thực sự bị thay đổi theo.
+int main(){
+Chú ý: Nếu bạn muốn thay đổi của int n = 10;
+một tham số sau khi hàm được thực add(n);
+hiện xong, hãy truyền tham chiếu,
+cout << n << endl; //110
+ngược lại bạn hãy truyền tham trị
+}
+13
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+NHỮNG CHÚ Ý
+Become A Better Developer
+KHI XÂY DỰNG HÀM
+Hàm này có bao
+Hàm xây dựng đã
+nhiêu tham số,
+đủ tổng quát chưa
+các tham số có
+kiểu dữ liệu là gì?
+Gọi đúng thứ tự
+Hàm này có cần trả
+tham số chưa và sử
+về giá trị không, nếu
+dụng kiểu dữ liệu
+có thì trả về kiểu dữ
+cho tham số hợp lí
+liệu là gì?
+chưa
+14
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+NẠP CHỒNG HÀM
+Become A Better Developer
+(FUNCTION OVERLOADING)
+int findMax(int a, int b){
+if(a > b) return a;
+else return b;
+Nạp chồng hàm là một tính năng
+}
+của C++ khi mà các hàm có cùng
+float findMax(float a, float b){
+tên nhưng khác nhau về tham số, if(a > b) return a;
+kiểu trả về. Khi hàm được gọi thì else return b;
+}
+tùy vào kiểu dữ liệu của tham số,
+int main(){
+hàm phù hợp sẽ được gọi.
+int x = 100, y = 200;
+cout << findMax(x, y) << endl;
+float m = 100.5, n = 200.5;
+cout << findMax(m, n) << endl;
+}
+15
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+CÁC HÀM TOÁN HỌC
+Become A Better Developer
+PHỔ BIẾN TRONG C++
+Các bạn sử dụng thư viện : #include <bits/stdc++.h> để thêm mọi thư viện
+của C++ vào chương trình, tránh phải khai báo từng thư viện riêng lẻ.
+Hàm Chức năng Ví dụ floor(n) Hàm trả về số float a = 2.3;
+nguyên nhỏ int res = ceil(a); // res = 2.000 = 2
+max Tìm giá trị lớn cout << max(10, 20); // 20
+hơn gần nhất
+nhất cout << max({10, 20, 30, 40}); // 40
+với n
+min Tìm giá trị nhỏ cout << min(10, 20); // 10
+round(n) Làm tròn n tùy float a = 2.3;
+nhất cout << min({10, 20, 30, 40}); // 10
+thuộc vào phần int res1 = round(a); // res1 = 2.000
+thập phân = 2
+sqrt(n) Hàm tính căn int n = 100;
+float b = 2.5;
+bậc 2 của n, trả int can = sqrt(n); // can = 10.000 =
+int res2 = round(b); // res1 = 3.000
+về số double 10
+= 3
+pow (x,y) Hàm tính x^y, int x = 2, y = 10;
+trả về số int res = pow(x, y); // res =
+double 1024.000 = 1024
+ceil(n) Hàm trả về số float a = 2.3;
+abs(n) Trả về trị tuyệt cout << abs(-100); // 100
+nguyên lớn hơn int res = ceil(a); // res = 3.000 = 3
+đối của n
+gần nhất với n
+16
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+KẾT THÚC
+PHẦN HÀM
+17
+Protect pdf from copying with Online-PDF-No-Copy.com
+28tech.com.vn

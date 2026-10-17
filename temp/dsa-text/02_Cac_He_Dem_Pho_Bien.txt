@@ -1,0 +1,179 @@
+28TECH
+Become A Better Developer
+CÁC HỆ ĐẾM
+PHỔ BIẾN
+Hệ nhị phân
+Hệ 16
+Hệ 8
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Hệ nhị phân
+• Hệ nhị phân được coi như là ngôn ngữ của máy tính,
+khác với chúng ta sử dụng nhiều hệ thập phân thì
+máy tính sử dụng hệ nhị phân. Các giá trị, câu lệnh,...
+đều được chuyển thành các bit 0 1.
+• Với số nhị phân K bit, bạn có thể biểu diễn được
+2^K giá trị khác nhau
+• Việc nắm vững hệ nhị phân là một kỹ năng cơ
+bản bắt buộc phải có của một lập trình viên
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Chuyển hệ thập phân sang hệ nhị phân
+Để chuyển một số từ hệ 10 sang hệ 2 thì ta tiến hành chia số đó cho 2 và
+ghi lại số dư trong quá trình chia. Khi thương của quá trình chia bằng 0, ta
+viết ngược lại các giá trị dư sẽ được dạng biểu diễn nhị phân
+37 2 1
+Ví dụ N= 37:
+Bước Thương Dư
+18 2 0
+1 18 1
+9 2 1
+2 9 0
+3 4 1
+4 2 0
+4 2 0
+2 2 0
+5 1 0
+1 2 1
+6 0 1
+0
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Chuyển hệ thập phân sang hệ nhị phân
+37 2 1
+Ví dụ N= 37:
+Bước Thương Dư
+18 2 0
+1 18 1
+9 2 1
+2 9 0
+3 4 1
+4 2 0
+4 2 0
+2 2 0
+5 1 0
+1 2 1
+6 0 1
+0
+Khi thương bằng 0 ta viết ngược lại các số dư từ bước 6 tới
+bước 1 ta được biểu diễn nhị phân của số 37(10) : 100101(2)
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Chuyển hệ nhị phân sang hệ thập phân
+Trong hệ thập phân ta có : 1234 = 1 * 103 + 2 * 102 + 3 * 101 + 4 * 100 , tương
+tự như vậy đối với hệ nhị phân nhưng khác cơ số, ta thay cơ số thành 2. Xét
+từ bit cuối cùng tương ứng với 2^0, bit thứ 2 tương ứng với 2^1… Ta nhân bit ở
+vị trí k với 2^k, vị trí bit được đánh số từ 0 tính từ bên phải
+Ví dụ N= 37:
+Bit 1 0 0 1 0 1
+Hàng 5 4 3 2 1 0
+5 4 3 2 1 0
+Giá trị 2 2 2 2 2 2
+100101 = 1 * 20 + 0 * 21 + 1 * 22 + 0 * 23 + 0 * 24 + 1 * 25 = 1 + 0 + 4 + 0 + 0 + 32 = 37
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Hệ 16:
+Hệ 16 được sử dụng phổ biến thứ 2 sau hệ nhị phân, hệ 16 sử dụng 16 kí
+tự để biểu diễn số gồm : 10 chữ số từ 0 tới 9 và 6 kí tự từ A tới F. Các số 16
+thường được thêm chữ 0x ở đầu để thể hiện đây là số ở hệ 16
+0 1 2 3 4 5 6 7 8 9 A B C D E F
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Chuyển hệ thập phân sang hệ 16:
+Để chuyển một số từ hệ 10 sang hệ 16 thì ta tiến hành chia số
+đó cho 16 và ghi lại số dư trong quá trình chia. Khi thương của
+quá trình chia bằng 0, ta viết ngược lại các giá trị dư.
+Tuy nhiên khi viết các số dư, nếu số dư là từ 0 tới 9 ta sử dụng
+luôn các số từ 0 tới 9 nhưng nếu số dư là từ 10 tới 15 thì ta phải
+chuyển thành các kí tự tương ứng từ A tới F
+Ví dụ N= 762:
+762 16 10
+Bước Thương Dư
+47 16 15
+1 47 10
+2 2 15
+2 16 2
+3 0 2
+0
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Chuyển hệ thập phân sang hệ 16:
+Ví dụ N= 762:
+762 16 10
+Bước Thương Dư
+47 16 15
+1 47 10
+2 2 15
+2 16 2
+3 0 2
+0
+Khi thương bằng 0 ta viết ngược lại các số dư từ bước 3 tới
+bước 1 ta được biểu diễn hệ 16 của số 762(10) : 2FA(16)
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Chuyển hệ 16 sang hệ thập phân:
+Xét từ bit cuối cùng tương ứng với 16^0, bit thứ 2 tương ứng với 16^1… Ta nhân
+bit ở vị trí k với 16^k, vị trí bit được đánh số từ 0 tính từ bên phải. Chú ý khi bit
+của hệ 16 ở dạng chữ cái (A-F) khi tính toán các bạn cần chuyển thành các số
+từ 10-15 rồi mới tính toán.
+Ví dụ N= 762:
+Bit 2 F A
+Hàng 2 1 0
+2 1 0
+Giá trị 16 16 16
+2FA = 10 * 160 + 15 * 161 * 2 *162 = 10 + 240 + 512 = 762
+Các bạn có thể tự thực hành chuyển đổi các số nguyên
+từ hệ thập phân sang các hệ khác và ngược lại
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+3. Hệ 8:
+Tương tự như 2 hệ trên nhưng sử dụng 8 bit từ 0 tới 7 để biểu diễn.
+Việc chuyển đổi các bạn áp dụng tương tự
+10
+Protect pdf from copying with Online-PDF-No-Copy.com 28tech.com.vn

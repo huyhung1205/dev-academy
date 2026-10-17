@@ -1,0 +1,452 @@
+28TECH
+Become A Better Developer
+SET, MULTISET,
+UNORDERED_SET
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+1. SET:
+Become A Better Developer
+Khái niệm
+Set là một container cực kì mạnh mẽ trong thư viện STL của ngôn ngữ lập
+trình C++, sử dụng thành thạo Set là một kỹ năng cơ bản mà bạn cần đạt
+được. Set sẽ giúp code của các bạn trở nên tối ưu và ngắn gọn hơn rất nhiều.
+Tính chất
+Set là một container mà mỗi phần Các phần tử trong set được sắp
+tử trong đó là duy nhất, tức là sẽ xếp theo thứ tự tăng dần về giá trị
+không có 2 phần tử có giá trị giống số và tăng dần về thứ tự từ điển
+nhau tồn tại trong set. nếu là xâu kí tự.
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+1. SET:
+Become A Better Developer
+CÚ PHÁP
+set <data_type> set_name;
+SỬ DỤNG SET
+Các bài toán liên quan tới việc xóa,
+thêm, tìm kiếm một phần tử nào
+đó được thực hiện đi thực hiện lại
+nhiều lần.
+28TECH
+Các bài toán liên quan tới các giá
+trị khác nhau của mảng
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG SET
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+set<int> se;
+int a[7] = {1, 1, 2, 1, 3, 4, 5};
+Hàm insert: thêm một phần tử trong set.
+for(int i = 0; i < 7; i++){
+se.insert(a[i]);
+}
+}
+se = {1, 2, 3, 4, 5}
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG SET
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+set<int> se;
+Hàm size: trả về số lượng phần tử int a[7] = {1, 1, 2, 1, 3, 4, 5};
+for(int i = 0; i < 7; i++){
+trong set.
+se.insert(a[i]);
+}
+cout << se.size() << endl;
+}
+OUTPUT: 5
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG SET
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+set<int> se;
+int a[7] = {1, 1, 2, 1, 3, 4, 5};
+for(int i = 0; i < 7; i++)
+se.insert(a[i]);
+Hàm empty: kiểm tra set rỗng, nếu
+cout << se.size() << endl;
+rỗng trả về true, ngược lại trả về false.
+if(se.empty())
+cout << "Empty !\n";
+Hàm clear: xóa mọi phần tử trong set.
+else
+cout << "Not empty !\n";
+se.clear(); // set rỗng
+if(se.empty())
+cout << "Empty !\n";
+else
+cout << "Not empty !\n";
+}
+OUTPUT: 5
+Not empty !
+Empty !
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG SET
+Duyệt set
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+set<int> se;
+int a[7] = {1, 1, 2, 1, 3, 4, 5};
+for(int i = 0; i < 7; i++)
+se.insert(a[i]);
+//Cách 1: Dùng For each OUTPUT: 1 2 3 4 5
+for(int x : se)
+1 2 3 4 5
+cout << x << ' ';
+cout << endl; 1 2 3 4 5
+//Cách 2: Dùng Iterator
+for(set<int>::iterator it = se.begin(); it != se.end(); ++it)
+cout << *it << ' ';
+cout << endl;
+//Cách 3: Dùng Auto
+for(auto it = se.begin(); it != se.end(); ++it)
+cout << *it << ' ';
+}
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG SET
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+set<int> se;
+Hàm find: kiểm tra sự tồn tại của một phần tử nào
+int a[7] = {5, 5, 1, 2, 3, 4, 5};
+đó trong set, đây là một hàm được sử dụng rất
+for(int i = 0; i < 7; i++){
+nhiều của set vì độ phức tạp của nó là O(logN) se.insert(a[i]);
+}
+Hàm này trả về iterator tới phần tử nếu nó tìm thấy, auto it = se.find(3);
+if(it == se.end()){
+ngược lại nó trả về iterator end() của set khi phần tử
+cout << "NOT FOUND\n";
+đó không tồn tại trong set
+}
+else{
+cout << "FOUND\n";
+}
+}
+OUTPUT: FOUND
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG SET
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+set<int> se;
+int a[7] = {5, 5, 1, 2, 3, 4, 5};
+for(int i = 0; i < 7; i++)
+Hàm count: Hàm này dùng để đếm số lần xuất
+se.insert(a[i]);
+hiện của 1 phần tử trong set, đối với set thì 1 phần
+cout << se.count(1) << endl;
+tử sẽ xuất hiện 1 hoặc 0 lần, có thể sử dụng hàm cout << se.count(6) << endl;
+này để thay cho hàm find. Độ phức tạp O(logN). if(se.count(3) != 0)
+cout << "FOUND\n";
+else
+cout << "NOT FOUND\n";
+}
+OUTPUT: 1
+0
+FOUND
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG SET
+Xóa bằng giá trị
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+Hàm erase: Xóa 1 phần tử khỏi set với độ phức
+set<int> se;
+tạp là O(logN), trước khi sử dụng hàm erase hãy int a[7] = {5, 5, 1, 2, 3, 4, 5};
+for(int i = 0; i < 7; i++)
+đảm bảo phần tử bạn cần xóa tồn tại trong set nếu
+se.insert(a[i]);
+không sẽ xảy ra lỗi runtime error.
+for(int x : se)
+cout << x << ' ';
+cout << endl;
+se.erase(3);
+for(int x : se)
+cout << x << ' ';
+}
+OUTPUT: 1 2 3 4 5
+1 2 4 5
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG SET
+Xóa bằng iterator
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+set<int> se;
+Hàm erase: Xóa 1 phần tử khỏi set với độ phức int a[7] = {5, 5, 1, 2, 3, 4, 5};
+for(int i = 0; i < 7; i++)
+tạp là O(logN), trước khi sử dụng hàm erase hãy
+se.insert(a[i]);
+đảm bảo phần tử bạn cần xóa tồn tại trong set nếu
+for(int x : se)
+không sẽ xảy ra lỗi runtime error.
+cout << x << ' ';
+cout << endl;
+auto it = se.find(3);
+if(it != se.end())
+se.erase(it);
+for(int x : se)
+cout << x << ' ';
+}
+OUTPUT: 1 2 3 4 5
+1 2 4 5
+11
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Dự đoán output của một số chương trình sau
+Quiz 1 Quiz 2
+#include <bits/stdc++.h> #include <bits/stdc++.h>
+using namespace std; using namespace std;
+int main(){ int main(){
+int a[7] = {5, 5, 1, 2, 3, 4, 5}; int a[7] = {5, 5, 1, 2, 3, 4, 5};
+set<int> se(a, a + 7); set<int> se(a, a + 7);
+auto it = se.find(7); auto it = se.find(4);
+--it; it -= 2;
+cout << *it << endl; cout << *it << endl;
+} }
+12
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Dự đoán output của một số chương trình sau
+Quiz 3 Quiz 4
+#include <bits/stdc++.h> #include <bits/stdc++.h>
+using namespace std; using namespace std;
+int main(){ int main(){
+int a[7] = {5, 5, 1, 2, 3, 4, 1}; int a[7] = {5, 5, 1, 2, 3, 4, 1};
+set<int> se(a, a + 7); set<int> se(a, a + 7);
+cout << *se.begin() << endl; cout << *se.begin() << endl;
+cout << *se.rbegin() << endl;
+auto it = se.end(); --it; }
+cout << *it << endl;
+}
+13
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Dự đoán output của một số chương trình sau
+Quiz 5 Quiz 6
+#include <bits/stdc++.h> #include <bits/stdc++.h>
+using namespace std; using namespace std;
+int main(){
+int a[7] = {5, 5, 1, 2, 3, 4, 1}; int main(){
+set<int> se(a, a + 7); int a[7] = {5, 5, 1, 2, 3, 4, 1};
+auto it = se.find(3); set<int> se(a, a + 7);
+--it; for(auto it = se.rbegin(); it != se.rend(); ++it){
+se.erase(it); cout << *it << ' ';
+for(int x : se){ }
+cout << x << ' '; }
+}
+}
+14
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+2. MULTISET:
+Become A Better Developer
+Multiset tương tự như set nhưng có thể lưu nhiều phần tử có giá trị
+giống nhau, các phần tử này cũng được sắp xếp theo thứ tự tăng
+dần. Các hàm của multiset giống y hệt các hàm của set chỉ khác
+một chút ở hàm find, count, erase.
+15
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG MULTISET
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int a[7] = {5, 5, 1, 1, 2, 2, 2};
+Hàm find: Vì multiset có thể chứa nhiều phần tử multiset<int> se(a, a + 7);
+//se ={1, 1, 2, 2, 2, 5, 5}
+giống nhau nên hàm find sẽ trả về iterator đến vị trí
+auto it = se.find(2);
+đầu tiên của phần tử có giá trị cần tìm kiếm.
+cout << *it << endl;
+--it;
+cout << *it << endl;
+}
+OUTPUT: 2
+1
+16
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG MULTISET
+Hàm count
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int a[7] = {5, 5, 1, 1, 2, 2, 2};
+multiset<int> se(a, a + 7);
+//se ={1, 1, 2, 2, 2, 5, 5}
+cout << se.count(1) << endl;
+cout << se.count(2) << endl;
+cout << se.count(4) << endl;
+}
+OUTPUT: 2
+3
+0
+17
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG MULTISET
+Xóa bằng giá trị
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int a[7] = {5, 5, 1, 1, 2, 2, 2};
+Hàm erase: Khi sử dụng hàm erase nếu bạn xóa
+multiset<int> se(a, a + 7);
+bằng giá trị multiset sẽ xóa hết mọi phần tử có cùng
+//se ={1, 1, 2, 2, 2, 5, 5}
+giá trị bị xóa, vì thế nếu muốn 1 phần tử bạn phải for(int x : se)
+cout << x << ' ';
+xóa bằng iterator
+cout << endl;
+se.erase(2);
+for(int x : se)
+cout << x << ' ';
+}
+OUTPUT: 1 1 2 2 2 5 5
+1 1 5 5
+18
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer MỘT SỐ HÀM TRONG MULTISET
+Xóa bằng iterator
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int a[7] = {5, 5, 1, 1, 2, 2, 2};
+Hàm erase: Khi sử dụng hàm erase nếu bạn xóa
+multiset<int> se(a, a + 7);
+bằng giá trị multiset sẽ xóa hết mọi phần tử có cùng
+//se ={1, 1, 2, 2, 2, 5, 5}
+giá trị bị xóa, vì thế nếu muốn 1 phần tử bạn phải for(int x : se)
+cout << x << ' ';
+xóa bằng iterator
+cout << endl;
+auto it = se.find(2);
+se.erase(it);
+for(int x : se)
+cout << x << ' ';
+}
+OUTPUT: 1 1 2 2 2 5 5
+1 1 2 2 5 5
+19
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+3. UNORDERED_SET
+Become A Better Developer
+Unordered_set tương tự như set, nó chỉ có thể lưu các phần tử đôi
+một khác nhau nhưng lại không có thứ tự. Không có thứ tự tức là
+các phần tử ở trong unordered_set sẽ xuất hiện một cách bất kì,
+không phải là theo thứ tự bạn thêm phần tử vào.
+Ví dụ:
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+int a[7] = {5, 5, 1, 1, 2, 2, 2};
+unordered_set<int> se(a, a + 7);
+//se ={1, 1, 2, 2, 2, 5, 5}
+for(int x : se){
+cout << x << ' ';
+}
+}
+OUTPUT: 2 1 5
+20
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+3. UNORDERED_SET
+Become A Better Developer
+Sự khác biệt
+Unordered_set khác với set và multiset ở tốc độ của
+các hàm phổ biến như count, find, và erase. Còn cách
+sử dụng thì không có gì khác biệt so với set.
+• Ở set và multiset các hàm có độ phức tạp là O(logN).
+• Ở unordered_set tốc độ của các hàm trong trường hợp
+tốt nhất là O(1) còn tệ nhất có thể lên đến O(N).
+21
+Protect pdf from copying with Online-PDF-No-Copy.com 28tech.com.vn

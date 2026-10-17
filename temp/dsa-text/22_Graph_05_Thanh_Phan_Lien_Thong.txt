@@ -1,0 +1,491 @@
+28TECH
+Become A Better Developer
+SẮP XẾP
+TOPO
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+NỘI DUNG BÀI HỌC
+01 Sắp xếp Topo
+02
+Thành phần liên thông mạnh
+Ứng dụng của Tarjan cho
+03
+bài toán đỉnh trụ, cạnh cầu
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Sắp xếp Topo (Topological Sorting):
+Sắp xếp topo áp dụng cho đồ thị có hướng không
+có chu trình (DAG - Directed Acyclic Graph) là một
+thứ tự của các đỉnh sao cho với mọi cạnh u -> v thì u
+sẽ xuất hiện trước u trong thứ tự topo. Một đồ thị có
+thể tồn tại nhiều thứ tự topo khác nhau.
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Sắp xếp Topo (Topological Sorting):
+a. Sắp xếp Topo với DFS:
+Sắp xếp topo sử dụng DFS dựa trên thứ tự khi duyệt xong một đỉnh của
+đồ thị, khi một đỉnh được duyệt xong ta đẩy đỉnh này vào trong ngăn xếp.
+Thứ tự sắp xếp topo chính là các đỉnh nằm trong ngăn xếp tính từ đỉnh.
+stack
+1
+3
+6
+2
+4
+7
+5
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Sắp xếp Topo (Topological Sorting):
+a. Sắp xếp Topo với DFS:
+Code
+int n, m; void DFS(int u){
+vector<int> adj[1005]; visited[u] = true;
+INPUT
+bool visited[1005]; for(int v : adj[u]){
+7 9 stack<int> st; if(!visited[v]) DFS(v);
+}
+1 2
+void nhap(){ st.push(u);
+1 3
+cin >> n >> m; }
+2 5 for(int i = 0; i < m; i++){ int main(){
+2 4 int x, y; cin >> x >> y; nhap();
+adj[x].push_back(y); for(int i = 1; i <= n; i++){
+3 4
+} if(!visited[i]) DFS(i);
+3 6
+memset(visited, false, sizeof(visited)); }
+4 7 } while(!st.empty()){
+cout << st.top() << ' ';
+6 7
+OUTPUT
+st.pop();
+1 3 6 2 4 7 5 }
+}
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Sắp xếp Topo (Topological Sorting):
+b. Sắp xếp Topo với BFS:
+Sắp xếp topo với BFS hay thuật toán Kahn, thuật toán xóa dần đỉnh.
+Thuật toán:
+Bước 1: Tính bán bậc vào của mọi đỉnh trên đồ thị.
+Bước 4: Lặp lại bước 3 cho tới khi hàng đợi
+Bước 2: Đưa các đỉnh có bán bậc vào bằng 0 vào
+còn phần tử
+hàng đợi.
+Bước 5: Nếu số lượng đỉnh được duyệt bằng
+Bước 3: Duyệt và xóa đỉnh khỏi đầu hàng đợi, duyệt
+với số đỉnh của đồ thị thì đó chính là thứ tự
+các đỉnh kề với đỉnh này và giảm bán bậc vào của
+topo, ngược lại ta có thể suy ra đồ thị tồn tại
+các đỉnh kề, nếu đỉnh nào sau khi giảm có bán bậc
+chu trình.
+vào bằng 0 thì tiếp tục đẩy vào hàng đợi.
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Sắp xếp Topo (Topological Sorting):
+b. Sắp xếp Topo với BFS:
+Code
+int n, m; void Kahn(){ int main(){
+vector<int> adj[1005]; queue<int> q; nhap();
+int degree[1005]; for(int i = 1; i <= n; i++){ Kahn();
+if(degree[i] == 0) q.push(i);
+INPUT }
+}
+void nhap(){
+7 9 vector<int> topo;
+cin >> n >> m;
+while(!q.empty()){
+1 2 for(int i = 0; i < m; i++){
+int u = q.front(); q.pop();
+int x, y; cin >> x >> y;
+1 3 topo.push_back(u);
+adj[x].push_back(y);
+for(int v : adj[u]){
+2 5
+degree[y]++;
+degree[v]--;
+2 4 }
+if(degree[v] == 0) q.push(v);
+3 4 } }
+}
+3 6
+if (topo.size() < n) cout << "Do thi co chu trinh !\n";
+4 7 OUTPUT
+else{
+6 7 1 2 3 5 4 6 7 for(int x : topo)
+cout << x << ' ';
+}
+}
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thành phần liên thông mạnh:
+Đồ thị có hướng liên thông mạnh nếu giữa 2 đỉnh bất kì của đồ thị đều có
+đường đi. Nếu đồ thị không liên thông mạnh nó sẽ chia thành các thành
+phần liên thông mạnh (Strongly connected component - SCC). Thành
+phần liên thông mạnh là thành phần liên thông lớn nhất mà giữa 2 đỉnh
+của nó đều có đường đi.
+Ví dụ 1: Đồ thị có 3 thành phần
+liên thông mạnh (1, 2, 3), (6),
+(4, 5, 7).
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thành phần liên thông mạnh:
+a. Thuật toán Kosaraju:
+Thuật toán Kosaraju có thể dùng để liệt kê các thành phần liên thông mạnh
+của đồ thị và vì thế cũng có thể sử dụng để kiểm tra đồ thị liên thông mạnh.
+Độ phức tạp của Kosaraju tương tự như DFS: O(V + E)
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thành phần liên thông mạnh:
+a. Thuật toán Kosaraju:
+Thuật toán:
+Bước 1: Tạo một ngăn xếp rỗng để lưu thứ tự duyệt
+xong các đỉnh của đồ thị, đỉnh nào được duyệt xong
+trước sẽ được đẩy vào ngăn xếp. (Tương tự như topo)
+Bước 2: Lật ngược hướng của các cạnh trên đồ thị ban
+đầu để thu được đồ thị chuyển vị (transpose graph)
+Bước 3: Lần lượt lấy các đỉnh trong ngăn xếp và nếu
+Đồ thị chuyển vị (transpose graph)
+đỉnh này được chưa được duyệt trong các thành phần
+của đồ thị ban đầu
+liên thông mạnh trước đó thì lấy đỉnh này làm đỉnh
+nguồn và gọi thuật toán DFS (trên đồ thị transpose ở
+bước 2) để in ra các đỉnh trong thành phần liên thông.
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thành phần liên thông mạnh:
+a. Thuật toán Kosaraju:
+Code
+int n, m; void DFS2(int u){ int main(){
+vector<int> adj[1005], t_adj[1005]; visited[u] = true; nhap();
+bool visited[1005]; cout << u << ' '; Kosaraju();
+for(int v : t_adj[u]){
+stack<int> st; }
+INPUT
+if(!visited[v]) DFS2(v);
+void nhap(){
+}
+7 8 cin >> n >> m;
+}
+for(int i = 0; i < m; i++){
+1 2 void Kosaraju(){
+int x, y; cin >> x >> y;
+for(int i = 1; i <= n; i++){
+2 3 adj[x].push_back(y); // graph
+if(!visited[i]) DFS1(i);
+t_adj[y].push_back(x); // transpose graph
+3 1 }
+} memset(visited, false, sizeof(visited));
+3 6
+memset(visited, false, sizeof(visited)); int scc = 0;
+6 4 } while(!st.empty()){
+void DFS1(int u){ int u = st.top(); st.pop();
+4 5
+visited[u] = true; OUTPUT if(!visited[u]){
+5 7 ++scc;
+for(int v : adj[u]){
+SCC 1 : 1 3 2
+cout << "SCC " << scc << " : ";
+7 4 if(!visited[v]) DFS1(v);
+SCC 2 : 6 DFS2(u); cout << endl;
+}
+SCC 3 : 4 7 5 }
+st.push(u);
+}
+}
+}
+11
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thành phần liên thông mạnh:
+b. Thuật toán Tarjan:
+Tarjan là một thuật toán giúp liệt kê, đếm thành phần liên thông của đồ thị
+với độ phức tạp là O(V + E), Tarjan chỉ cần 1 lần duyệt DFS là có thể liệt kê
+được SCC thay vì 2 lần như Kosaraju.
+Để hiểu được thuật toán Tarjan trước hết bạn cần hiểu được ý nghĩa của 2
+mảng là disc[] và low[] được tính toán dựa trên thứ tự duyệt các đỉnh trên
+đồ thị bằng thuật toán DFS.
+12
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thành phần liên thông mạnh:
+b. Thuật toán Tarjan:
+Ý nghĩa của hai mảng disc[ ] và low[ ]
+Mảng low[u]
+Mảng disc[u]
+Chỉ ra thời gian thăm sớm nhất
+Chỉ ra thời gian bắt đầu thăm
+của một đỉnh có thể đi tới được
+đỉnh u theo thuật toán DFS.
+từ một cây con có gốc là u.
+vectice 1 2 3 4 5 6 7
+disc 1 2 3 4 5 6 7
+low 1 1 1 4 5 5 5
+13
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thành phần liên thông mạnh:
+b. Thuật toán Tarjan:
+Code xây dựng mảng disc và low cho các đỉnh trên đồ thị
+#include <bits/stdc++.h> void DFS(int u){
+int main(){
+using namespace std; visited[u] = true;
+nhap();
+disc[u] = low[u] = ++timer;
+for(int i = 1; i <= n; i++){
+using ll = long long; for(int v : adj[u]){
+if(!visited[i]){
+if(!visited[v]){
+DFS(i);
+int n, m, timer = 0; DFS(v);
+}
+vector<int> adj[1005]; low[u] = min(low[u], low[v]);
+}
+int disc[1005], low[1005]; }
+for(int i = 1; i <= n; i++){
+bool visited[1005]; else{
+cout << disc[i] << ' ' << low[i];
+low[u] = min(low[u], disc[v]);
+cout << endl;
+void nhap(){ }
+}
+cin >> n >> m; }
+}
+for(int i = 0; i < m; i++){ }
+int x, y; cin >> x >> y;
+adj[x].push_back(y);
+}
+}
+14
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thành phần liên thông mạnh:
+b. Thuật toán Tarjan:
+Thuật toán Tarjan dựa trên quan sát, những đỉnh u thỏa mãn disc[u] = low[u]
+sẽ là đỉnh bắt đầu của một thành phần liên thông mạnh.
+vectice 1 2 3 4 5 6 7
+disc 1 2 3 4 5 6 7
+low 1 1 1 4 5 5 5
+15
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thành phần liên thông mạnh:
+b. Thuật toán Tarjan:
+Code
+int n, m, timer = 0, scc = 0; void DFS(int u){ int main(){
+vector<int> adj[1005]; visited[u] = true; in_stack[u] = true; nhap();
+int disc[1005], low[1005]; disc[u] = low[u] = ++timer; for(int i = 1; i <= n; i++){
+bool visited[1005], in_stack[1005]; st.push(u); if(!visited[i]){
+stack<int> st; for(int v : adj[u]){ DFS(i);
+INPUT if(!visited[v]){ }
+DFS(v); }
+void nhap(){
+7 8
+low[u] = min(low[u], low[v]); cout << scc << endl;
+cin >> n >> m;
+1 2 for(int i = 0; i < m; i++){ } }
+else{
+int x, y; cin >> x >> y;
+2 3
+low[u] = min(low[u], disc[v]);
+adj[x].push_back(y);
+}
+3 1
+}
+}
+3 4 memset(visited, false, sizeof(visited)); if(low[u] == disc[u]){ OUTPUT
+memset(in_stack, false, sizeof(visited));
+++scc;
+4 5
+} 7 6 5
+while(st.top() != u){
+5 6 cout << st.top() << ' '; 4
+in_stack[st.top()] = false; 3 2 1
+6 7
+st.pop(); 3
+7 5 }
+cout << st.top() << endl;
+in_stack[st.top()] = false;
+st.pop();
+}
+}
+16
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Tìm đỉnh trụ, cạnh cầu với Tarjan:
+a. Đỉnh trụ:
+Ý tưởng:
+Cho đồ thị G vô hướng, trên đồ thị có 2 đỉnh U và
+V, giữa U và V đang có đường đường đi từ U tới
+V theo thứ tự duyệt DFS, nếu ta có thể từ V đi tới
+tổ tiên A của U mà không cần thông qua U điều
+đó chứng tỏ đồ thị có cạnh ngược và việc loại
+bỏ U khỏi đồ thị không làm tăng số thành phần
+liên thông của đồ thị, khi đó U không phải là đỉnh
+trụ (Articulation point)
+17
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Tìm đỉnh trụ, cạnh cầu với Tarjan:
+a. Đỉnh trụ:
+Có 2 trường hợp để U là đỉnh trụ trên đồ thị
+Tất cả đường đi từ A
+tới V đều phải đi qua U U là gốc của cây DFS
+với ít nhất 2 node con
+Vì thế điều kiện để đỉnh U là đỉnh trụ là: disc[u] <=
+low[v]. Trong đó disc[u] < low[v] thể hiện rằng từ v
+không thể tìm được đường đi nào khác tới tổ tiên
+của u mà không thông qua u. disc[u] = low[v] trong
+trường hợp u là gốc của chu trình chứa v.
+18
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Tìm đỉnh trụ, cạnh cầu với Tarjan:
+a. Đỉnh trụ:
+Code
+#include <bits/stdc++.h> void DFS(int u, int par){ int main(){
+using namespace std; visited[u] = true; nhap();
+disc[u] = low[u] = ++timer; for(int i = 1; i <= n; i++){
+using ll = long long; int child = 0; if(!visited[i]){
+for(int v : adj[u]){ DFS(i, -1);
+int n, m, timer = 0; if(v == par) continue; }
+vector<int> adj[1005]; if(!visited[v]){ }
+int disc[1005], low[1005]; DFS(v, u); for(int i = 1; i <= n; i++){
+bool visited[1005], AP[1005]; ++child; if(AP[i]) cout << i << ' ';
+low[u] = min(low[u], low[v]); }
+void nhap(){ if(par != -1 && disc[u] <= low[v])}{
+cin >> n >> m; AP[u] = true;
+for(int i = 0; i < m; i++){ }
+int x, y; cin >> x >> y; }
+adj[x].push_back(y); else{
+adj[y].push_back(x); low[u] = min(low[u], disc[v]);
+} }
+memset(visited, false, sizeof(visited)); }
+memset(visited, false, sizeof(AP)); if(par == -1 && child > 1) AP[u] = true;
+} }
+19
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Tìm đỉnh trụ, cạnh cầu với Tarjan:
+b. Cạnh cầu:
+Điều kiện để cạnh U, V là cạnh cầu: disc[u] < low[v], trong trường hợp này
+không tồn tại dấu bằng, vì nếu u là gốc của chu trình chứa v thì loại bỏ u, v
+sẽ không làm tăng số thành phần liên thông của đồ thị. Ví dụ hình dưới đấy
+(B, C) sẽ không là cạnh cầu, nhưng B lại là đỉnh trụ
+20
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Tìm đỉnh trụ, cạnh cầu với Tarjan:
+b. Cạnh cầu:
+Code
+typedef pair<int, int> ii; void DFS(int u, int par){ int main(){
+int n, m, timer = 0; visited[u] = true; nhap();
+vector<int> adj[1005]; disc[u] = low[u] = ++timer; for(int i = 1; i <= n; i++){
+int disc[1005], low[1005]; for(int v : adj[u]){ if(!visited[i]){
+bool visited[1005]; if(v == par) continue; DFS(i, -1);
+vector<ii> bridge; if(!visited[v]){ }
+DFS(v, u); }
+void nhap(){ low[u] = min(low[u], low[v]); for(ii e : bridge){
+cin >> n >> m; if(disc[u] < low[v]){ cout << e.first << ' ' <<
+for(int i = 0; i < m; i++){ bridge.push_back({u, v}); e.second << endl;
+int x, y; cin >> x >> y; } }
+adj[x].push_back(y); } }
+adj[y].push_back(x); else{
+} low[u] = min(low[u], disc[v]);
+memset(visited, false, sizeof(visited)); }
+} }
+}
+21
+soprotection.com 28tech.com.vn

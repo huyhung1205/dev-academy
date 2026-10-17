@@ -1,0 +1,255 @@
+28TECH
+Become A Better Developer
+CÂY KHUNG
+CỰC TIỂU
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Giới thiệu:
+Bài toán cây khung cực tiểu (Minimum
+spanning tree) trên đồ thị vô hướng
+liên thông yêu cầu bạn tìm cây khung
+hay cây bao trùm có tổng trọng số các
+cạnh là nhỏ nhất.
+Cây khung sẽ kết nối toàn bộ các
+Cây khung cực tiểu: (1,2), (2,3), (2,4), (5,6), (4,5)
+đỉnh trên đồ thị và không tồn tại chu
+trình trên cây khung.
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Thuật toán Kruskal:
+Tư tưởng của thuật toán Kruskal đó là ở mỗi bước bạn sẽ đưa thêm 1 cạnh có
+trọng số nhỏ nhất (chưa thuộc cây khung) vào cây khung nếu nó không tạo chu
+trình. Để code được thuật toán Kruskal các bạn cần biết cấu trúc dữ liệu DSU.
+Thuật toán sẽ kết thúc nếu tìm đủ N - 1 cạnh hoặc không còn cạnh nào chưa nằm
+trong cây khung.
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Mã giả:
+1. Thuật toán Kruskal:
+Kruskal(){
+//Khởi tạo
+MST = ∅; // cây khung ban đầu rỗng
+d = 0; // độ dài cây khung
+//Sắp xếp
+<Sắp xếp các cạnh theo trọng số tăng dần>
+//Lặp
+while(|MST| < n - 1 && E != ∅){
+e = <Cạnh có trọng số nhỏ nhất>
+E = E\{e}; // Loại e khỏi tập cạnh
+if(MST ∪ {e} không tạo chu trình){
+MST = MST ∪ {e}; //Thêm e vào cây khung
+d = d + d(e); // Cập nhật độ dài cây khung
+}
+}
+//Kết quả
+if(|MST| < n - 1)
+<Đồ thị không liên thông>;
+else
+return{MST, d};
+}
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Thuật toán Kruskal:
+Cài đặt thuật toán
+struct edge{ void init(){
+int x, y, w; for(int i = 1; i <= n; i++){
+}; parent[i] = i;
+sz[i] = 1;
+int maxn = 1005; }
+int n, m; // đỉnh, cạnh }
+vector<edge> E; // tập cạnh int Find(int u){
+int parent[maxn], sz[maxn]; if(u == parent[u]) return u;
+return parent[u] = Find(parent[u]);
+void nhap(){ }
+cin >> n >> m; bool Union(int u, int v){
+for(int i = 0; i < m; i++){ u = Find(u); v = Find(v);
+int x, y, w; cin >> x >> y >> w; if(u == v) return false;
+edge e{x, y, w}; if(sz[u] < sz[v]) swap(u, v);
+E.push_back(e); parent[v] = u;
+} sz[u] += sz[v];
+} return true;
+}
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Thuật toán Kruskal:
+Cài đặt thuật toán
+void Kruskal(){ int main(){
+vector<edge> MST; nhap();
+int d = 0;
+init();
+sort(E.begin(), E.end(), [](edge x, edge y)->bool{
+Kruskal();
+return x.w < y.w;
+}
+});
+for(edge e : E){
+if(MST.size() == n - 1) break;
+INPUT
+if(Union(e.x, e.y)){
+MST.push_back(e);
+6 9
+d += e.w; OUTPUT
+1 2 1
+}
+} 2 3 2 14
+if(MST.size() < n - 1){ 1 3 3 1 2 1
+cout << "Do thi khong lien thong !\n";
+2 4 4 2 3 2
+}
+else{ 2 5 5 5 6 3
+cout << d << endl; 3 5 7 2 4 4
+for(edge e : MST){
+4 6 6 4 5 4
+cout << e.x << ' ' << e.y << ' ' << e.w << endl;
+} 5 6 3
+}
+4 5 4
+}
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thuật toán Prim:
+Tư tưởng của thuật toán Prim đó là duy trì 2 tập đỉnh V : tập đỉnh ban đầu và MST
+là tập đỉnh cây khung. Thuật toán Prim sẽ bắt đầu với một đỉnh bất kỳ của đồ thị.
+Ban đầu MST = {s}, s là đỉnh bắt đầu của thuật toán, V = V\{s}
+Mỗi bước chọn ra 1 cạnh có trọng số nhỏ nhất mà 1 đỉnh của cạnh này thuộc tập
+V và đỉnh còn lại thuộc tập MST sau đó đưa đỉnh này vào cây khung. Cập nhật V
+và MST. Thuật toán kết thúc khi cây khung đủ n - 1 cạnh hoặc tập V rỗng.
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+Mã giả:
+2. Thuật toán Prim:
+Prim(s){
+//Khởi tạo
+V = V\{s}; //Loại s khỏi tập V
+MST = {s}; // Khởi tạo tập MST là đỉnh s
+d = 0; // chiều dài cây khung
+T = {}; //Cây khung
+//Lặp
+while(V != ∅){
+e = (u, v); // cạnh có độ dài nhỏ nhất mà u
+thuộc V, v thuộc MST
+MST = MST ∪ {u}; // Thêm u vào tập MST
+V = V\{u}; // Loại u khỏi tập V
+T = T ∪ {e}; // Thêm cạnh e vào cây khung
+d += d(e); // cập nhật độ dài cây khung
+}
+//Kết quả
+if(|T| < n - 1)
+<Đồ thị không liên thông>;
+else
+return {T, d};
+}
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thuật toán Prim:
+Để có thể nhanh chóng tìm ra cạnh có độ Để kiểm tra đỉnh thuộc tập V hay MST ta
+dài ngắn nhất để nạp vào cây khung, ta dùng mảng đánh dấu taken[], trong đó
+sử dụng hàng đợi ưu tiên. Hàng đợi ưu taken[u] = true nếu đỉnh u thuộc tập MST,
+ngược lại thuộc tập V
+tiên này lưu pair, trong đó first lưu trọng
+số và second lưu đỉnh.
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thuật toán Prim:
+Cài đặt thuật toán
+typedef pair<int, int> ii;
+const int maxn = 1005;
+int n, m;
+vector<ii> adj[maxn];
+bool taken[maxn];
+void nhap(){
+cin >> n >> m;
+for(int i = 0; i < m; i++){
+int x, y, w; cin >> x >> y >> w;
+adj[x].push_back({y, w});
+adj[y].push_back({x, w});
+}
+memset(taken, false, sizeof(taken));
+}
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Thuật toán Prim:
+Cài đặt thuật toán
+void Prim(int s){
+int main(){
+priority_queue<ii, vector<ii>, greater<ii>> Q;
+nhap();
+taken[s] = true;
+int d = 0; Prim(1);
+for(ii x : adj[s]){
+}
+if(!taken[x.first]){
+Q.push({x.second, x.first});
+} INPUT
+}
+while(!Q.empty()){ 6 9
+ii top = Q.top(); Q.pop(); 1 2 1
+int u = top.second, w = top.first;
+2 3 2
+if(!taken[u]){
+d += w; 1 3 3
+OUTPUT
+taken[u] = true; 2 4 4
+for(ii x : adj[u]){ 14
+2 5 5
+if(!taken[x.first]){
+Q.push({x.second, x.first}); 3 5 7
+} 4 6 6
+}
+5 6 3
+}
+} 4 5 4
+cout << d << endl;
+}
+11
+soprotection.com 28tech.com.vn

@@ -1,0 +1,303 @@
+28TECH
+Become A Better Developer
+ỨNG DỤNG
+DFS BFS
+1
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+NỘI DUNG BÀI HỌC
+Đếm số thành phần
+01
+liên thông của đồ thị
+Kiểm tra chu trình
+04
+trên đồ thị
+Tìm đường đi giữa
+02
+hai đỉnh trên đồ thị
+DFS, BFS trên
+05
+mảng hai chiều
+03
+Đỉnh trụ, cạnh cầu
+2
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+1. Đếm số thành phần liên thông của đồ thị:
+Code
+Ứng dụng đầu tiên và đơn giản nhất của int n, m;
+vector<int> adj[1005];
+DFS, BFS là dùng để kiểm tra đồ thị liên
+bool visited[1005];
+thông hoặc đếm số thành phần liên
+thông của đồ thị. int tplt(){
+int count = 0;
+for(int i = 1; i <= n; i++){
+if(!visited[i]){
+++count;
+DFS(i); // BFS(i);
+}
+Số thành phần liên thông của đồ thị
+}
+return count;
+chính là số lần gọi DFS hoặc BFS để có
+}
+thể thăm hết mọi đỉnh trên đồ thị.
+3
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Tìm đường đi giữa 2 đỉnh trên đồ thị:
+Đường đi giữa 2 đỉnh trên đồ thị sẽ khác
+nhau tùy vào thuật toán được sử dụng là BFS
+hay DFS, nếu trên đồ thị không có trọng số thì
+đường đi giữa 2 đỉnh sử dụng thuật toán BFS
+sẽ là đường đi ngắn nhất. Để truy vết đường
+đi ta sử dụng thêm mảng parent[ ]
+4
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+2. Tìm đường đi giữa 2 đỉnh trên đồ thị:
+Code
+int n, m; void BFS(int u){ void path(int s, int t){
+vector<int> adj[1005]; queue<int> q; DFS(s); // BFS(s);
+bool visited[1005]; q.push(u); visited[u] = true; if(!visited[t]){
+int parent[1005]; while(!q.empty()){ cout << "Khong ton tai duong di !\n";
+int u = q.front(); q.pop(); }
+void DFS(int u){ for(int v : adj[u]){ else{
+visited[u] = true; if(!visited[v]){ vector<int> res;
+for(int v : adj[u]){ q.push(v); while(t != s){
+if(!visited[v]){ parent[v] = u; res.push_back(t);
+DFS(v); visited[v] = true; t = parent[t];
+parent[v] = u; } }
+} } res.push_back(s);
+} } reverse(res.begin(), res.end());
+} } for(int x : res) cout << x << ' ';
+}
+}
+5
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+3. Đỉnh trụ, cạnh cầu:
+Đỉnh trụ: Là đỉnh khi loại bỏ đỉnh này và
+các cạnh liên thuộc với đỉnh này sẽ làm
+tăng số thành phần liên thông của đồ thị.
+Để kiểm tra đỉnh trụ bằng thuật toán DFS
+hoặc BFS cần độ phức tạp là O(V * (E + V)),
+Ví dụ: Các đỉnh trụ : 2, 6
+bạn cần gọi V lần thuật toán DFS hoặc BFS.
+6
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+3. Đỉnh trụ, cạnh cầu:
+Code
+int n, m; void dinh_tru(){
+vector<int> adj[1005]; int cc = tplt(); // so thanh phan lien thong ban dau
+bool visited[1005]; for(int i = 1; i <= n; i++){
+memset(visited, false, sizeof(visited));
+int tplt(){ visited[i] = true; // loai bo i khoi do thi
+int count = 0; if(cc < tplt()){
+for(int i = 1; i <= n; i++){ cout << i << ' ';
+if(!visited[i]){ }
+++count; }
+DFS(i); // BFS(i) }
+}
+}
+return count;
+}
+7
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+3. Đỉnh trụ, cạnh cầu:
+Cạnh cầu: Những cạnh khi loại bỏ nó (chỉ
+loại bỏ cạnh, không loại bỏ 2 đỉnh) làm
+tăng số thành phần liên thông của đồ thị.
+Để kiểm tra cạnh cầu bằng thuật toán DFS
+hoặc BFS cần độ phức tạp là O(E * (E + V)),
+Ví dụ: Cạnh cầu (1, 2), (5, 6), (6, 7)
+bạn cần gọi E lần thuật toán DFS hoặc BFS.
+8
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+3. Đỉnh trụ, cạnh cầu:
+Code DFS không duyệt vào cạnh đã xóa
+int n, m; void canh_cau(){
+vector<int> adj[1005]; int cc = tplt();
+bool visited[1005]; for(pair<int, int> e : edge){
+vector<pair<int, int>> edge; int s = e.first, t = e.second;
+memset(visited, false, sizeof(visited));
+void DFS(int u, int s, int t){ if(cc < tplt()){
+visited[u] = true; cout << s << ' ' << t << endl;
+for(int v : adj[u]){ }
+//Neu xet phai canh muon loai bo thi khong xet }
+if((u == s && v == t) || (u == t && v == s)){ }
+continue;
+} Đối với khi xét cạnh cầu, việc loại bỏ cạnh ra khỏi đồ
+if(!visited[v]){
+thị sẽ phức tạp hơn, bạn có thể sử dụng danh sách
+DFS(v, s, t);
+kề là set để có thể xóa nhanh hơn thay vì dùng
+}
+} vector, hoặc đánh dấu cạnh cần xóa và không duyệt
+}
+vào cạnh này trong thuật toán DFS, BFS.
+9
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+4. Kiểm tra chu trình trên đồ thị:
+Để kiểm tra chu trình trên đồ thị ta
+kiểm tra trên đồ thị có cạnh ngược
+hay không.
+Trên hình thì cạnh (6, 2) là cạnh ngược.
+10
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+4. Kiểm tra chu trình trên đồ thị:
+Kiểm tra đồ thị vô hướng Kiểm tra đồ thị vô hướng
+có chu trình bằng DFS có chu trình bằng BFS
+int n, m; bool BFS(int u){
+vector<int> adj[1005]; queue<int> q;
+bool visited[1005]; q.push(u);
+int parent[1005]; visited[u] = true;
+bool DFS(int u){ while(!q.empty()){
+visited[u] = true; int x = q.front(); q.pop();
+for(int v : adj[u]){ for(int y : adj[x]){
+if(!visited[v]){ if(!visited[y]){
+parent[v] = u; q.push(y);
+if(DFS(v)) visited[y] = true;
+return true; parent[y] = x;
+} }
+else if(v != parent[u]){ else if(y != parent[x])
+return true; return true;
+} }
+} }
+return false; return false;
+} }
+11
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+4. Kiểm tra chu trình trên đồ thị:
+Kiểm tra chu trình trên đồ thị
+có hướng bằng DFS Kiểm tra chu trình trên đồ thị
+có hướng bằng BFS (Kahn)
+int n, m;
+vector<int> adj[1005];
+int n, m; int cnt = 0;
+int color[1005];
+vector<int> adj[1005]; while(!q.empty()){
+int degree[1005]; int u = q.front(); q.pop();
+bool DFS(int u){ ++cnt;
+color[u] = 1; bool Kahn(){ for(int v : adj[u]){
+for(int v : adj[u]){ for(int i = 1; i <= n; i++){ --degree[v];
+for(int x : adj[i]){ if(degree[v] == 0){
+if(color[v] == 0){
+degree[x]++; // ban bac vao q.push(v);
+if(DFS(v))
+} }
+return true; } }
+} queue<int> q; }
+else if(color[v] == 1){ for(int i = 1; i <= n; i++){ if(cnt != n) return true;
+return true; if(degree[i] == 0){ else return false;
+q.push(i); }
+}
+}
+}
+}
+color[u] = 2;
+return false;
+}
+12
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. DFS, BFS trên mảng hai chiều:
+DFS và BFS có thể áp dụng được trên mảng 2 chiều, coi mỗi ô trên mảng 2 chiều
+là một đỉnh của đồ thị. 2 ví dụ dưới đây xét 8 ô chung đỉnh với ô hiện tại tương tự
+như là đỉnh kề.
+DFS trên mảng 2 chiều
+int n, m;
+int a[1005][1005];
+bool visited[1005][1005];
+int dx[8] = {-1, -1, -1, 0, 0, 1, 1, 1};
+int dy[8] = {-1, 0, 1, -1, 1, -1, 0, 1};
+void DFS(int i, int j){
+visited[i][j] = true;
+for(int k = 0; k < 8; k++){
+int i1 = i + dx[k], j1 = j + dx[k];
+if(i1 >= 1 && i1 <= n && j1 >= 1 && j1 <= m && !visited[i1][j1]){
+DFS(i1, j1);
+}
+}
+}
+13
+28tech.com.vn
+
+=== PAGE BREAK ===
+
+28TECH
+Become A Better Developer
+5. DFS, BFS trên mảng hai chiều:
+BFS trên mảng 2 chiều
+void BFS(int i, int j){
+queue<pair<int, int>> q;
+q.push({i, j});
+visited[i][j] = true;
+while(!q.empty()){
+pair<int, int> x = q.front(); q.pop();
+for(int k = 0; k < 8; k++){
+int i1 = x.first + dx[k], j1 = x.second + dx[k];
+if(i1 >= 1 && i1 <= n && j1 >= 1 && j1 <= m && !visited[i1][j1]){
+q.push({i1, j1});
+visited[i1][j1] = true;
+}
+}
+}
+}
+14
+inprotected.com 28tech.com.vn
